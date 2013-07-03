@@ -1,24 +1,33 @@
 package net.codestory.vote;
 
-import static com.jayway.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+import static org.fest.assertions.Assertions.*;
 
 import net.codestory.vote.misc.*;
 
+import org.fluentlenium.adapter.*;
+import org.fluentlenium.adapter.util.*;
 import org.junit.*;
+import org.openqa.selenium.*;
 
-import com.jayway.restassured.specification.*;
-
-public class MainVoteTest {
+@SharedDriver
+public class MainVoteTest extends FluentTest {
   @Rule
   public WebServerRule webServer = new WebServerRule(new VoteConfiguration());
 
-  @Test
-  public void test_http() {
-    expect().content(containsString("Hello")).when().get("/");
+  @Override
+  public WebDriver getDefaultDriver() {
+    return new PhantomJsDownloader().createDriver();
   }
 
-  private ResponseSpecification expect() {
-    return given().port(webServer.port()).expect();
+  @Override
+  public String getDefaultBaseUrl() {
+    return "http://localhost:" + webServer.port();
+  }
+
+  @Test
+  public void test_http() {
+    goTo("/");
+
+    assertThat(find("body").getText()).isEqualTo("Hello");
   }
 }

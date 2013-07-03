@@ -6,6 +6,6 @@ import net.codestory.http.routes.*;
 public class VoteConfiguration implements Configuration {
   @Override
   public void configure(Routes routes) {
-    routes.get("/", () -> "Hello");
+    routes.get("/", () -> "<html><body>Hello</body></html>");
   }
 }

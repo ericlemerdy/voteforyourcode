@@ -16,6 +16,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>codestory</groupId>
+      <artifactId>http</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
@@ -28,15 +34,22 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.jayway.restassured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <version>1.8.1</version>
+      <groupId>org.fluentlenium</groupId>
+      <artifactId>fluentlenium-core</artifactId>
+      <version>0.9.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>codestory</groupId>
-      <artifactId>http</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-remote-driver</artifactId>
+      <version>2.33.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.detro.ghostdriver</groupId>
+      <artifactId>phantomjsdriver</artifactId>
+      <version>1.0.3-dev</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
