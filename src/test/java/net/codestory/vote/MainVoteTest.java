@@ -2,6 +2,8 @@ package net.codestory.vote;
 
 import static org.fest.assertions.Assertions.*;
 
+import net.codestory.vote.gists.*;
+
 import org.junit.*;
 
 public class MainVoteTest extends AbstractWebTest {
