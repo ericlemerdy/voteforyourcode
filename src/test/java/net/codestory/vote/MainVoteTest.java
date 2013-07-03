@@ -2,32 +2,14 @@ package net.codestory.vote;
 
 import static org.fest.assertions.Assertions.*;
 
-import net.codestory.vote.misc.*;
-
-import org.fluentlenium.adapter.*;
-import org.fluentlenium.adapter.util.*;
 import org.junit.*;
-import org.openqa.selenium.*;
 
-@SharedDriver
-public class MainVoteTest extends FluentTest {
-  @Rule
-  public WebServerRule webServer = new WebServerRule(new VoteConfiguration());
-
-  @Override
-  public WebDriver getDefaultDriver() {
-    return new PhantomJsDownloader().createDriver();
-  }
-
-  @Override
-  public String getDefaultBaseUrl() {
-    return "http://localhost:" + webServer.port();
-  }
-
+public class MainVoteTest extends AbstractWebTest {
   @Test
   public void test_http() {
     goTo("/");
 
-    assertThat(find("body").getText()).isEqualTo("Hello");
+    assertThat(title()).isEqualTo("Code-Story - Vote For Your Code");
+    assertThat(find("body").getText()).isEqualTo("Vote For Your Code");
   }
 }
