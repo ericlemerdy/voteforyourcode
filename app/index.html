@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
     <title>Code-Story - Vote For Your Code</title>
     <meta charset='utf-8'>
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/style.less" rel="stylesheet">
 </head>
-<body ng-controller="VoteController">
-<h1>{{greeting}}</h1>
+<body>
+<h1>Vote For Your Code</h1>
+
+<div id="candidates">
+    <div id="left">
+        <script src="https://gist.github.com/[[left_gist]].js"></script>
+    </div>
+    <div id="right">
+        <script src="https://gist.github.com/[[right_gist]].js"></script>
+    </div>
+</div>
+
 </body>
-<script src="/assets/js/angular.min.js"></script>
-<script src="/assets/js/controllers.coffee"></script>
 </html>

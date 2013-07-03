@@ -1,0 +1,35 @@
+@red: #FF0000;
+@candidate_width: 600px;
+
+[ng-cloak] {
+  display: none !important;
+}
+
+body {
+  h1 {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  #candidates {
+    display: block;
+    width: 20px + (@candidate_width * 2);
+    margin: 20px auto;
+    position: relative;
+
+    #left, #right {
+      position: absolute;
+      width: @candidate_width;
+    }
+
+    #left {
+      left: 0;
+    }
+
+    #right {
+      right: 0;
+    }
+  }
+}
+

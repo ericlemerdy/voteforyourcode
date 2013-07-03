@@ -1,2 +1,2 @@
 VoteController = ($scope) ->
-  $scope.greeting = 'Vote For Your Code'
+  console.log('Start')

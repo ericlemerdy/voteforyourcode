@@ -6,10 +6,18 @@ import org.junit.*;
 
 public class MainVoteTest extends AbstractWebTest {
   @Test
-  public void test_http() {
+  public void display_home() {
     goTo("/");
 
     assertThat(title()).isEqualTo("Code-Story - Vote For Your Code");
-    assertThat(find("body").getText()).isEqualTo("Vote For Your Code");
+    assertThat(find("h1").getText()).isEqualTo("Vote For Your Code");
+  }
+
+  @Test
+  public void show_candidates() {
+    goTo("/");
+
+    assertThat(find("#left").getText()).contains("module hello.World");
+    assertThat(find("#right").getText()).contains("CodeStoryStatusTest");
   }
 }
