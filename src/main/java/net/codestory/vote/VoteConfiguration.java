@@ -1,16 +1,17 @@
 package net.codestory.vote;
 
+import javax.inject.Inject;
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
-import net.codestory.http.templating.*;
 
 import com.google.inject.*;
 
 public class VoteConfiguration implements Configuration {
   private final Injector injector;
 
-  public VoteConfiguration(Module... modules) {
-    injector = Guice.createInjector(modules);
+  @Inject
+  public VoteConfiguration(Injector injector) {
+    this.injector = injector;
   }
 
   @Override
