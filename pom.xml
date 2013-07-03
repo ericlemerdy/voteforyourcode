@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>codestory</groupId>
-  <artifactId>http</artifactId>
+  <artifactId>voteforyourcode</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -15,21 +15,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.2.4</version>
-    </dependency>
-    <dependency>
-      <groupId>com.github.sommeri</groupId>
-      <artifactId>less4j</artifactId>
-      <version>1.0.4</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.maven-play-plugin.com.github.yeungda.jcoffeescript</groupId>
-      <artifactId>jcoffeescript</artifactId>
-      <version>1.0</version>
-    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -47,6 +32,11 @@
       <artifactId>rest-assured</artifactId>
       <version>1.8.1</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>codestory</groupId>
+      <artifactId>http</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
