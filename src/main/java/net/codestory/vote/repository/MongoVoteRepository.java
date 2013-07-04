@@ -11,7 +11,9 @@ public class MongoVoteRepository implements VoteRepository {
   public MongoVoteRepository() {
     votes = Suppliers.memoize(() -> {
       try {
-        DB db = new MongoURI(uri()).connectDB();
+        MongoClientURI uri = new MongoClientURI(uri());
+
+        DB db = new MongoClient(uri).getDB(uri.getDatabase());
         Jongo jongo = new Jongo(db);
 
         return jongo.getCollection("votes");
