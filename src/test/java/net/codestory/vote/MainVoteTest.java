@@ -4,6 +4,7 @@ import static org.fest.assertions.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import net.codestory.vote.gists.*;
+import net.codestory.vote.misc.*;
 
 import org.junit.*;
 

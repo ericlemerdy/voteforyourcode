@@ -1,9 +1,10 @@
-package net.codestory.vote;
+package net.codestory.vote.misc;
 
 import static org.mockito.Mockito.*;
 
 import java.util.*;
 
+import net.codestory.vote.*;
 import net.codestory.vote.gists.*;
 import net.codestory.vote.misc.*;
 
