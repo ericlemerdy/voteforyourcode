@@ -34,12 +34,4 @@ public class VoteConfiguration implements Configuration {
   protected Gists createGists(Random random) {
     return new DemoGists(random);
   }
-
-  public Gists getGists() {
-    return gists;
-  }
-
-  public IndexResource getIndexResource() {
-    return indexResource;
-  }
 }

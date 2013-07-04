@@ -19,7 +19,7 @@ public class MainVoteTest extends AbstractWebTest {
 
   @Test
   public void candidates() {
-    Gists gists = getConfiguration().getGists();
+    Gists gists = getInstance(Gists.class);
     doReturn(new Candidates("dgageot/9895cbae5fbd70892d0d", "dgageot/4718233")).when(gists).candidates();
 
     goTo("/");

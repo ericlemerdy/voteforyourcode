@@ -2,6 +2,7 @@ package net.codestory.vote.misc;
 
 import static org.mockito.Mockito.*;
 
+import java.lang.reflect.*;
 import java.util.*;
 
 import net.codestory.vote.*;
@@ -35,7 +36,19 @@ public abstract class AbstractWebTest extends FluentTest {
     return "http://localhost:" + webServer.port();
   }
 
-  protected VoteConfiguration getConfiguration() {
-    return configuration;
+  @SuppressWarnings("unchecked")
+  protected <T> T getInstance(Class<T> type) {
+    for (Field field : configuration.getClass().getSuperclass().getDeclaredFields()) {
+      if (field.getType() == type) {
+        try {
+          field.setAccessible(true);
+          return (T) field.get(configuration);
+        } catch (IllegalAccessException e) {
+          throw new IllegalStateException("Unable to read bean of type " + type);
+        }
+      }
+    }
+
+    throw new IllegalArgumentException("Invalid type of bean " + type);
   }
 }
