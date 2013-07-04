@@ -9,8 +9,10 @@ import org.junit.*;
 
 public class MatchMakerTest {
   Random random = spy(new Random());
+  Gist gist1 = new Gist("", "");
+  Gist gist2 = new Gist("", "");
 
-  MatchMaker matchMaker = new MatchMaker(random, new Gists(new Gist("url1"), new Gist("url2")));
+  MatchMaker matchMaker = new MatchMaker(random, new Gists(gist1, gist2));
 
   @Test
   public void random_candidates() {
@@ -18,8 +20,8 @@ public class MatchMakerTest {
 
     Fight fight = matchMaker.randomFight();
 
-    assertThat(fight.left().url()).isEqualTo("url1");
-    assertThat(fight.right().url()).isEqualTo("url2");
+    assertThat(fight.left()).isSameAs(gist1);
+    assertThat(fight.right()).isSameAs(gist2);
   }
 
   @Test

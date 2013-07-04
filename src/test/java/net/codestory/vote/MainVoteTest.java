@@ -6,7 +6,6 @@ import static org.mockito.Mockito.*;
 
 import java.util.*;
 
-import net.codestory.vote.gists.*;
 import net.codestory.vote.misc.*;
 
 import org.junit.*;
@@ -27,8 +26,11 @@ public class MainVoteTest extends AbstractWebTest {
 
     goTo("/");
 
+    assertThat(find("#left .name").getText()).contains("FooBarGolo");
     assertThat(find("#left").getText()).contains("module hello.World");
-    assertThat(find("#right").getText()).contains("CodeStoryStatusTest");
+
+    assertThat(find("#right .name").getText()).contains("CodeStoryStatusTest");
+    assertThat(find("#right").getText()).contains("extends PhantomJsTest");
   }
 
   @Test
