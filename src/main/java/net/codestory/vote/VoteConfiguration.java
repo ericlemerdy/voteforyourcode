@@ -4,31 +4,40 @@ import java.util.*;
 
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
+import net.codestory.http.templating.*;
 import net.codestory.vote.gists.*;
 
 public class VoteConfiguration implements Configuration {
   private final Random random;
   private final MatchMaker matchMaker;
   private final Gists gists;
-  private final IndexResource indexResource;
 
   public VoteConfiguration() {
     random = createRandom();
     gists = createGists();
     matchMaker = createMatchMaker(random, gists);
-    indexResource = createIndexResource(matchMaker);
   }
 
   @Override
   public void configure(Routes routes) {
     routes.serve("file:app");
-    routes.addResource(indexResource);
+
+    routes.get("/", this::index);
+    routes.get("/win/left/:fightId", (fightId) -> {
+      matchMaker.leftWins(fightId);
+      return index();
+    });
+    routes.get("/win/right/:fightId", (fightId) -> {
+      matchMaker.rightWins(fightId);
+      return index();
+    });
   }
 
-  protected IndexResource createIndexResource(MatchMaker matchMaker) {
-    return new IndexResource(matchMaker);
+  private String index() {
+    return new Template("file:app/index.html").render("fight", matchMaker.randomFight());
   }
 
+  // Poor man's IoC
   protected Random createRandom() {
     return new Random();
   }
