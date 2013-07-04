@@ -2,6 +2,8 @@ package net.codestory.vote;
 
 import static org.mockito.Mockito.*;
 
+import java.util.*;
+
 import net.codestory.vote.gists.*;
 import net.codestory.vote.misc.*;
 
@@ -14,8 +16,8 @@ import org.openqa.selenium.*;
 public abstract class AbstractWebTest extends FluentTest {
   private VoteConfiguration configuration = new VoteConfiguration() {
     @Override
-    protected Gists createGists() {
-      return spy(super.createGists());
+    protected Gists createGists(Random random) {
+      return spy(super.createGists(random));
     }
   };
 

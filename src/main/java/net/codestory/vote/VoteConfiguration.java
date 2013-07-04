@@ -1,15 +1,19 @@
 package net.codestory.vote;
 
+import java.util.*;
+
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
 import net.codestory.vote.gists.*;
 
 public class VoteConfiguration implements Configuration {
+  private final Random random;
   private final Gists gists;
   private final IndexResource indexResource;
 
   public VoteConfiguration() {
-    gists = createGists();
+    random = createRandom();
+    gists = createGists(random);
     indexResource = createIndexResource(gists);
   }
 
@@ -23,8 +27,12 @@ public class VoteConfiguration implements Configuration {
     return new IndexResource(gists);
   }
 
-  protected Gists createGists() {
-    return new DemoGists();
+  protected Random createRandom() {
+    return new Random();
+  }
+
+  protected Gists createGists(Random random) {
+    return new DemoGists(random);
   }
 
   public Gists getGists() {
