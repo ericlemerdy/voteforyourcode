@@ -1,5 +1,4 @@
 @red: #FF0000;
-@candidate_width: 600px;
 
 [ng-cloak] {
   display: none !important;
@@ -14,13 +13,33 @@ body {
 
   #fight {
     display: block;
-    width: 20px + (@candidate_width * 2);
+    width: 100%;
     margin: 20px auto;
     position: relative;
 
     #left, #right {
       position: absolute;
-      width: @candidate_width;
+      width: 50%;
+
+      .header {
+        text-align: center;
+        margin-left: 5px;
+        margin-bottom: 10px;
+
+        h2 {
+          font-size: large;
+        }
+
+        .score {
+          font-style: italic;
+          font-weight: normal;
+          margin-left: 10px;
+        }
+      }
+
+      .gist {
+        padding: 5px;
+      }
     }
 
     #left {

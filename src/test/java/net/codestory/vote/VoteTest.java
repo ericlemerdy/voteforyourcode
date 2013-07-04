@@ -10,7 +10,7 @@ import net.codestory.vote.misc.*;
 
 import org.junit.*;
 
-public class MainVoteTest extends AbstractWebTest {
+public class VoteTest extends AbstractWebTest {
   @Test
   public void homepage() {
     goTo("/");
@@ -26,10 +26,10 @@ public class MainVoteTest extends AbstractWebTest {
 
     goTo("/");
 
-    assertThat(find("#left .name").getText()).contains("FooBarGolo");
+    assertThat(find("#left h2").getText()).contains("FooBarGolo");
     assertThat(find("#left").getText()).contains("module hello.World");
 
-    assertThat(find("#right .name").getText()).contains("CodeStoryStatusTest");
+    assertThat(find("#right h2").getText()).contains("CodeStoryStatusTest");
     assertThat(find("#right").getText()).contains("extends PhantomJsTest");
   }
 
@@ -40,12 +40,12 @@ public class MainVoteTest extends AbstractWebTest {
 
     goTo("/");
 
-    assertThat(find("#left .score").getText()).isEqualTo("1200");
-    assertThat(find("#right .score").getText()).isEqualTo("1200");
+    assertThat(find("#left .score").getText()).contains("1200");
+    assertThat(find("#right .score").getText()).contains("1200");
 
-    click("#left a", withText("Vote"));
+    click("#left a", withText("I prefer this one!"));
 
-    assertThat(find("#left .score").getText()).isEqualTo("1212");
-    assertThat(find("#right .score").getText()).isEqualTo("1187");
+    assertThat(find("#left .score").getText()).contains("1212");
+    assertThat(find("#right .score").getText()).contains("1187");
   }
 }

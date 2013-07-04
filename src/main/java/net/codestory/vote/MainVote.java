@@ -4,7 +4,9 @@ import net.codestory.http.*;
 
 public class MainVote {
   public static void main(String[] args) {
-    new MainVote().start(8181);
+    int port = Integer.parseInt(System.getProperty("app.port", "8181"));
+
+    new MainVote().start(port);
   }
 
   private void start(int port) {

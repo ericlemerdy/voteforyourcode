@@ -11,18 +11,26 @@
 
 <div id="fight">
     <div id="left">
-        <a class="win" href="/win/left/[[fight.uniqueId]]">Vote</a>
+        <div class="header">
+            <h2>[[fight.left.name]]<span class="score">ELO: [[fight.leftElo]]</span></h2>
 
-        <div class="name">[[fight.left.name]]</div>
-        <div class="score">[[fight.leftElo]]</div>
-        <script src="https://gist.github.com/[[fight.left.url]].js"></script>
+            <a class="win btn btn-primary" href="/win/left/[[fight.uniqueId]]">I prefer this one!</a>
+        </div>
+
+        <div class="gist">
+            <script src="https://gist.github.com/[[fight.left.url]].js"></script>
+        </div>
     </div>
     <div id="right">
-        <a class="win" href="/win/right/[[fight.uniqueId]]">Vote</a>
+        <div class="header">
+            <h2>[[fight.right.name]]<span class="score">ELO: [[fight.rightElo]]</span></h2>
 
-        <div class="name">[[fight.right.name]]</div>
-        <div class="score">[[fight.rightElo]]</div>
-        <script src="https://gist.github.com/[[fight.right.url]].js"></script>
+            <a class="win btn btn-primary" href="/win/right/[[fight.uniqueId]]">I prefer this one!</a>
+        </div>
+
+        <div class="gist">
+            <script src="https://gist.github.com/[[fight.right.url]].js"></script>
+        </div>
     </div>
 </div>
 
