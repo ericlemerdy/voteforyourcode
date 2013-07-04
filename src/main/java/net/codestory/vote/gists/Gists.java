@@ -1,23 +1,14 @@
 package net.codestory.vote.gists;
 
-import java.util.*;
-
 public class Gists {
-  private final Random random;
   private final Gist[] gists;
 
-  public Gists(Random random, Gist... gists) {
-    this.random = random;
+  public Gists(Gist... gists) {
     this.gists = gists;
   }
 
-  public Fight randomFight() {
-    Gist left = randomGist();
-    Gist right = randomGist();
-    while (left == right) {
-      right = randomGist();
-    }
-    return new Fight(left, right);
+  public int size() {
+    return gists.length;
   }
 
   public void match(int winner, int looser) {
@@ -28,12 +19,8 @@ public class Gists {
     return (int) rank(index).elo();
   }
 
-  private Gist randomGist() {
-    return gists[random.nextInt(gists.length)];
-  }
-
   private Rank rank(int index) {
-    return gists[index].rank();
+    return get(index).rank();
   }
 
   private synchronized void match(Rank winner, Rank looser) {
@@ -42,5 +29,9 @@ public class Gists {
 
     winner.win(eloLooser);
     looser.loose(eloWinner);
+  }
+
+  Gist get(int index) {
+    return gists[index];
   }
 }

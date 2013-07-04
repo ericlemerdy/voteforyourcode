@@ -8,13 +8,15 @@ import net.codestory.vote.gists.*;
 
 public class VoteConfiguration implements Configuration {
   private final Random random;
+  private final MatchMaker matchMaker;
   private final Gists gists;
   private final IndexResource indexResource;
 
   public VoteConfiguration() {
     random = createRandom();
-    gists = createGists(random);
-    indexResource = createIndexResource(gists);
+    gists = createGists();
+    matchMaker = createMatchMaker(random, gists);
+    indexResource = createIndexResource(gists, matchMaker);
   }
 
   @Override
@@ -23,18 +25,22 @@ public class VoteConfiguration implements Configuration {
     routes.addResource(indexResource);
   }
 
-  protected IndexResource createIndexResource(Gists gists) {
-    return new IndexResource(gists);
+  protected IndexResource createIndexResource(Gists gists, MatchMaker matchMaker) {
+    return new IndexResource(matchMaker, gists);
   }
 
   protected Random createRandom() {
     return new Random();
   }
 
-  protected Gists createGists(Random random) {
-    return new Gists(random,
+  protected Gists createGists() {
+    return new Gists(
         new Gist(0, "dgageot/9895cbae5fbd70892d0d"),
         new Gist(1, "dgageot/4718233")
     );
+  }
+
+  protected MatchMaker createMatchMaker(Random random, Gists gists) {
+    return new MatchMaker(random, gists);
   }
 }

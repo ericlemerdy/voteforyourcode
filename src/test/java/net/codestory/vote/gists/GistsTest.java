@@ -8,28 +8,7 @@ import java.util.*;
 import org.junit.*;
 
 public class GistsTest {
-  Random random = mock(Random.class);
-
-  Gists gists = new Gists(random, new Gist(0, "url1"), new Gist(1, "url2"), new Gist(2, "url3"));
-
-  @Test
-  public void random_candidates() {
-    when(random.nextInt(3)).thenReturn(0, 1);
-
-    Fight fight = gists.randomFight();
-
-    assertThat(fight.left().url()).isEqualTo("url1");
-    assertThat(fight.right().url()).isEqualTo("url2");
-  }
-
-  @Test
-  public void no_doubles() {
-    when(random.nextInt(3)).thenReturn(1, 1, 1, 0);
-
-    Fight fight = gists.randomFight();
-
-    assertThat(fight.left()).isNotSameAs(fight.right());
-  }
+  Gists gists = new Gists(new Gist(0, "url1"), new Gist(1, "url2"), new Gist(2, "url3"));
 
   @Test
   public void initial_ranking() {
