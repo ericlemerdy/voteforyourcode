@@ -1,5 +1,7 @@
 package net.codestory.vote;
 
+import static net.codestory.http.Payload.seeOther;
+
 import java.util.*;
 
 import net.codestory.http.*;
@@ -25,11 +27,11 @@ public class VoteConfiguration implements Configuration {
     routes.get("/", this::index);
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.leftWins(fightId);
-      return index();
+      return seeOther("/");
     });
     routes.get("/win/right/:fightId", (fightId) -> {
       matchMaker.rightWins(fightId);
-      return index();
+      return seeOther("/");
     });
   }
 
