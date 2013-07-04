@@ -1,19 +1,22 @@
 package net.codestory.vote.gists;
 
+import java.util.*;
+import java.util.concurrent.*;
+
 public class Gists {
   private final Gist[] gists;
+  private final Map<String, Gist> byName;
 
   public Gists(Gist... gists) {
     this.gists = gists;
+    this.byName = new ConcurrentHashMap<>();
+    for (Gist gist : gists) {
+      byName.put(gist.name(), gist);
+    }
   }
 
   public Gist findByName(String name) {
-    for (Gist gist : gists) {
-      if (gist.name().equals(name)) {
-        return gist;
-      }
-    }
-    return null;
+    return byName.get(name);
   }
 
   public int size() {
