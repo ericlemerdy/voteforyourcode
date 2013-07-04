@@ -1,6 +1,6 @@
 package net.codestory.vote;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 import net.codestory.vote.gists.*;
 import net.codestory.vote.misc.*;
@@ -8,23 +8,19 @@ import net.codestory.vote.misc.*;
 import org.fluentlenium.adapter.*;
 import org.fluentlenium.adapter.util.*;
 import org.junit.*;
-import org.mockito.*;
 import org.openqa.selenium.*;
-
-import com.google.inject.*;
-import com.google.inject.util.*;
 
 @SharedDriver
 public abstract class AbstractWebTest extends FluentTest {
-  private final Injector injector = Guice.createInjector(Modules.override(new MainVote.MainVoteModule()).with(new AbstractModule() {
+  private VoteConfiguration configuration = new VoteConfiguration() {
     @Override
-    protected void configure() {
-      bind(Gists.class).toInstance(mock(Gists.class));
+    protected Gists createGists() {
+      return spy(super.createGists());
     }
-  }));
+  };
 
   @Rule
-  public WebServerRule webServer = new WebServerRule(new VoteConfiguration(injector));
+  public WebServerRule webServer = new WebServerRule(configuration);
 
   @Override
   public WebDriver getDefaultDriver() {
@@ -36,7 +32,7 @@ public abstract class AbstractWebTest extends FluentTest {
     return "http://localhost:" + webServer.port();
   }
 
-  protected <T> T getInstance(Class<T> type) {
-    return injector.getInstance(type);
+  protected VoteConfiguration getConfiguration() {
+    return configuration;
   }
 }

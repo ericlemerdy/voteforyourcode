@@ -1,22 +1,37 @@
 package net.codestory.vote;
 
-import javax.inject.Inject;
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
-
-import com.google.inject.*;
+import net.codestory.vote.gists.*;
 
 public class VoteConfiguration implements Configuration {
-  private final Injector injector;
+  private final Gists gists;
+  private final IndexResource indexResource;
 
-  @Inject
-  public VoteConfiguration(Injector injector) {
-    this.injector = injector;
+  public VoteConfiguration() {
+    gists = createGists();
+    indexResource = createIndexResource(gists);
   }
 
   @Override
   public void configure(Routes routes) {
     routes.serve("file:app");
-    routes.addResource(injector.getInstance(IndexResource.class));
+    routes.addResource(indexResource);
+  }
+
+  protected IndexResource createIndexResource(Gists gists) {
+    return new IndexResource(gists);
+  }
+
+  protected Gists createGists() {
+    return new DemoGists();
+  }
+
+  public Gists getGists() {
+    return gists;
+  }
+
+  public IndexResource getIndexResource() {
+    return indexResource;
   }
 }
