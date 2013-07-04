@@ -3,17 +3,33 @@ package net.codestory.vote.gists;
 import java.util.*;
 import java.util.concurrent.*;
 
+import net.codestory.vote.repository.*;
+
 import org.apache.commons.lang.*;
 
 public class MatchMaker {
   private final Random random;
   private final Gists gists;
+  private final VoteRepository voteRepository;
   private final Map<String, Fight> fightsById;
 
-  public MatchMaker(Random random, Gists gists) {
+  public MatchMaker(Random random, Gists gists, VoteRepository voteRepository) {
     this.random = random;
     this.gists = gists;
+    this.voteRepository = voteRepository;
     fightsById = new ConcurrentHashMap<>();
+    loadSavedVotes();
+  }
+
+  private void loadSavedVotes() {
+    for (Vote vote : voteRepository.all()) {
+      Gist winner = gists.findByName(vote.winner);
+      Gist looser = gists.findByName(vote.looser);
+
+      if ((winner != null) && (looser != null)) {
+        winner.rank().beats(looser.rank());
+      }
+    }
   }
 
   public Fight randomFight() {
@@ -32,18 +48,23 @@ public class MatchMaker {
     return fight;
   }
 
-  public void leftWins(String uniqueId) {
+  public void fightWonByLeft(String uniqueId) {
     Fight fight = fightsById.remove(uniqueId);
     if (null != fight) {
-      fight.left().rank().beats(fight.right().rank());
+      fightWon(fight.left(), fight.right());
     }
   }
 
-  public void rightWins(String uniqueId) {
+  public void fightWonByRight(String uniqueId) {
     Fight fight = fightsById.remove(uniqueId);
     if (null != fight) {
-      fight.right().rank().beats(fight.left().rank());
+      fightWon(fight.right(), fight.left());
     }
+  }
+
+  private void fightWon(Gist winner, Gist looser) {
+    voteRepository.save(new Vote(winner.name(), looser.name()));
+    winner.rank().beats(looser.rank());
   }
 
   private static String uniqueId() {

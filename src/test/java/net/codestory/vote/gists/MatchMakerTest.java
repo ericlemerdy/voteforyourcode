@@ -5,14 +5,23 @@ import static org.mockito.Mockito.*;
 
 import java.util.*;
 
+import net.codestory.vote.repository.*;
+
 import org.junit.*;
 
 public class MatchMakerTest {
   Random random = spy(new Random());
+  VoteRepository voteRepository = mock(VoteRepository.class);
   Gist gist1 = new Gist("", "");
   Gist gist2 = new Gist("", "");
 
-  MatchMaker matchMaker = new MatchMaker(random, new Gists(gist1, gist2));
+  MatchMaker matchMaker;
+
+  @Before
+  public void setUp() {
+    when(voteRepository.all()).thenReturn(Collections.emptyList());
+    matchMaker = new MatchMaker(random, new Gists(gist1, gist2), voteRepository);
+  }
 
   @Test
   public void random_candidates() {
@@ -47,7 +56,7 @@ public class MatchMakerTest {
     assertThat(fight.leftElo()).isEqualTo(1200);
     assertThat(fight.rightElo()).isEqualTo(1200);
 
-    matchMaker.leftWins(fight.uniqueId());
+    matchMaker.fightWonByLeft(fight.uniqueId());
 
     assertThat(fight.leftElo()).isEqualTo(1212);
     assertThat(fight.rightElo()).isEqualTo(1187);
@@ -60,7 +69,7 @@ public class MatchMakerTest {
     assertThat(fight.leftElo()).isEqualTo(1200);
     assertThat(fight.rightElo()).isEqualTo(1200);
 
-    matchMaker.rightWins(fight.uniqueId());
+    matchMaker.fightWonByRight(fight.uniqueId());
 
     assertThat(fight.leftElo()).isEqualTo(1187);
     assertThat(fight.rightElo()).isEqualTo(1212);
@@ -70,12 +79,12 @@ public class MatchMakerTest {
   public void can_vote_only_once() {
     Fight fight = matchMaker.randomFight();
 
-    matchMaker.leftWins(fight.uniqueId());
+    matchMaker.fightWonByLeft(fight.uniqueId());
 
     assertThat(fight.leftElo()).isEqualTo(1212);
     assertThat(fight.rightElo()).isEqualTo(1187);
 
-    matchMaker.leftWins(fight.uniqueId());
+    matchMaker.fightWonByLeft(fight.uniqueId());
 
     assertThat(fight.leftElo()).isEqualTo(1212);
     assertThat(fight.rightElo()).isEqualTo(1187);

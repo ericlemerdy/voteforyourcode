@@ -7,6 +7,15 @@ public class Gists {
     this.gists = gists;
   }
 
+  public Gist findByName(String name) {
+    for (Gist gist : gists) {
+      if (gist.name().equals(name)) {
+        return gist;
+      }
+    }
+    return null;
+  }
+
   public int size() {
     return gists.length;
   }

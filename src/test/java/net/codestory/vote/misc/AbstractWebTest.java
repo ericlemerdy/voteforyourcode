@@ -6,6 +6,7 @@ import java.lang.reflect.*;
 import java.util.*;
 
 import net.codestory.vote.*;
+import net.codestory.vote.repository.*;
 
 import org.fluentlenium.adapter.*;
 import org.fluentlenium.adapter.util.*;
@@ -15,6 +16,13 @@ import org.openqa.selenium.*;
 @SharedDriver
 public abstract class AbstractWebTest extends FluentTest {
   private VoteConfiguration configuration = new VoteConfiguration() {
+    @Override
+    protected VoteRepository createVoteRepository() {
+      VoteRepository voteRepository = mock(VoteRepository.class);
+      when(voteRepository.all()).thenReturn(Collections.emptyList());
+      return voteRepository;
+    }
+
     @Override
     protected Random createRandom() {
       return spy(super.createRandom());

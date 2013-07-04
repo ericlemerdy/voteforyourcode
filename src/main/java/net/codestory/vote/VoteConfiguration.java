@@ -8,16 +8,19 @@ import net.codestory.http.*;
 import net.codestory.http.routes.*;
 import net.codestory.http.templating.*;
 import net.codestory.vote.gists.*;
+import net.codestory.vote.repository.*;
 
 public class VoteConfiguration implements Configuration {
   private final Random random;
-  private final MatchMaker matchMaker;
   private final Gists gists;
+  private final VoteRepository voteRepository;
+  private final MatchMaker matchMaker;
 
   public VoteConfiguration() {
     random = createRandom();
     gists = createGists();
-    matchMaker = createMatchMaker(random, gists);
+    voteRepository = createVoteRepository();
+    matchMaker = createMatchMaker(random, gists, voteRepository);
   }
 
   @Override
@@ -26,11 +29,11 @@ public class VoteConfiguration implements Configuration {
 
     routes.get("/", this::index);
     routes.get("/win/left/:fightId", (fightId) -> {
-      matchMaker.leftWins(fightId);
+      matchMaker.fightWonByLeft(fightId);
       return seeOther("/");
     });
     routes.get("/win/right/:fightId", (fightId) -> {
-      matchMaker.rightWins(fightId);
+      matchMaker.fightWonByRight(fightId);
       return seeOther("/");
     });
   }
@@ -51,7 +54,11 @@ public class VoteConfiguration implements Configuration {
     );
   }
 
-  protected MatchMaker createMatchMaker(Random random, Gists gists) {
-    return new MatchMaker(random, gists);
+  protected MatchMaker createMatchMaker(Random random, Gists gists, VoteRepository voteRepository) {
+    return new MatchMaker(random, gists, voteRepository);
+  }
+
+  protected VoteRepository createVoteRepository() {
+    return new MongoVoteRepository();
   }
 }
