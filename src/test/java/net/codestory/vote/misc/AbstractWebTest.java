@@ -6,8 +6,6 @@ import java.lang.reflect.*;
 import java.util.*;
 
 import net.codestory.vote.*;
-import net.codestory.vote.gists.*;
-import net.codestory.vote.misc.*;
 
 import org.fluentlenium.adapter.*;
 import org.fluentlenium.adapter.util.*;
@@ -18,8 +16,8 @@ import org.openqa.selenium.*;
 public abstract class AbstractWebTest extends FluentTest {
   private VoteConfiguration configuration = new VoteConfiguration() {
     @Override
-    protected Gists createGists(Random random) {
-      return spy(super.createGists(random));
+    protected Random createRandom() {
+      return spy(super.createRandom());
     }
   };
 
@@ -34,6 +32,11 @@ public abstract class AbstractWebTest extends FluentTest {
   @Override
   public String getDefaultBaseUrl() {
     return "http://localhost:" + webServer.port();
+  }
+
+  protected AbstractWebTest() {
+    setSnapshotPath("snapshots");
+    setSnapshotMode(Mode.TAKE_SNAPSHOT_ON_FAIL);
   }
 
   @SuppressWarnings("unchecked")

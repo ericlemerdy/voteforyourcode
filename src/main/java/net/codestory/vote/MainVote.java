@@ -8,8 +8,8 @@ public class MainVote {
   }
 
   private void start(int port) {
-    WebServer web = new WebServer();
-    web.configure(new VoteConfiguration());
-    web.start(port);
+    new WebServer()
+        .configure(new VoteConfiguration())
+        .start(port);
   }
 }

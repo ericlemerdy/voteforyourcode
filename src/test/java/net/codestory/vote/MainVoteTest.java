@@ -1,7 +1,10 @@
 package net.codestory.vote;
 
 import static org.fest.assertions.Assertions.*;
+import static org.fluentlenium.core.filter.FilterConstructor.*;
 import static org.mockito.Mockito.*;
+
+import java.util.*;
 
 import net.codestory.vote.gists.*;
 import net.codestory.vote.misc.*;
@@ -19,12 +22,28 @@ public class MainVoteTest extends AbstractWebTest {
 
   @Test
   public void candidates() {
-    Gists gists = getInstance(Gists.class);
-    doReturn(new Candidates("dgageot/9895cbae5fbd70892d0d", "dgageot/4718233")).when(gists).candidates();
+    Random random = getInstance(Random.class);
+    when(random.nextInt(2)).thenReturn(0, 1);
 
     goTo("/");
 
     assertThat(find("#left").getText()).contains("module hello.World");
     assertThat(find("#right").getText()).contains("CodeStoryStatusTest");
+  }
+
+  @Test
+  public void vote() throws InterruptedException {
+    Random random = getInstance(Random.class);
+    when(random.nextInt(2)).thenReturn(0, 1, 0, 1);
+
+    goTo("/");
+
+    assertThat(find("#left .score").getText()).isEqualTo("1200");
+    assertThat(find("#right .score").getText()).isEqualTo("1200");
+
+    click("#left a", withText("Vote"));
+
+    assertThat(find("#left .score").getText()).isEqualTo("1212");
+    assertThat(find("#right .score").getText()).isEqualTo("1187");
   }
 }

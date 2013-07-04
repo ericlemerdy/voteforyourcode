@@ -13,13 +13,17 @@ public class IndexResource {
 
   @Get("/")
   public String index() {
-    Candidates candidates = gists.candidates();
+    Template index = new Template("file:app/index.html");
 
-    Template template = new Template("file:app/index.html");
+    return index.render("fight", gists.randomFight());
+  }
 
-    return template.render(
-        "left_gist", candidates.left(),
-        "right_gist", candidates.right()
-    );
+  @Get("/vote/:winner/:looser")
+  public String vote(int winner, int looser) {
+    gists.match(winner, looser);
+
+    Template index = new Template("file:app/index.html");
+
+    return index.render("fight", gists.randomFight());
   }
 }

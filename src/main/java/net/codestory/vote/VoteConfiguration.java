@@ -32,6 +32,9 @@ public class VoteConfiguration implements Configuration {
   }
 
   protected Gists createGists(Random random) {
-    return new DemoGists(random);
+    return new Gists(random,
+        new Gist(0, "dgageot/9895cbae5fbd70892d0d"),
+        new Gist(1, "dgageot/4718233")
+    );
   }
 }
