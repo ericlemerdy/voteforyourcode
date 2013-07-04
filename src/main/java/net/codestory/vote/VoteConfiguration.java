@@ -16,7 +16,7 @@ public class VoteConfiguration implements Configuration {
     random = createRandom();
     gists = createGists();
     matchMaker = createMatchMaker(random, gists);
-    indexResource = createIndexResource(gists, matchMaker);
+    indexResource = createIndexResource(matchMaker);
   }
 
   @Override
@@ -25,8 +25,8 @@ public class VoteConfiguration implements Configuration {
     routes.addResource(indexResource);
   }
 
-  protected IndexResource createIndexResource(Gists gists, MatchMaker matchMaker) {
-    return new IndexResource(matchMaker, gists);
+  protected IndexResource createIndexResource(MatchMaker matchMaker) {
+    return new IndexResource(matchMaker);
   }
 
   protected Random createRandom() {
@@ -35,8 +35,8 @@ public class VoteConfiguration implements Configuration {
 
   protected Gists createGists() {
     return new Gists(
-        new Gist(0, "dgageot/9895cbae5fbd70892d0d"),
-        new Gist(1, "dgageot/4718233")
+        new Gist("dgageot/9895cbae5fbd70892d0d"),
+        new Gist("dgageot/4718233")
     );
   }
 

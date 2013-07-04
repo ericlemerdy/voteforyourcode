@@ -6,11 +6,9 @@ import net.codestory.vote.gists.*;
 
 public class IndexResource {
   private final MatchMaker matchMaker;
-  private final Gists gists;
 
-  public IndexResource(MatchMaker matchMaker, Gists gists) {
+  public IndexResource(MatchMaker matchMaker) {
     this.matchMaker = matchMaker;
-    this.gists = gists;
   }
 
   @Get("/")
@@ -20,9 +18,16 @@ public class IndexResource {
     return index.render("fight", matchMaker.randomFight());
   }
 
-  @Get("/vote/:winner/:looser")
-  public String vote(int winner, int looser) {
-    gists.match(winner, looser);
+  @Get("/win/left/:fightId")
+  public String leftWins(String fightId) {
+    matchMaker.leftWins(fightId);
+
+    return index();
+  }
+
+  @Get("/win/right/:fightId")
+  public String rightWins(String fightId) {
+    matchMaker.rightWins(fightId);
 
     return index();
   }

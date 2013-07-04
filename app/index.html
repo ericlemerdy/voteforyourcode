@@ -11,15 +11,15 @@
 
 <div id="fight">
     <div id="left">
-        <a class="win" href="/vote/[[fight.left.id]]/[[fight.right.id]]">Vote</a>
+        <a class="win" href="/win/left/[[fight.uniqueId]]">Vote</a>
 
-        <div class="score">[[fight.left.elo]]</div>
+        <div class="score">[[fight.leftElo]]</div>
         <script src="https://gist.github.com/[[fight.left.url]].js"></script>
     </div>
     <div id="right">
-        <a class="win" href="/vote/[[fight.right.id]]/[[fight.left.id]]">Vote</a>
+        <a class="win" href="/win/right/[[fight.uniqueId]]">Vote</a>
 
-        <div class="score">[[fight.right.elo]]</div>
+        <div class="score">[[fight.rightElo]]</div>
         <script src="https://gist.github.com/[[fight.right.url]].js"></script>
     </div>
 </div>
