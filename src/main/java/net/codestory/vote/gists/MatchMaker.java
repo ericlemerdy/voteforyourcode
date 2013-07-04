@@ -5,8 +5,6 @@ import java.util.concurrent.*;
 
 import net.codestory.vote.repository.*;
 
-import org.apache.commons.lang.*;
-
 public class MatchMaker {
   private final Random random;
   private final Gists gists;
@@ -18,6 +16,7 @@ public class MatchMaker {
     this.gists = gists;
     this.voteRepository = voteRepository;
     fightsById = new ConcurrentHashMap<>();
+
     loadSavedVotes();
   }
 
@@ -33,8 +32,6 @@ public class MatchMaker {
   }
 
   public Fight randomFight() {
-    String uniqueId = uniqueId();
-
     int nbGists = gists.size();
     int left = random.nextInt(nbGists);
     int right = random.nextInt(nbGists);
@@ -42,9 +39,8 @@ public class MatchMaker {
       right = random.nextInt(nbGists);
     }
 
-    Fight fight = new Fight(uniqueId, gists.get(left), gists.get(right));
-    fightsById.put(uniqueId, fight);
-
+    Fight fight = new Fight(gists.get(left), gists.get(right));
+    fightsById.put(fight.uniqueId(), fight);
     return fight;
   }
 
@@ -65,9 +61,5 @@ public class MatchMaker {
   private void fightWon(Gist winner, Gist looser) {
     voteRepository.save(new Vote(winner.name(), looser.name()));
     winner.rank().beats(looser.rank());
-  }
-
-  private static String uniqueId() {
-    return RandomStringUtils.random(32, true, true);
   }
 }
