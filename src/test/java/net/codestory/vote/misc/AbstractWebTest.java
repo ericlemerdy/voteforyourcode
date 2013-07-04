@@ -17,9 +17,10 @@ import org.openqa.selenium.*;
 public abstract class AbstractWebTest extends FluentTest {
   private VoteConfiguration configuration = new VoteConfiguration() {
     @Override
-    protected VoteRepository createVoteRepository() {
-      VoteRepository voteRepository = mock(VoteRepository.class);
-      when(voteRepository.all()).thenReturn(Collections.emptyList());
+    protected VoteRepository createVoteRepository(String uri) {
+      VoteRepository voteRepository = spy(super.createVoteRepository(uri));
+      doNothing().when(voteRepository).save(any(Vote.class));
+      doReturn(Collections.emptyList()).when(voteRepository).all();
       return voteRepository;
     }
 

@@ -17,9 +17,11 @@ public class VoteConfiguration implements Configuration {
   private final MatchMaker matchMaker;
 
   public VoteConfiguration() {
+    String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
+
     random = createRandom();
     gists = createGists();
-    voteRepository = createVoteRepository();
+    voteRepository = createVoteRepository(mongoUri);
     matchMaker = createMatchMaker(random, gists, voteRepository);
   }
 
@@ -58,7 +60,7 @@ public class VoteConfiguration implements Configuration {
     return new MatchMaker(random, gists, voteRepository);
   }
 
-  protected VoteRepository createVoteRepository() {
-    return new MongoVoteRepository();
+  protected VoteRepository createVoteRepository(String uri) {
+    return new VoteRepository(uri);
   }
 }
