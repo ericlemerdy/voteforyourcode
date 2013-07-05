@@ -2,4 +2,9 @@
 
  + Top gists
  + Animation after vote
- + Description
+ + Easier vote
+ + ico
+ + headers
+ + devmode static
+ + prod Cloudbees
+ + header height
