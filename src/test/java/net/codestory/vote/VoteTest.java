@@ -22,7 +22,7 @@ public class VoteTest extends AbstractWebTest {
   @Test
   public void candidates() {
     Random random = getInstance(Random.class);
-    when(random.nextInt(6)).thenReturn(0, 1);
+    when(random.nextInt(7)).thenReturn(0, 1);
 
     goTo("/");
 
@@ -36,7 +36,7 @@ public class VoteTest extends AbstractWebTest {
   @Test
   public void vote() throws InterruptedException {
     Random random = getInstance(Random.class);
-    when(random.nextInt(6)).thenReturn(0, 1, 0, 1);
+    when(random.nextInt(7)).thenReturn(0, 1, 0, 1);
 
     goTo("/");
 

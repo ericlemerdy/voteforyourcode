@@ -56,12 +56,13 @@ public class VoteConfiguration implements Configuration {
 
   protected Gists createGists() {
     return new Gists(
-        new Gist("FooBarGolo", "dgageot/9895cbae5fbd70892d0d"),
-        new Gist("CodeStoryStatusTest", "dgageot/4718233"),
-        new Gist("Forget about Lambdas", "dgageot/5840050"),
-        new Gist("Mockito and java8", "dgageot/5445181"),
-        new Gist("Avion Ruby", "dgageot/4996069"),
-        new Gist("Twitter say", "dgageot/2711039")
+        new Gist("FooBarGolo", "https://gist.github.com/dgageot/9895cbae5fbd70892d0d.js"),
+        new Gist("CodeStoryStatusTest", "https://gist.github.com/dgageot/4718233.js"),
+        new Gist("Forget about Lambdas", "https://gist.github.com/dgageot/5840050.js"),
+        new Gist("Mockito and java8", "https://gist.github.com/dgageot/5445181.js"),
+        new Gist("Avion Ruby", "https://gist.github.com/dgageot/4996069.js"),
+        new Gist("Main Web", "http://gist-it.appspot.com/github/CodeStory/voteforyourcode/blob/master/src/main/java/net/codestory/vote/MainVote.java"),
+        new Gist("Twitter say", "https://gist.github.com/dgageot/2711039.js")
     );
   }
 
