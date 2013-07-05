@@ -14,10 +14,8 @@ public class ThrottleFilter implements Filter {
   }
 
   @Override
-  public boolean apply(HttpExchange exchange) throws IOException {
-    String path = exchange.getRequestURI().getRawPath();
-
-    if ("/".equals(path) || "/index".equals(path) || "/index.html".equals(path)) {
+  public boolean apply(String uri, HttpExchange exchange) throws IOException {
+    if ("/".equals(uri) || "/index".equals(uri) || "/index.html".equals(uri)) {
       String host = exchange.getRemoteAddress().getAddress().toString();
 
       if (queryCounter.quotaReached(host)) {
