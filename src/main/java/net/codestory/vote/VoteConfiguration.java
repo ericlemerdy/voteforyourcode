@@ -7,6 +7,7 @@ import java.util.*;
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
 import net.codestory.http.templating.*;
+import net.codestory.vote.captcha.*;
 import net.codestory.vote.gists.*;
 import net.codestory.vote.repository.*;
 

@@ -1,6 +1,9 @@
 package net.codestory.vote;
 
+import java.io.*;
+
 import net.codestory.http.*;
+import net.codestory.vote.captcha.*;
 
 import com.sun.net.httpserver.*;
 
@@ -12,11 +15,24 @@ public class MainVote {
   }
 
   private void start(int port) {
+    QueryCounter queryCounter = new QueryCounter();
+
     WebServer webServer = new WebServer() {
       @Override
-      protected void onRequest(HttpExchange exchange) {
-        //System.out.println(exchange.getRemoteAddress());
-        super.onRequest(exchange);
+      protected void applyRoutes(HttpExchange exchange) throws IOException {
+        String path = exchange.getRequestURI().getRawPath();
+        if ("/".equals(path) || "/index".equals(path) || "/index.html".equals(path)) {
+          String host = exchange.getRemoteAddress().getAddress().toString();
+
+          long count = queryCounter.add(host);
+          if (count > 30) {
+            exchange.getResponseHeaders().add("Location", "/captcha");
+            exchange.sendResponseHeaders(303, 0);
+            return;
+          }
+        }
+
+        super.applyRoutes(exchange);
       }
     };
     webServer.configure(new VoteConfiguration());
