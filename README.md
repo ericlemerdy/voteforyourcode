@@ -3,6 +3,4 @@
  + Look
  + Top gists
  + Animation after vote
- + Authentication with twitter
- + Vote given a criteria
- +
+ + Captcha if too many requests
