@@ -28,7 +28,6 @@ public class VoteConfiguration implements Configuration {
   @Override
   public void configure(Routes routes) {
     routes.serve("file:app");
-
     routes.get("/", this::index);
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.fightWonByLeft(fightId);
