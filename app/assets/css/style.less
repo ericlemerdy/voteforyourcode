@@ -76,12 +76,14 @@ body {
     #left, #right {
       position: absolute;
       width: 50%;
+      .transition(padding .5s, width .5s);
 
       .tile {
         text-align: left;
         background-color: #34495E;
         color: white;
         overflow: hidden;
+        .transition(background-color .5s);
 
         .header {
           text-align: center;
@@ -101,9 +103,23 @@ body {
           }
         }
 
-        .gist {
-          padding: 5px;
+        .code {
+          font-size: small;
+
+          td.line-numbers, .gist-meta {
+            display: none;
+          }
         }
+      }
+    }
+
+    #left:hover, #right:hover {
+      padding-top: 50px;
+      width: 75%;
+      z-index: 1000;
+
+      .tile {
+        background-color: darken(#34495E, 5%);
       }
     }
 
@@ -121,4 +137,20 @@ body {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
   border-radius: @radius;
+}
+
+.transition(@property1, @property2) {
+  -webkit-transition: @property1, @property2;
+  -moz-transition: @property1, @property2;
+  -o-transition: @property1, @property2;
+  transition: @property1, @property2;
+  -webkit-backface-visibility: hidden;
+}
+
+.transition(@property1) {
+  -webkit-transition: @property1;
+  -moz-transition: @property1;
+  -o-transition: @property1;
+  transition: @property1;
+  -webkit-backface-visibility: hidden;
 }
