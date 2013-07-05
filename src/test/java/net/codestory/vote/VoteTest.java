@@ -15,8 +15,8 @@ public class VoteTest extends AbstractWebTest {
   public void homepage() {
     goTo("/");
 
-    assertThat(title()).isEqualTo("Code-Story - Vote For Your Code");
-    assertThat(find("h1").getText()).isEqualTo("Vote For Your Code");
+    assertThat(title()).isEqualTo("Code-Story - Vote For Your {{ Code }}");
+    assertThat(find("h1").getText()).isEqualTo("Vote For Your {{ Code }}");
   }
 
   @Test
