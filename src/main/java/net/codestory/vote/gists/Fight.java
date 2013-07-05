@@ -29,6 +29,14 @@ public class Fight {
     return right.rank().elo();
   }
 
+  public String leftEloName() {
+    return new RankName().name(leftElo());
+  }
+
+  public String rightEloName() {
+    return new RankName().name(rightElo());
+  }
+
   public Gist left() {
     return left;
   }
