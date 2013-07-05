@@ -51,7 +51,11 @@ public class VoteConfiguration implements Configuration {
   protected Gists createGists() {
     return new Gists(
         new Gist("FooBarGolo", "dgageot/9895cbae5fbd70892d0d"),
-        new Gist("CodeStoryStatusTest", "dgageot/4718233")
+        new Gist("CodeStoryStatusTest", "dgageot/4718233"),
+        new Gist("Forget about Lambdas", "dgageot/5840050"),
+        new Gist("Mockito and java8", "dgageot/5445181"),
+        new Gist("Avion Ruby", "dgageot/4996069"),
+        new Gist("Twitter say", "dgageot/2711039")
     );
   }
 

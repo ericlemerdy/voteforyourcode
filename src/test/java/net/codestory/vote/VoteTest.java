@@ -15,14 +15,14 @@ public class VoteTest extends AbstractWebTest {
   public void homepage() {
     goTo("/");
 
-    assertThat(title()).isEqualTo("Code-Story - Vote For Your {{ Code }}");
-    assertThat(find("h1").getText()).isEqualTo("Vote For Your {{ Code }}");
+    assertThat(title()).isEqualTo("Code-Story - Vote For The {{ Code }}");
+    assertThat(find("h1").getText()).isEqualTo("Vote For The {{ Code }}");
   }
 
   @Test
   public void candidates() {
     Random random = getInstance(Random.class);
-    when(random.nextInt(2)).thenReturn(0, 1);
+    when(random.nextInt(6)).thenReturn(0, 1);
 
     goTo("/");
 
@@ -36,7 +36,7 @@ public class VoteTest extends AbstractWebTest {
   @Test
   public void vote() throws InterruptedException {
     Random random = getInstance(Random.class);
-    when(random.nextInt(2)).thenReturn(0, 1, 0, 1);
+    when(random.nextInt(6)).thenReturn(0, 1, 0, 1);
 
     goTo("/");
 
