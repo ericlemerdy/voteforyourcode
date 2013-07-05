@@ -1,6 +1,6 @@
 package net.codestory.vote;
 
-import static net.codestory.http.Payload.seeOther;
+import static net.codestory.http.Payload.*;
 
 import java.util.*;
 
@@ -16,6 +16,8 @@ public class VoteConfiguration implements Configuration {
   private final Gists gists;
   private final VoteRepository voteRepository;
   private final MatchMaker matchMaker;
+  private final QueryCounter queryCounter;
+  private final ThrottleFilter throttleFilter;
 
   public VoteConfiguration() {
     String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
@@ -24,11 +26,14 @@ public class VoteConfiguration implements Configuration {
     gists = createGists();
     voteRepository = createVoteRepository(mongoUri);
     matchMaker = createMatchMaker(random, gists, voteRepository);
+    queryCounter = createQueryCounter();
+    throttleFilter = createThrottleFilter(queryCounter);
   }
 
   @Override
   public void configure(Routes routes) {
-    routes.serve("file:app");
+    routes.staticDir("file:app");
+    routes.filter(throttleFilter);
     routes.get("/", this::index);
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.fightWonByLeft(fightId);
@@ -66,5 +71,13 @@ public class VoteConfiguration implements Configuration {
 
   protected VoteRepository createVoteRepository(String uri) {
     return new VoteRepository(uri);
+  }
+
+  protected QueryCounter createQueryCounter() {
+    return new QueryCounter();
+  }
+
+  protected ThrottleFilter createThrottleFilter(QueryCounter queryCounter) {
+    return new ThrottleFilter(queryCounter);
   }
 }
