@@ -1,14 +1,18 @@
 package net.codestory.vote.gists;
 
 public class Gist {
-  private final String name;
-  private final String url;
-  private final Rank rank;
+  private String name;
+  private String url;
+  private transient Rank rank;
+
+  public Gist() {
+    this.rank = new Rank();
+  }
 
   public Gist(String name, String url) {
+    this();
     this.name = name;
     this.url = url;
-    this.rank = new Rank();
   }
 
   public String name() {
