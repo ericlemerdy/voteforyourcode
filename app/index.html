@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Code-Story - Vote For {{ Code }}</title>
+    <title>Code-Story - {{ Code }} Fight</title>
     <meta charset='utf-8'>
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/flat-ui.css" rel="stylesheet">
@@ -9,63 +9,66 @@
 </head>
 <body>
 <header>
-    <img class="left" src="/assets/images/gants.png"/>
+    <div class="title">
+        <img src="/assets/images/code_fight.png"/>
 
-    <h1>Vote For <em>{{&nbsp;Code&nbsp;}}</em></h1>
+        <p class="main"><strong>Say which code you prefer</strong></p>
 
-    <img class="right" src="/assets/images/gants.png"/>
-
-    <div>
-        <p><strong>- Say which piece of code you prefer -</strong></p>
-
-        <p>When you vote for a piece of code, its ELO ranking will increase and its opponent's ranking will decrease.
-            The higher the difference between the two rankings, the higher the gain.</p>
-
-        <p>Code with a ELO rating < 1400 is considered "Crappy Code". A score above 2200 will reward Amazing Pieces of
-            Code.</p>
+        <p>Vote for a code, its score increases and its opponent's score decreases.
+            The higher the gap between the two, the higher the gain.</p>
     </div>
-    <div class="social">
-        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <img class="product" src="/assets/images/logo-code-story.png"/>
+    <ul class="menu">
+        <li>
+            <p><a href="http://code-story.net/">Blog</a></p>
 
-        <div class="g-plusone" data-size="medium"></div>
+            <p><em>what's new?</em></p>
+        </li>
+        <li>
+            <p><a href="http://code-story.net/">Contest</a></p>
 
-        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://code-story.net/"></a>
+            <p><em>3rd edition</em></p>
+        </li>
+        <li>
+            <p><a href="http://vote.retour1024.eu.cloudbees.net/">{{&nbsp;C0DE&nbsp;}}</a></p>
 
-        <a href="http://code-story.net/">by CodeStory</a>
-    </div>
+            <p><em>fight</em></p>
+        </li>
+        <li class="social">
+            <div class="g-plusone" data-size="medium"></div>
+            <a href="https://twitter.com/share" class="twitter-share-button"></a>
+
+            <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://code-story.net/"></a>
+        </li>
+    </ul>
 </header>
-
 <div id="fight">
     <div id="left">
-        <div class="tile">
-            <div class="header">
-                <h2>[[fight.left.name]]</h2>
+        <div class="header">
+            <h2>[[fight.left.name]]</h2>
 
-                <h3>[[fight.leftEloName]]<span class="score">ELO: [[fight.leftElo]]</span></h3>
+            <h3>[[fight.leftEloName]]<span class="score"> ELO: [[fight.leftElo]]</span></h3>
 
-                <a class="win btn btn-large btn-success" href="/win/left/[[fight.uniqueId]]">I prefer this
-                    one!</a>
-            </div>
+            <a class="win btn btn-large btn-success" href="/win/left/[[fight.uniqueId]]">I prefer this
+                one!</a>
+        </div>
 
-            <div class="code">
-                <script src="[[fight.left.url]]"></script>
-            </div>
+        <div class="code">
+            <script src="[[fight.left.url]]"></script>
         </div>
     </div>
     <div id="right">
-        <div class="tile">
-            <div class="header">
-                <h2>[[fight.right.name]]</h2>
+        <div class="header">
+            <h2>[[fight.right.name]]</h2>
 
-                <h3>[[fight.rightEloName]]<span class="score">ELO: [[fight.rightElo]]</span></h3>
+            <h3>[[fight.rightEloName]]<span class="score"> ELO: [[fight.rightElo]]</span></h3>
 
-                <a class="win btn btn-large btn-success" href="/win/right/[[fight.uniqueId]]">I prefer this
-                    one!</a>
-            </div>
+            <a class="win btn btn-large btn-success" href="/win/right/[[fight.uniqueId]]">I prefer this
+                one!</a>
+        </div>
 
-            <div class="code">
-                <script src="[[fight.right.url]]"></script>
-            </div>
+        <div class="code">
+            <script src="[[fight.right.url]]"></script>
         </div>
     </div>
 </div>
@@ -91,4 +94,5 @@
         t.parentNode.insertBefore(s, t);
     })();
     /* ]]> */</script>
+
 </html>
