@@ -18,7 +18,7 @@
             The higher the gap between the two, the higher the gain.</p>
     </div>
     <img class="product" src="/assets/images/logo-code-story.png"/>
-    <ul class="menu">
+    <ul class="fixed" id="menu">
         <li>
             <p><a href="http://code-story.net/">Blog</a></p>
 
@@ -93,6 +93,16 @@
         s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
         t.parentNode.insertBefore(s, t);
     })();
-    /* ]]> */</script>
-
+    /* ]]> */
+</script>
+<script type="text/javascript">
+    window.onscroll = function (event) {
+        var nVScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if (nVScroll > 420) {
+            document.getElementById('menu').className = "fixed_stop";
+        } else {
+            document.getElementById('menu').className = "fixed";
+        }
+    }
+</script>
 </html>
