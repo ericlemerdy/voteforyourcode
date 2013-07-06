@@ -35,6 +35,7 @@ public class VoteConfiguration implements Configuration {
     routes.staticDir("file:app");
     routes.filter(throttleFilter);
     routes.get("/", this::index);
+    routes.get("/captcha", this::captcha);
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.fightWonByLeft(fightId);
       return seeOther("/");
@@ -47,6 +48,11 @@ public class VoteConfiguration implements Configuration {
 
   private String index() {
     return new Template("file:app/index.html").render("fight", matchMaker.randomFight());
+  }
+
+  // TODO: remove
+  private String captcha() {
+    return new Template("file:app/captcha.html").render();
   }
 
   // Poor man's IoC
