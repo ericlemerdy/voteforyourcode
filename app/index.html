@@ -1,36 +1,40 @@
 ---
 layout: app/layouts/default.html
 ---
-<div id="fight">
-    <div id="left">
-        <div class="header">
-            <h2>[[fight.left.name]]</h2>
 
-            <h3>[[fight.leftEloName]]<span class="score"> ELO: [[fight.leftElo]]</span></h3>
+<div id="wrapper">
+    <div id="fight">
+        <div id="left">
+            <div class="header">
+                <h2>[[fight.left.name]]</h2>
 
-            <a class="win btn btn-large btn-success" href="/win/left/[[fight.uniqueId]]">I prefer this
-                one!</a>
+                <h3>[[fight.leftEloName]]<span class="score"> ELO: [[fight.leftElo]]</span></h3>
+
+                <a class="win btn btn-large btn-success" href="/win/left/[[fight.uniqueId]]">I prefer this
+                    one!</a>
+            </div>
+
+            <div class="code">
+                <script src="[[fight.left.url]]"></script>
+            </div>
         </div>
+        <div id="right">
+            <div class="header">
+                <h2>[[fight.right.name]]</h2>
 
-        <div class="code">
-            <script src="[[fight.left.url]]"></script>
-        </div>
-    </div>
-    <div id="right">
-        <div class="header">
-            <h2>[[fight.right.name]]</h2>
+                <h3>[[fight.rightEloName]]<span class="score"> ELO: [[fight.rightElo]]</span></h3>
 
-            <h3>[[fight.rightEloName]]<span class="score"> ELO: [[fight.rightElo]]</span></h3>
+                <a class="win btn btn-large btn-success" href="/win/right/[[fight.uniqueId]]">I prefer this
+                    one!</a>
+            </div>
 
-            <a class="win btn btn-large btn-success" href="/win/right/[[fight.uniqueId]]">I prefer this
-                one!</a>
-        </div>
-
-        <div class="code">
-            <script src="[[fight.right.url]]"></script>
+            <div class="code">
+                <script src="[[fight.right.url]]"></script>
+            </div>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <script>!function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';

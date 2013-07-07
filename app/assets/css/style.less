@@ -4,6 +4,12 @@
   display: none !important;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background-color: #3498DB;
 
@@ -114,9 +120,16 @@ body {
     }
   }
 
+  #wrapper {
+    height: auto !important; /* ie6 ignores !important, so this will be overridden below */
+    min-height: 100%; /* ie6 ignores min-height completely */
+    height: 100%;
+  }
+
   #fight {
     position: relative;
     margin-top: 30px;
+    width: 100%;
 
     #left {
       position: absolute;
@@ -138,7 +151,6 @@ body {
 
     #left, #right {
       width: 50%;
-      min-height: 1000px;
 
       .header {
         text-align: center;
