@@ -33,7 +33,7 @@ public class VoteTest extends AbstractWebTest {
   }
 
   @Test
-  public void vote() throws InterruptedException {
+  public void vote() {
     Random random = getInstance(Random.class);
     when(random.nextInt(44)).thenReturn(0, 1, 0, 1);
 
@@ -46,5 +46,12 @@ public class VoteTest extends AbstractWebTest {
 
     assertThat(find("#left .score").getText()).contains("1212");
     assertThat(find("#right .score").getText()).contains("1187");
+  }
+
+  @Test
+  public void captcha() {
+    goTo("/captcha");
+
+    assertThat(find("#captcha").getText()).contains("- Are you a Robot? -");
   }
 }
