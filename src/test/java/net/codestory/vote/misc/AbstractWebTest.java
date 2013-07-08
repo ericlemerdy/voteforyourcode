@@ -31,7 +31,12 @@ public abstract class AbstractWebTest extends FluentTest {
   };
 
   @Rule
-  public WebServerRule webServer = new WebServerRule(configuration);
+  public WebServerRule webServer = new WebServerRule(configuration) {
+    @Override
+    protected boolean devMode() {
+      return false;
+    }
+  };
 
   @Override
   public WebDriver getDefaultDriver() {
