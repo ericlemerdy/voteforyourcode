@@ -18,6 +18,7 @@ public class VoteConfiguration implements Configuration {
   private final MatchMaker matchMaker;
   private final QueryCounter queryCounter;
   private final ThrottleFilter throttleFilter;
+  private final GistCache gistCache;
 
   public VoteConfiguration() {
     String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
@@ -28,14 +29,15 @@ public class VoteConfiguration implements Configuration {
     matchMaker = createMatchMaker(random, gists, voteRepository);
     queryCounter = createQueryCounter();
     throttleFilter = createThrottleFilter(queryCounter);
+    gistCache = createGistCache(gists);
   }
 
   @Override
   public void configure(Routes routes) {
-    routes.staticDir("file:app");
+    routes.staticDir("app");
     routes.filter(throttleFilter);
     routes.get("/", this::index);
-    routes.get("/captcha", this::captcha);
+    routes.get("/gist/:name", (name) -> new Payload("application/javascript", gistCache.getGistContent(name)));
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.fightWonByLeft(fightId);
       return seeOther("/");
@@ -47,12 +49,7 @@ public class VoteConfiguration implements Configuration {
   }
 
   private String index() {
-    return new Template("file:app/index.html").render("fight", matchMaker.randomFight());
-  }
-
-  // TODO: remove
-  private String captcha() {
-    return new Template("file:app/captcha.html").render();
+    return new Template("app/index.html").render("fight", matchMaker.randomFight());
   }
 
   // Poor man's IoC
@@ -123,5 +120,9 @@ public class VoteConfiguration implements Configuration {
 
   protected ThrottleFilter createThrottleFilter(QueryCounter queryCounter) {
     return new ThrottleFilter(queryCounter);
+  }
+
+  protected GistCache createGistCache(Gists gists) {
+    return new GistCache(gists);
   }
 }
