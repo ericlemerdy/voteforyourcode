@@ -18,7 +18,6 @@ public class VoteConfiguration implements Configuration {
   private final MatchMaker matchMaker;
   private final QueryCounter queryCounter;
   private final ThrottleFilter throttleFilter;
-  private final GistCache gistCache;
 
   public VoteConfiguration() {
     String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
@@ -29,7 +28,6 @@ public class VoteConfiguration implements Configuration {
     matchMaker = createMatchMaker(random, gists, voteRepository);
     queryCounter = createQueryCounter();
     throttleFilter = createThrottleFilter(queryCounter);
-    gistCache = createGistCache(gists);
   }
 
   @Override
@@ -37,7 +35,6 @@ public class VoteConfiguration implements Configuration {
     routes.staticDir("app");
     routes.filter(throttleFilter);
     routes.get("/", this::index);
-    routes.get("/gist/:name", (name) -> new Payload("application/javascript", gistCache.getGistContent(name)));
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.fightWonByLeft(fightId);
       return seeOther("/");
@@ -60,14 +57,12 @@ public class VoteConfiguration implements Configuration {
   protected Gists createGists() {
     return new Gists(
         new Gist("FooBarQix Java", "https://gist.github.com/MeddahJ/1374633.js"),
-        new Gist("FooBarQix Clojure", "https://gist.github.com/martinsson/1379537.js"),
         new Gist("FooBarQix Groovy Tweetable", "https://gist.github.com/mfranck/1390934.js"),
         new Gist("FooBarQix Scala", "https://gist.github.com/MeddahJ/1403626.js"),
         new Gist("FooBarQix Scala REPL", "https://gist.github.com/ikarius/2f83cdb16554fb494718.js"),
         new Gist("FooBarQix Scala II", "http://gist-it.appspot.com/github/adetante/FooBarQix/blob/master/FooBarQix.scala"),
         new Gist("FooBarQix Scala III", "http://gist-it.appspot.com/github/bcourtine/FooBarQix/blob/master/src/main/scala/org/courtine/foobarqix/FooBarQix.scala"),
         new Gist("FooBarQix Goovy", "http://gist-it.appspot.com/github/boillodmanuel/codestory/blob/master/src/foobarqix.groovy"),
-        new Gist("FooBarQix Clojure Documented", "http://gist-it.appspot.com/github/damienlepage/FooBarQix/blob/master/src/foobarqix.clj"),
         new Gist("FooBarQix Java Mini", "http://gist-it.appspot.com/github/dbaeli/FooBarQix/blob/master/src/main/java/org/foobar/FooBarQix.java"),
         new Gist("FooBarQix Java Fillup", "http://gist-it.appspot.com/github/dbaeli/FooBarQix/blob/master/src/main/java/org/foobar/FooBarQixV2.java"),
         new Gist("FooBarQix Java No Artist", "http://gist-it.appspot.com/github/diodfr/code-story/blob/master/diodfr/codeStory/FooBarQix.java"),
@@ -93,11 +88,10 @@ public class VoteConfiguration implements Configuration {
         new Gist("FooBarQix Ruby", "http://gist-it.appspot.com/github/guillaumerose/FooBarQix/blob/master/ruby/lib/foo.rb"),
         new Gist("FooBarQix Java Fast", "http://gist-it.appspot.com/github/henri-tremblay/foobarqix/blob/master/src/main/java/org/hjf/foobarqix/FooBarQix.java"),
         new Gist("FooBarQix Yeti", "http://gist-it.appspot.com/github/jfpoilpret/yeti-katas/blob/master/foobarqix.yeti"),
-        new Gist("FooBarQix HashCode/Equals", "http://gist-it.appspot.com/github/kocakosm/foobarqix/blob/master/src/org/kocakosm/foobarqix/FooBarQixNumber.java"),
+        new Gist("FooBarQix HashCode-Equals", "http://gist-it.appspot.com/github/kocakosm/foobarqix/blob/master/src/org/kocakosm/foobarqix/FooBarQixNumber.java"),
         new Gist("FooBarQix Empty Lines", "http://gist-it.appspot.com/github/lgueye/foobarqix/blob/master/src/main/java/org/diveintojee/foobarquix/FooBarQix.java"),
         new Gist("FooBarQix Groovy Style", "http://gist-it.appspot.com/github/melix/CodeStory/blob/master/FooBarQix/FooBarQix.groovy"),
         new Gist("FooBarQixer", "http://gist-it.appspot.com/github/seblm/FooBarQix/blob/release/src/main/java/fr/free/lemerdy/FooBarQixer.java"),
-        new Gist("FooBarQix CHAR_PATTERNS", "http://gist-it.appspot.com/github/sebprunier/FooBarQix_Java/blob/master/src/fr/devoxx/foobarqix/FooBarQix.java"),
         new Gist("FooBarQix SixTeam", "http://gist-it.appspot.com/github/SixTeam/FooBarQix/blob/master/src/main/scala/FooBarQix.scala"),
         new Gist("FooBarQix Magic Replacement", "http://gist-it.appspot.com/github/wokier/FooBarQix/blob/master/src/net/story/code/FooBarQix.java"),
         new Gist("FooBarQix Builder", "http://gist-it.appspot.com/github/YannMoisan/foobarqix/blob/master/src/com/yannmoisan/foobarqix/Main.java"),
@@ -120,9 +114,5 @@ public class VoteConfiguration implements Configuration {
 
   protected ThrottleFilter createThrottleFilter(QueryCounter queryCounter) {
     return new ThrottleFilter(queryCounter);
-  }
-
-  protected GistCache createGistCache(Gists gists) {
-    return new GistCache(gists);
   }
 }

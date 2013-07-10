@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 
 import java.util.*;
 
+import net.codestory.vote.gists.*;
 import net.codestory.vote.misc.*;
 
 import org.junit.*;
@@ -21,21 +22,23 @@ public class VoteTest extends AbstractWebTest {
   @Test
   public void candidates() {
     Random random = getInstance(Random.class);
-    when(random.nextInt(44)).thenReturn(0, 1);
+    Gists gists = getInstance(Gists.class);
+    when(random.nextInt(gists.size())).thenReturn(0, 1);
 
     goTo("/");
 
     assertThat(find("#left h2").getText()).contains("FooBarQix Java");
-    assertThat(find("#left").getText()).contains("net.ericlefevre");
+    assertThat(find("#left").getText()).contains("byDivisor");
 
-    assertThat(find("#right h2").getText()).contains("FooBarQix Clojure");
-    assertThat(find("#right").getText()).contains("(def number)");
+    assertThat(find("#right h2").getText()).contains("FooBarQix Groovy Tweetable");
+    assertThat(find("#right").getText()).contains("A coller directement");
   }
 
   @Test
   public void vote() {
     Random random = getInstance(Random.class);
-    when(random.nextInt(44)).thenReturn(0, 1, 0, 1);
+    Gists gists = getInstance(Gists.class);
+    when(random.nextInt(gists.size())).thenReturn(0, 1, 0, 1);
 
     goTo("/");
 

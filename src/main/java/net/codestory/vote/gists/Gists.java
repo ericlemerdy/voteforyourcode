@@ -3,7 +3,7 @@ package net.codestory.vote.gists;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class Gists {
+public class Gists implements Iterable<Gist> {
   private final Gist[] gists;
   private final Map<String, Gist> byName;
 
@@ -25,5 +25,10 @@ public class Gists {
 
   public Gist get(int index) {
     return gists[index];
+  }
+
+  @Override
+  public Iterator<Gist> iterator() {
+    return Arrays.asList(gists).iterator();
   }
 }
