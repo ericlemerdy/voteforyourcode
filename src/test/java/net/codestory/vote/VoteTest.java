@@ -15,7 +15,7 @@ public class VoteTest extends AbstractWebTest {
   public void homepage() {
     goTo("/");
 
-    assertThat(title()).isEqualTo("Code-Story - {{ Code }} Fight");
+    assertThat(title()).isEqualTo("{{Code}} Fight by Code-Story");
   }
 
   @Test
@@ -26,7 +26,7 @@ public class VoteTest extends AbstractWebTest {
     goTo("/");
 
     assertThat(find("#left h2").getText()).contains("FooBarQix Java");
-    assertThat(find("#left").getText()).contains("byDivisor(n, 5)");
+    assertThat(find("#left").getText()).contains("net.ericlefevre");
 
     assertThat(find("#right h2").getText()).contains("FooBarQix Clojure");
     assertThat(find("#right").getText()).contains("(def number)");
