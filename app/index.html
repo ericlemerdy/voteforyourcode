@@ -3,35 +3,33 @@ layout: app/layouts/default.html
 ---
 
 <script src="/assets/js/prettify.js"></script>
-<div id="wrapper">
-    <div id="fight">
-        <div id="left">
-            <div class="header">
-                <h2>[[fight.left.name]]</h2>
+<div id="fight">
+    <div id="left">
+        <div class="header">
+            <h2>[[fight.left.name]]</h2>
 
-                <h3>[[fight.leftEloName]]<span class="score"> ELO: [[fight.leftElo]]</span></h3>
+            <h3>[[fight.leftEloName]]<span class="score"> ELO: [[fight.leftElo]]</span></h3>
 
-                <a class="win btn btn-large btn-success" href="/win/left/[[fight.uniqueId]]">I prefer this
-                    one!</a>
-            </div>
-
-            <div class="code">
-                <script src="/gist/[[fight.left.name]].js"></script>
-            </div>
+            <a class="win btn btn-large btn-success" href="/win/left/[[fight.uniqueId]]">I prefer this
+                one!</a>
         </div>
-        <div id="right">
-            <div class="header">
-                <h2>[[fight.right.name]]</h2>
 
-                <h3>[[fight.rightEloName]]<span class="score"> ELO: [[fight.rightElo]]</span></h3>
+        <div class="code">
+            <script src="/gist/[[fight.left.name]].js"></script>
+        </div>
+    </div>
+    <div id="right">
+        <div class="header">
+            <h2>[[fight.right.name]]</h2>
 
-                <a class="win btn btn-large btn-success" href="/win/right/[[fight.uniqueId]]">I prefer this
-                    one!</a>
-            </div>
+            <h3>[[fight.rightEloName]]<span class="score"> ELO: [[fight.rightElo]]</span></h3>
 
-            <div class="code">
-                <script src="/gist/[[fight.right.name]].js"></script>
-            </div>
+            <a class="win btn btn-large btn-success" href="/win/right/[[fight.uniqueId]]">I prefer this
+                one!</a>
+        </div>
+
+        <div class="code">
+            <script src="/gist/[[fight.right.name]].js"></script>
         </div>
     </div>
 </div>

@@ -8,11 +8,10 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #3498DB;
+  background-color: #2C3E50;
 }
 
 body {
-  background-color: #3498DB;
   border-right: 10px solid #2C3E50;
   border-left: 10px solid #2C3E50;
 
@@ -114,20 +113,13 @@ body {
     }
   }
 
-  #wrapper {
-    height: auto !important; /* ie6 ignores !important, so this will be overridden below */
-    min-height: 100%; /* ie6 ignores min-height completely */
-    height: 100%;
-  }
-
   #fight {
-    position: relative;
     margin-top: 5px;
     width: 100%;
 
     #left {
-      position: absolute;
-      left: 0;
+      float: left;
+      background-color: #2C3E50;
 
       .code {
         padding: 0 5px 0 10px;
@@ -135,8 +127,7 @@ body {
     }
 
     #right {
-      position: absolute;
-      right: 0;
+      float: right;
 
       .code {
         padding: 0 10px 0 5px;
@@ -144,6 +135,7 @@ body {
     }
 
     #left, #right {
+      background-color: #2980B9;
       width: 50%;
 
       .header {
@@ -169,26 +161,6 @@ body {
         }
       }
     }
-
-    #left:hover, #right:hover {
-      width: 85%;
-      background-color: darken(#3498DB, 5%);
-      z-index: 1000;
-
-      .transition(width .5s, background-color .5s);
-    }
-
-    #left:hover {
-      -webkit-border-top-right-radius: 50px;
-      -moz-border-radius-topright: 50px;
-      border-top-right-radius: 50px;
-    }
-
-    #right:hover {
-      -webkit-border-top-left-radius: 50px;
-      -moz-border-radius-topleft: 50px;
-      border-top-left-radius: 50px;
-    }
   }
 
   #captcha {
@@ -196,6 +168,12 @@ body {
     color: white;
     width: 800px;
     font-size: x-large;
+  }
+
+  footer {
+    clear: both;
+    height: 300px;
+    background-color: #34495E;
   }
 }
 
