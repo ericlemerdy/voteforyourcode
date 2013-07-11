@@ -34,19 +34,20 @@ public class VoteConfiguration implements Configuration {
   public void configure(Routes routes) {
     routes.staticDir("app");
     routes.filter(throttleFilter);
-    routes.get("/", this::index);
+    routes.get("/", () -> Payload.seeOther("/fight"));
+    routes.get("/fight", this::index);
     routes.get("/win/left/:fightId", (fightId) -> {
       matchMaker.fightWonByLeft(fightId);
-      return seeOther("/");
+      return seeOther("/fight");
     });
     routes.get("/win/right/:fightId", (fightId) -> {
       matchMaker.fightWonByRight(fightId);
-      return seeOther("/");
+      return seeOther("/fight");
     });
   }
 
   private String index() {
-    return new Template("app/index.html").render("fight", matchMaker.randomFight());
+    return new Template("app/fight.html").render("fight", matchMaker.randomFight());
   }
 
   // Poor man's IoC

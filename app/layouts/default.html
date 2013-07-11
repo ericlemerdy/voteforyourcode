@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html ng-app>
 <head>
-    <title class="ng-non-bindable">{{Code}} Fight by Code-Story</title>
+    <title class="ng-non-bindable">[[title]]</title>
     <meta charset='utf-8'>
     <link href="/assets/css/style.less" rel="stylesheet">
 </head>
 <body>
 <header>
     <nav>
-        <a class="nav_link" id="blog" href="#">
+        <a class="nav_link [[nav1]]" id="blog" href="/blog">
             <img src="/assets/img/blog.png"/>
         </a>
-        <a class="nav_link selected" id="code-fight" href="/">
-            <div class="designedby">
-                Designed by CodeStory
-            </div>
+        <a class="nav_link [[nav2]]" id="fight" href="/fight">
+            <img src="/assets/img/fight.png"/>
         </a>
-        <a class="nav_link" id="team" href="#">
+        <a class="nav_link [[nav3]]" id="team" href="/team">
             <img src="/assets/img/team.png"/>
         </a>
-        <a class="nav_link" id="contest" href="#">
+        <a class="nav_link [[nav4]]" id="contest" href="/contest">
             <img src="/assets/img/contest.png"/>
         </a>
     </nav>
 
-    <div id="title">
-        <img src="/assets/img/code_fight_large.png"/>
+    <div id="title" class="[[section]]">
+        <img src="/assets/img/logo-[[section]].png"/>
 
-        <p>
-            Wether you like it scripted, strongly typed, tested or cowboy style,
-            vote right here, right now for your favourite source code.
-            <br/>
-            Show your language fanboyism, earn badges, stay fresh & cool!
-        </p>
+        <p>[[tagline]]</p>
     </div>
 </header>
 
-[[body]]
+<div id="main">
+    [[body]]
+</div>
 
 <footer>
     <section>

@@ -13,8 +13,8 @@ import org.junit.*;
 
 public class VoteTest extends AbstractWebTest {
   @Test
-  public void homepage() {
-    goTo("/");
+  public void fight() {
+    goTo("/fight");
 
     assertThat(title()).isEqualTo("{{Code}} Fight by Code-Story");
   }
@@ -25,7 +25,7 @@ public class VoteTest extends AbstractWebTest {
     Gists gists = getInstance(Gists.class);
     when(random.nextInt(gists.size())).thenReturn(0, 1);
 
-    goTo("/");
+    goTo("/fight");
 
     assertThat(find("#left h2").getText()).contains("FooBarQix Java");
     assertThat(find("#left").getText()).contains("byDivisor");
@@ -40,7 +40,7 @@ public class VoteTest extends AbstractWebTest {
     Gists gists = getInstance(Gists.class);
     when(random.nextInt(gists.size())).thenReturn(0, 1, 0, 1);
 
-    goTo("/");
+    goTo("/fight");
 
     assertThat(find("#left .score").getText()).contains("1200");
     assertThat(find("#right .score").getText()).contains("1200");

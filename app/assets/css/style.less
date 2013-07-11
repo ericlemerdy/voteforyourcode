@@ -66,13 +66,6 @@ header {
       width: 170px;
       height: 170px;
     }
-
-    .designedby {
-      text-align: center;
-      vertical-align: middle;
-      padding: 66px 20px;
-      font-style: italic;
-    }
   }
 
   .nav_link:hover {
@@ -81,29 +74,57 @@ header {
 
   .selected {
     opacity: .8;
+    background-color: @back_blue !important;
+
+    img {
+      display: none;
+    }
+  }
+
+  .selected:after {
+    content: "Designed by CodeStory";
+    text-align: center;
+    vertical-align: middle;
+    padding: 66px 20px 0 20px;
+    font-style: italic;
+    width: 130px;
+    height: 104px;
+    display: block;
   }
 
   #blog {
     top: 0;
     left: 0;
-    background-color: @orange;
   }
 
-  #code-fight {
+  #fight {
     top: 180px;
     left: 0;
-    background-color: @back_blue;
   }
 
   #team {
     top: 0;
     right: 0;
-    background-color: @green;
   }
 
   #contest {
     top: 180px;
     right: 0;
+  }
+
+  #title.blog, #blog {
+    background-color: @orange;
+  }
+
+  #title.fight, #fight {
+    background-color: @gist_blue;
+  }
+
+  #title.team, #team {
+    background-color: @green;
+  }
+
+  #title.contest, #contest {
     background-color: @red;
   }
 
@@ -112,7 +133,6 @@ header {
     margin: 0 180px;
     text-align: center;
     overflow-y: hidden;
-    background-color: @gist_blue;
     overflow: hidden;
 
     img {
@@ -128,7 +148,11 @@ header {
   }
 }
 
-#fight {
+#main {
+  min-height: 400px;
+}
+
+#code-fight {
   margin-top: 10px;
   width: 100%;
 
