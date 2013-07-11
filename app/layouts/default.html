@@ -3,20 +3,25 @@
 <head>
     <title>{{Code}} Fight by Code-Story</title>
     <meta charset='utf-8'>
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/flat-ui.css" rel="stylesheet">
     <link href="/assets/css/style.less" rel="stylesheet">
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body>
 <header>
-    <ul id="menu_left">
-        <li class="blog">
+    <nav>
+        <a class="nav_link" id="blog" href="#">
             <img src="/assets/img/blog.png"/>
-        </li>
-        <li class="fight selected">
+        </a>
+        <a class="nav_link" id="code-story" href="#">
             <img src="/assets/img/code-story.png"/>
-        </li>
-    </ul>
+        </a>
+        <a class="nav_link" id="team" href="#">
+            <img src="/assets/img/team.png"/>
+        </a>
+        <a class="nav_link" id="contest" href="#">
+            <img src="/assets/img/contest.png"/>
+        </a>
+    </nav>
 
     <div id="title">
         <img src="/assets/img/code_fight_large.png"/>
@@ -24,21 +29,10 @@
         <p>
             Wether you like it scripted, strongly typed, tested or cowboy style,
             vote right here, right now for your favourite source code.
-        </p>
-
-        <p>
+            <br/>
             Show your language fanboyism, earn badges, stay fresh & cool!
         </p>
     </div>
-
-    <ul id="menu_right">
-        <li class="codestory">
-            <img src="/assets/img/team.png"/>
-        </li>
-        <li class="contest">
-            <img src="/assets/img/contest.png"/>
-        </li>
-    </ul>
 </header>
 
 [[body]]
