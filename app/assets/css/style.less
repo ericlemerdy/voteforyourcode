@@ -121,19 +121,20 @@ header {
   margin-top: 10px;
   width: 100%;
 
-  #left {
-    float: left;
-  }
-
-  #right {
-    float: right;
-  }
-
   #left, #right {
     background-color: #2980B9;
-    width: 49.99%;
+    width: 49.8%;
     position: relative;
     text-align: center;
+    overflow: hidden;
+    .transition(.5s);
+
+    h2, h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 18px 50px;
+    }
 
     a.win {
       font-size: medium;
@@ -151,6 +152,7 @@ header {
       top: 10px;
       width: 32px;
       height: 32px;
+      background-color: #2980B9;
       background-image: url('/assets/img/full.png');
       background-size: 32px 32px;
     }
@@ -167,6 +169,26 @@ header {
         display: none;
       }
     }
+  }
+
+  #left {
+    float: left;
+  }
+
+  #right {
+    float: right;
+  }
+
+  .full_screen {
+    width: 80% !important;
+
+    .full {
+      background-image: url('/assets/img/small.png') !important;
+    }
+  }
+
+  .hidden {
+    width: 19.5% !important;
   }
 }
 
@@ -208,3 +230,11 @@ footer {
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+

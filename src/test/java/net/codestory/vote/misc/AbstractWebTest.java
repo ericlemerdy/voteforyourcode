@@ -15,6 +15,8 @@ import org.openqa.selenium.*;
 
 @SharedDriver
 public abstract class AbstractWebTest extends FluentTest {
+  private static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(1024, 768);
+
   private VoteConfiguration configuration = new VoteConfiguration() {
     @Override
     protected VoteRepository createVoteRepository(String uri) {
@@ -40,7 +42,9 @@ public abstract class AbstractWebTest extends FluentTest {
 
   @Override
   public WebDriver getDefaultDriver() {
-    return new PhantomJsDownloader().createDriver();
+    WebDriver driver = new PhantomJsDownloader().createDriver();
+    driver.manage().window().setSize(DEFAULT_WINDOW_SIZE);
+    return driver;
   }
 
   @Override

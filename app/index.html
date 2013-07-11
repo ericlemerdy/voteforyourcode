@@ -3,25 +3,25 @@ layout: app/layouts/default.html
 ---
 
 <script src="/assets/js/prettify.js"></script>
-<div id="fight">
-    <div id="left">
+<div id="fight" ng-controller="FightController">
+    <div id="left" ng-class="left_class">
         <h2>[[fight.left.name]]</h2>
 
         <h3>[[fight.leftEloName]] ELO: <span class="score">[[fight.leftElo]]</span></h3>
 
-        <a class="full" href="#"><i class="icon-fullscreen icon-white"></i></a>
+        <a class="full" ng-click="full_left()" href="#"><i class="icon-fullscreen icon-white"></i></a>
         <a class="win" href="/win/left/[[fight.uniqueId]]">I prefer this one!</a>
 
         <div class="code">
             <script src="/gist/[[fight.left.name]].js"></script>
         </div>
     </div>
-    <div id="right">
+    <div id="right" ng-class="right_class">
         <h2>[[fight.right.name]]</h2>
 
         <h3>[[fight.rightEloName]] ELO: <span class="score">[[fight.rightElo]]</span></h3>
 
-        <a class="full" href="#"><i class="icon-fullscreen icon-white"></i></a>
+        <a class="full" ng-click="full_right()" href="#"><i class="icon-fullscreen icon-white"></i></a>
         <a class="win" href="/win/right/[[fight.uniqueId]]">I prefer this one!</a>
 
         <div class="code">
