@@ -4,6 +4,88 @@ layout: app/layouts/default.html
 nav3: selected
 section: team
 tagline: coming soon...
+
+david: http://gravatar.com/avatar/f0887bf6175ba40dca795eb37883a8cf?s=240
+jeanlaurent: http://gravatar.com/avatar/649d3668d3ba68e75a3441dec9eac26e?s=240
+eric: http://gravatar.com/avatar/77da98419ae312eb0e322a3dac44a734?s=240
+sebastian: http://gravatar.com/avatar/492d722c2d77a5816f0e600bd2c3a9f5?s=240
+xavier: http://gravatar.com/avatar/823cc38b227e3b03babd0b3e4642f8f1?s=240
+christophe: http://gravatar.com/avatar/5a9a33e6c0397ed112a7c955728f3a1f?s=240
 ---
 
-<h1>Coming soon...</h1>
+<div id="seasons" ng-controller="TeamController">
+    <section class="season">
+        <h1>Season S03 - ongoing</h1>
+        <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
+        <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
+    </section>
+
+    <section class="season">
+        <h1>Season S02</h1>
+        <a ng-click="show_bio('xavier')" href="#"><img src="[[xavier]]"/></a>
+        <a ng-click="show_bio('christophe')" href="#"><img src="[[christophe]]"/></a>
+        <a ng-click="show_bio('sebastian')" href="#"><img src="[[sebastian]]"/></a>
+        <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
+        <a ng-click="show_bio('eric')" href="#"><img src="[[eric]]"/></a>
+        <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
+    </section>
+
+    <section class="season">
+        <h1>Season S01</h1>
+        <a ng-click="show_bio('eric')" href="#"><img src="[[eric]]"/></a>
+        <a ng-click="show_bio('sebastian')" href="#"><img src="[[sebastian]]"/></a>
+        <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
+        <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
+    </section>
+
+    <article ng-cloak class="bio" ng-show="bio_class['david']" ng-animate="'fade'">
+        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+
+        <h1>Hi! I'm David Gageot</h1>
+
+        <p>
+            My passion ? Writing complex yet simple software. Trying to be a facilitator helping teams being more
+            innovative and more efficient, leveraging both my creativity and my expertise.
+        </p>
+
+        <p>
+            I started coding with Logo 28 years ago. I've been participating to Java projets since 1995, as
+            <a href='http://fr.adesoft.com/'>Adesoft</a>'s R&D leader, as Java and Agile consultant at
+            <a href='http://www.valtech.fr/fr/index/it.html'>Valtech</a>, CTO at
+            <a href='http://blog.javabien.net/?s=algodeal'>Algodeal</a>, a hedge fund and then developer at
+            <a href='http://www.sonarsource.com'>SonarSource</a>, the company behind
+            <a href='http://www.sonarsource.org'>Sonar</a>.
+        </p>
+
+        <p>
+            In 2010, I took the leadership on open-sourced <a href='http://infinitest.github.com'>Infinitest</a>. An
+            Eclipse and IntelliJ plugin that runs unit tests as soon as changes are made to the source code. Infinitest
+            is the dream come true for TDD addicts because it dramatically reduces feedback loops.
+        </p>
+
+        <p>You might be a reader of my blog <a href='http://javabien.net/'>JavaBien!</a> since 2004.</p>
+    </article>
+
+    <article ng-cloak class="bio" ng-show="bio_class['jeanlaurent']" ng-animate="'fade'">
+        TODO: jeanlaurent
+    </article>
+
+    <article ng-cloak class="bio" ng-show="bio_class['eric']">
+        TODO: eric
+    </article>
+
+    <article ng-cloak class="bio" ng-show="bio_class['sebastian']">
+        TODO: sebastian
+    </article>
+
+    <article ng-cloak class="bio" ng-show="bio_class['xavier']">
+        TODO: xavier
+    </article>
+
+    <article ng-cloak class="bio" ng-show="bio_class['christophe']">
+        TODO: christophe
+    </article>
+</div>
+
+
+

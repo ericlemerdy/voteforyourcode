@@ -22,6 +22,10 @@
   src: local('Lato Bold'), local('Lato-Bold'), url(https://themes.googleusercontent.com/static/fonts/lato/v6/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
 }
 
+[ng-cloak] {
+  display: none !important;
+}
+
 html, body, header, footer, img {
   padding: 0;
   margin: 0;
@@ -233,6 +237,54 @@ header {
   height: 300px;
 }
 
+#seasons {
+  padding-top: 40px;
+
+  .season {
+    margin-bottom: 40px;
+
+    img {
+      width: 120px;
+      height: 120px;
+      margin-right: 5px;
+      .rounded();
+    }
+  }
+
+  .bio {
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -250px 0 0 -350px;
+    background-color: #2980B9;
+    text-align: justify;
+    font-size: larger;
+    padding-top: 40px;
+
+    p, h1 {
+      padding: 10px 30px 5px 30px;
+    }
+
+    a {
+      color: @green;
+      text-decoration: underline;
+    }
+
+    .minimize {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
 footer {
   clear: both;
   height: 300px;
@@ -258,6 +310,18 @@ footer {
       color: @orange;
     }
   }
+}
+
+.fade-hide, .fade-show {
+  .transition();
+}
+
+.fade-hide, .fade-show.fade-show-active {
+  opacity: 1;
+}
+
+.fade-hide.fade-hide-active, .fade-show {
+  opacity: 0;
 }
 
 .rounded(@radius: 2px) {
