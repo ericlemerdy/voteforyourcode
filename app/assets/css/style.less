@@ -58,7 +58,7 @@ header {
 
   .nav_link {
     position: absolute;
-    opacity: .4;
+    opacity: .5;
     width: 170px;
     height: 170px;
 
@@ -66,10 +66,21 @@ header {
       width: 170px;
       height: 170px;
     }
+
+    .designedby {
+      text-align: center;
+      vertical-align: middle;
+      padding: 66px 20px;
+      font-style: italic;
+    }
   }
 
   .nav_link:hover {
     opacity: 1;
+  }
+
+  .selected {
+    opacity: .8;
   }
 
   #blog {
@@ -78,10 +89,10 @@ header {
     background-color: @orange;
   }
 
-  #code-story {
+  #code-fight {
     top: 180px;
     left: 0;
-    background-color: @blue;
+    background-color: @back_blue;
   }
 
   #team {
