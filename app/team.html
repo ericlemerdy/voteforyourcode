@@ -14,184 +14,217 @@ christophe: http://gravatar.com/avatar/5a9a33e6c0397ed112a7c955728f3a1f?s=240
 ---
 
 <div id="seasons" ng-controller="TeamController">
-    <section class="season">
-        <h1>Season S03 - ongoing</h1>
-        <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
-        <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
-    </section>
+<section class="season">
+    <h1>Season S03 - ongoing</h1>
+    <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
+    <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
+</section>
 
-    <section class="season">
-        <h1>Season S02</h1>
-        <a ng-click="show_bio('xavier')" href="#"><img src="[[xavier]]"/></a>
-        <a ng-click="show_bio('christophe')" href="#"><img src="[[christophe]]"/></a>
-        <a ng-click="show_bio('sebastian')" href="#"><img src="[[sebastian]]"/></a>
-        <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
-        <a ng-click="show_bio('eric')" href="#"><img src="[[eric]]"/></a>
-        <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
-    </section>
+<section class="season">
+    <h1>Season S02</h1>
+    <a ng-click="show_bio('xavier')" href="#"><img src="[[xavier]]"/></a>
+    <a ng-click="show_bio('christophe')" href="#"><img src="[[christophe]]"/></a>
+    <a ng-click="show_bio('sebastian')" href="#"><img src="[[sebastian]]"/></a>
+    <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
+    <a ng-click="show_bio('eric')" href="#"><img src="[[eric]]"/></a>
+    <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
+</section>
 
-    <section class="season">
-        <h1>Season S01</h1>
-        <a ng-click="show_bio('eric')" href="#"><img src="[[eric]]"/></a>
-        <a ng-click="show_bio('sebastian')" href="#"><img src="[[sebastian]]"/></a>
-        <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
-        <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
-    </section>
+<section class="season">
+    <h1>Season S01</h1>
+    <a ng-click="show_bio('eric')" href="#"><img src="[[eric]]"/></a>
+    <a ng-click="show_bio('sebastian')" href="#"><img src="[[sebastian]]"/></a>
+    <a ng-click="show_bio('jeanlaurent')" href="#"><img src="[[jeanlaurent]]"/></a>
+    <a ng-click="show_bio('david')" href="#"><img src="[[david]]"/></a>
+</section>
 
-    <article ng-cloak class="bio" ng-show="bio_class['david']" ng-animate="'fade'">
-        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+<article ng-cloak class="bio" ng-show="bio_class['david']" ng-animate="'fade'">
+    <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
 
-        <h1>Hi! I'm David Gageot</h1>
+    <h1>Hi! I'm David Gageot</h1>
 
-        <p>
-            My passion ? Writing complex yet simple software. Trying to be a facilitator helping teams being more
-            innovative and more efficient, leveraging both my creativity and my expertise.
-        </p>
+    <p>
+        My passion ? Writing complex yet simple software. Trying to be a facilitator helping teams being more
+        innovative and more efficient, leveraging both my creativity and my expertise.
+    </p>
 
-        <p>
-            I started coding with Logo 28 years ago. I've been participating to Java projets since 1995, as
-            <a href='http://fr.adesoft.com/'>Adesoft</a>'s R&D leader, as Java and Agile consultant at
-            <a href='http://www.valtech.fr/fr/index/it.html'>Valtech</a>, CTO at
-            <a href='http://blog.javabien.net/?s=algodeal'>Algodeal</a>, a hedge fund and then developer at
-            <a href='http://www.sonarsource.com'>SonarSource</a>, the company behind
-            <a href='http://www.sonarsource.org'>Sonar</a>.
-        </p>
+    <p>
+        I started coding with Logo 28 years ago. I've been participating to Java projets since 1995, as
+        <a href='http://fr.adesoft.com/'>Adesoft</a>'s R&D leader, as Java and Agile consultant at
+        <a href='http://www.valtech.fr/fr/index/it.html'>Valtech</a>, CTO at
+        <a href='http://blog.javabien.net/?s=algodeal'>Algodeal</a>, a hedge fund and then developer at
+        <a href='http://www.sonarsource.com'>SonarSource</a>, the company behind
+        <a href='http://www.sonarsource.org'>Sonar</a>.
+    </p>
 
-        <p>
-            In 2010, I took the leadership on open-sourced <a href='http://infinitest.github.com'>Infinitest</a>. An
-            Eclipse and IntelliJ plugin that runs unit tests as soon as changes are made to the source code. Infinitest
-            is the dream come true for TDD addicts because it dramatically reduces feedback loops.
-        </p>
+    <p>
+        In 2010, I took the leadership on open-sourced <a href='http://infinitest.github.com'>Infinitest</a>. An
+        Eclipse and IntelliJ plugin that runs unit tests as soon as changes are made to the source code. Infinitest
+        is the dream come true for TDD addicts because it dramatically reduces feedback loops.
+    </p>
 
-        <p>You might be a reader of my blog <a href='http://javabien.net/'>JavaBien!</a> since 2004.</p>
-    </article>
+    <p>You might be a reader of my blog <a href='http://javabien.net/'>JavaBien!</a> since 2004.</p>
 
-    <article ng-cloak class="bio" ng-show="bio_class['jeanlaurent']" ng-animate="'fade'">
-        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+    <div class="social">
+        <a href="http://fusion.google.com/add?source=atgs&feedurl=http%3A//javabien.net/feed/"><img src="/assets/img/rss.png" alt="Read my blog"/></a>
+        <a href="http://www.twitter.com/dgageot"><img src="/assets/img/twitter.png" alt="Follow dgageot on Twitter"/></a>
+        <a href="http://linkedin.com/in/davidgageot"><img src="/assets/img/in.png" alt="View David's profile on LinkedIn"/></a>
+    </div>
+</article>
 
-        <h1>Hi! I'm Jean-Laurent de Morlhon</h1>
+<article ng-cloak class="bio" ng-show="bio_class['jeanlaurent']" ng-animate="'fade'">
+    <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
 
-        <p>
-            I&#8217;m CTO at
-            <a href='http://studio.xebia.fr'>Xebia Studio</a>, have founded <a href='http://serpodile.com'>Serpodile</a>
-            to help all the kids write easily and am an happy father of 4 kids. I write software for almost 15 years.
-        </p>
+    <h1>Hi! I'm Jean-Laurent de Morlhon</h1>
 
-        <p>
-            I love the act of writing software transforming a vague idea from the mind of someone, into an efficient
-            software which really helps.
-        </p>
+    <p>
+        I&#8217;m CTO at
+        <a href='http://studio.xebia.fr'>Xebia Studio</a>, have founded <a href='http://serpodile.com'>Serpodile</a>
+        to help all the kids write easily and am an happy father of 4 kids. I write software for almost 15 years.
+    </p>
 
-        <p>
-            Writing software is often associated with bloat, bugs, late, unmaintainable code and crappy interface. I
-            like
-            challenging this idea, and thrive to convince people that there is another way of writing software. For that
-            matter I explore the software craftsmanship movement and built from the ground up the
-            <a href='http://studio.xebia.fr'>Xebia Studio</a> where we write elegant software for client who care for
-            quickness and quality.
-        </p>
+    <p>
+        I love the act of writing software transforming a vague idea from the mind of someone, into an efficient
+        software which really helps.
+    </p>
 
-        <p>
-            I&#8217;m a tdd guy, and I host many <a href='http://coderetreat.org/about'>coderetreats</a>, to meet clever
-            developpers, learn new techniques, and just train.
-        </p>
-    </article>
+    <p>
+        Writing software is often associated with bloat, bugs, late, unmaintainable code and crappy interface. I
+        like
+        challenging this idea, and thrive to convince people that there is another way of writing software. For that
+        matter I explore the software craftsmanship movement and built from the ground up the
+        <a href='http://studio.xebia.fr'>Xebia Studio</a> where we write elegant software for client who care for
+        quickness and quality.
+    </p>
 
-    <article ng-cloak class="bio" ng-show="bio_class['eric']" ng-animate="'fade'">
-        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+    <p>
+        I&#8217;m a tdd guy, and I host many <a href='http://coderetreat.org/about'>coderetreats</a>, to meet clever
+        developpers, learn new techniques, and just train.
+    </p>
 
-        <p>
-            <a href='http://twitter.com/ericlemerdy'>Eric</a> is especially happy when he codes.
-        </p>
+    <div class="social">
+        <a href="http://morlhon.net/blog/"><img src="/assets/img/rss.png" alt="Read my blog"/></a>
+        <a href="http://www.twitter.com/morlhon"><img src="/assets/img/twitter.png" alt="Follow morlhon on Twitter"/></a>
+        <a href="http://linkedin.com/in/morlhon"><img src="/assets/img/in.png" alt="View Jean-Laurent's profile on LinkedIn"/></a>
+    </div>
+</article>
 
-        <p>
-            Led by Agile spirit, he enjoys belonging to a cool code team and sharing its happiness. In addition to his
-            interest for practicing the art of programming, he also likes theory. Lean Software Developement satisfies
-            his interest for both japanese culture and people empowering models that work.
-        </p>
+<article ng-cloak class="bio" ng-show="bio_class['eric']" ng-animate="'fade'">
+    <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
 
-        <p>
-            Inspired by Software Craftsmanship, he tries to remove a feature every day and evict legacy from this world
-            (legacy being code that could have been written the day before by himself).
-        </p>
+    <p>
+        <a href='http://twitter.com/ericlemerdy'>Eric</a> is especially happy when he codes.
+    </p>
 
-        <p>
-            He is a happy member of <a href='http://blog.valtech.fr'>Valtech Technology Paris</a>.
-        </p>
+    <p>
+        Led by Agile spirit, he enjoys belonging to a cool code team and sharing its happiness. In addition to his
+        interest for practicing the art of programming, he also likes theory. Lean Software Developement satisfies
+        his interest for both japanese culture and people empowering models that work.
+    </p>
 
-    </article>
+    <p>
+        Inspired by Software Craftsmanship, he tries to remove a feature every day and evict legacy from this world
+        (legacy being code that could have been written the day before by himself).
+    </p>
 
-    <article ng-cloak class="bio" ng-show="bio_class['sebastian']" ng-animate="'fade'">
-        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+    <p>
+        He is a happy member of <a href='http://blog.valtech.fr'>Valtech Technology Paris</a>.
+    </p>
 
-        <p>
-            Sébastian likes Software Development Done Right.
-        </p>
+    <div class="social">
+        <a href="http://eric.lemerdy.free.fr/dotclear/index.php"><img src="/assets/img/rss.png" alt="Read my blog"/></a>
+        <a href="http://www.twitter.com/ericlemerdy"><img src="/assets/img/twitter.png" alt="Follow ericlemerdy on Twitter"/></a>
+        <a href="http://linkedin.com/pub/eric-le-merdy/4/70/bb6"><img src="/assets/img/in.png" alt="View Eric's profile on LinkedIn"/></a>
+    </div>
+</article>
 
-        <p>
-            He is passionate about software development and innovative technologies. Java is his natural language but
-            craft some code using ruby or javascript as well. He likes to release early and release often to end users
-            by using agility practices.
-        </p>
+<article ng-cloak class="bio" ng-show="bio_class['sebastian']" ng-animate="'fade'">
+    <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
 
-        <p>
-            You may be able to meet him in a coding dojo or a live coding session. He works at Xebia since 2011 as a
-            consultant.
-        </p>
-    </article>
+    <p>
+        Sébastian likes Software Development Done Right.
+    </p>
 
-    <article ng-cloak class="bio" ng-show="bio_class['xavier']" ng-animate="'fade'">
-        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+    <p>
+        He is passionate about software development and innovative technologies. Java is his natural language but
+        craft some code using ruby or javascript as well. He likes to release early and release often to end users
+        by using agility practices.
+    </p>
 
-        <p>
-            Hello, I&#8217;m <a href='http://twitter.com/xavierhanin'>Xavier Hanin</a>, and I am dev-aholic.
-        </p>
+    <p>
+        You may be able to meet him in a coding dojo or a live coding session. He works at Xebia since 2011 as a
+        consultant.
+    </p>
 
-        <p>
-            It&#8217;s been a while now, I&#8217;ve written my first for loop in BASIC on a thompson MO5 when I was 10,
-            moved to C when I was 17, code in Java since 1997 and JS since 2006.
-        </p>
+    <div class="social">
+        <a href="http://sebastian.lemerdy.free.fr"><img src="/assets/img/rss.png" alt="Read my blog"/></a>
+        <a href="http://www.twitter.com/seblm"><img src="/assets/img/twitter.png" alt="Follow seblm on Twitter"/></a>
+        <a href="http://linkedin.com/pub/sébastian-le-merdy/4/26/2a0"><img src="/assets/img/in.png" alt="View Sébastian's profile on LinkedIn"/></a>
+    </div>
+</article>
 
-        <p>
-            I&#8217;m working for <a href='http://4sh.fr/'>4SH</a>, where I&#8217;ve founded the Java and Web
-            development team in Bordeaux in 2008. Together with a team of 15 talented and passionated people, we help
-            software editors to face their challenges.
-        </p>
+<article ng-cloak class="bio" ng-show="bio_class['xavier']" ng-animate="'fade'">
+    <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
 
-        <p>
-            Besides my job, I created <a href='http://ant.apache.org/ivy'>Apache Ivy</a> in 2004 and lead it to the ASF
-            in 2006. This experience has been tremendous, it lead me to famous places like the Stanford University, EMC2
-            labs, SAS headquarters or LinkedIn. I&#8217;ve also been a speaker at a few european conferences, I have
-            founded the <a href='http://bordeauxjug.org/'>BordeauxJUG</a> in 2008, and I&#8217;m teaching at
-            <a href='http://www.enseirb-matmeca.fr'>ENSEIRB MATMECA</a> since 10 years.
-        </p>
+    <p>
+        Hello, I&#8217;m <a href='http://twitter.com/xavierhanin'>Xavier Hanin</a>, and I am dev-aholic.
+    </p>
 
-    </article>
+    <p>
+        It&#8217;s been a while now, I&#8217;ve written my first for loop in BASIC on a thompson MO5 when I was 10,
+        moved to C when I was 17, code in Java since 1997 and JS since 2006.
+    </p>
 
-    <article ng-cloak class="bio" ng-show="bio_class['christophe']" ng-animate="'fade'">
-        <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+    <p>
+        I&#8217;m working for <a href='http://4sh.fr/'>4SH</a>, where I&#8217;ve founded the Java and Web
+        development team in Bordeaux in 2008. Together with a team of 15 talented and passionated people, we help
+        software editors to face their challenges.
+    </p>
 
-        <p>
-            Hello my name is <a href='https://twitter.com/XtlCnslt'>Christophe Labouisse</a>. I started software
-            development in the early 1980th (in this time most people associated computers with the one onboard the
-            <a href='http://en.wikipedia.org/wiki/Starship_Enterprise'>Enterprise</a>) in BASIC on a
-            <a href='http://en.wikipedia.org/wiki/PET_computer'>Commodore PET</a>. It quickly became a devouring passion
-            that hasn&#8217;t left me ever since.
-        </p>
+    <p>
+        Besides my job, I created <a href='http://ant.apache.org/ivy'>Apache Ivy</a> in 2004 and lead it to the ASF
+        in 2006. This experience has been tremendous, it lead me to famous places like the Stanford University, EMC2
+        labs, SAS headquarters or LinkedIn. I&#8217;ve also been a speaker at a few european conferences, I have
+        founded the <a href='http://bordeauxjug.org/'>BordeauxJUG</a> in 2008, and I&#8217;m teaching at
+        <a href='http://www.enseirb-matmeca.fr'>ENSEIRB MATMECA</a> since 10 years.
+    </p>
 
-        <p>
-            I love writing clean and efficient code, being part of a great team as well as getting my hands dirty in
-            garbage collection issues and other technical challenges. I believe that change is one of the most important
-            part of software development so I&#8217;m always happy to discover a new framework, language or method as
-            long as it helps moving things in the right direction.
-        </p>
+    <div class="social">
+        <a href="http://fusion.google.com/add?source=atgs&feedurl=http%3A//xhab.blogspot.com/feeds/posts/default"><img src="/assets/img/rss.png" alt="Read my blog"/></a>
+        <a href="http://www.twitter.com/xavierhanin"><img src="/assets/img/twitter.png" alt="Follow xavierhanin on Twitter"/></a>
+        <a href="http://linkedin.com/in/xavier-hanin"><img src="/assets/img/in.png" alt="View Xavier's profile on LinkedIn"/></a>
+    </div>
+</article>
 
-        <p>
-            I had the opportunity to work for various companies such as SNCF, Mycom, Société Générale Corporate and
-            Investment Banking, GHX France as an employee or a contractor. I start as a freelancer in 2008 and moved to
-            the Bordeaux areas in 2012 thanks to ITS Group.
-        </p>
-    </article>
+<article ng-cloak class="bio" ng-show="bio_class['christophe']" ng-animate="'fade'">
+    <a class="minimize" ng-click="show_bio('')" href="#"><img src="/assets/img/small.png"></a>
+
+    <p>
+        Hello my name is <a href='https://twitter.com/XtlCnslt'>Christophe Labouisse</a>. I started software
+        development in the early 1980th (in this time most people associated computers with the one onboard the
+        <a href='http://en.wikipedia.org/wiki/Starship_Enterprise'>Enterprise</a>) in BASIC on a
+        <a href='http://en.wikipedia.org/wiki/PET_computer'>Commodore PET</a>. It quickly became a devouring passion
+        that hasn&#8217;t left me ever since.
+    </p>
+
+    <p>
+        I love writing clean and efficient code, being part of a great team as well as getting my hands dirty in
+        garbage collection issues and other technical challenges. I believe that change is one of the most important
+        part of software development so I&#8217;m always happy to discover a new framework, language or method as
+        long as it helps moving things in the right direction.
+    </p>
+
+    <p>
+        I had the opportunity to work for various companies such as SNCF, Mycom, Société Générale Corporate and
+        Investment Banking, GHX France as an employee or a contractor. I start as a freelancer in 2008 and moved to
+        the Bordeaux areas in 2012 thanks to ITS Group.
+    </p>
+
+    <div class="social">
+        <a href="http://www.twitter.com/XtlCnslt"><img src="/assets/img/twitter.png" alt="Follow XtlCnslt on Twitter"/></a>
+        <a href="http://linkedin.com/in/clabouisse"><img src="/assets/img/in.png" alt="View Christophe's profile on LinkedIn"/></a>
+    </div>
+</article>
 </div>
 
 
