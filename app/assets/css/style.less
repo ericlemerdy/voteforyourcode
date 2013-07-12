@@ -299,6 +299,51 @@ header {
   }
 }
 
+#blog {
+  .season {
+    article {
+      position: relative;
+      float: left;
+      width: 270px;
+      height: 90px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      background-color: @footer_blue;
+
+      img {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 64px;
+        height: 64px;
+        float: left;
+      }
+
+      .title, .episode {
+        position: absolute;
+        left: 85px;
+        overflow: hidden;
+        width: 175px;
+      }
+
+      .title {
+        top: 10px;
+        height: 38px;
+      }
+
+      .episode {
+        top: 50px;
+        font-style: italic;
+      }
+    }
+
+    .break {
+      clear: both;
+      height: 50px;
+    }
+  }
+}
+
 footer {
   clear: both;
   height: 300px;
