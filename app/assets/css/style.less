@@ -304,24 +304,30 @@ header {
     article {
       position: relative;
       float: left;
-      width: 270px;
-      height: 90px;
+      width: 284px;
+      height: 84px;
       margin-right: 5px;
       margin-bottom: 5px;
       background-color: @footer_blue;
 
-      img {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 64px;
-        height: 64px;
-        float: left;
+      a {
+        width: 84px;
+        height: 84px;
+        display: block;
+
+        img {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          width: 64px;
+          height: 64px;
+          float: left;
+        }
       }
 
       .title, .episode {
         position: absolute;
-        left: 85px;
+        left: 95px;
         overflow: hidden;
         width: 175px;
       }
@@ -341,6 +347,18 @@ header {
       clear: both;
       height: 50px;
     }
+  }
+
+  .season1 a {
+    background-color: @orange;
+  }
+
+  .season2 a {
+    background-color: @green;
+  }
+
+  .season3 a {
+    background-color: @red;
   }
 }
 
