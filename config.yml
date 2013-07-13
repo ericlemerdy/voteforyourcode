@@ -1,0 +1,79 @@
+seasons:
+- id: season3
+  name: Season S03
+  dates: September 2013
+  episodes:
+  - name: s03e01
+    badge: phantom
+    titre: The one that starts in September
+- id: season2
+  name: Season S02
+  dates: January 2013 to March 2013
+  episodes:
+  - name: s02e08
+    badge: masque
+    titre: Un nouveau binôme
+  - name: s02e07
+    badge: fatty
+    titre: Concours 2013 phase 2
+  - name: s02e06
+    badge: fatty
+    titre: Location d’astronef sur Jajascript
+  - name: s02e05
+    badge: top
+    titre: Fin du concours de la phase 1
+  - name: s02e04
+    badge: binary
+    titre: L'échoppe de monade sur Scalaskel en Java
+  - name: s02e03
+    badge: top
+    titre: L'échoppe de monade sur Scalaskel
+  - name: s02e02
+    badge: binary
+    titre: FAQ Concours 2013
+  - name: s02e01
+    badge: binary
+    titre: Concours pour Devoxx France 2013
+- id: season1
+  name: Season S01
+  dates: November 2011 to November 2012
+  episodes:
+  - name: s01e13
+    badge: fatty
+    titre: What has been done at Devoxx
+  - name : s01e12
+    badge: binary
+    titre: Screencast - adding Guice
+  - name : s01e11
+    badge: binary
+    titre: Screencast - add screen name to planning application
+  - name : s01e10
+    badge: masque
+    titre: CodeStory at Devoxx World, November 14-15
+  - name : s01e09
+    badge: phantom
+    titre: CodeStory @ ParisJUG
+  - name : s01e08
+    badge: build-braker
+    titre: Introduction à la finale
+  - name : s01e07
+    badge: binary
+    titre: GildedRose WebStyle
+  - name : s01e06
+    badge: top
+    titre: Et les finalistes sont...
+  - name : s01e05
+    badge: top
+    titre: C'est parti pour le deuxième tour
+  - name : s01e04
+    badge: fatty
+    titre: Bravo aux participants du premier tour
+  - name : s01e03
+    badge: top
+    titre: Sélection FooBarQix
+  - name : s01e02
+    badge: top
+    titre: Quel est le but de ce concours ?
+  - name : s01e01
+    badge: binary
+    titre: Premier exercice de sélection, FooBarQix
