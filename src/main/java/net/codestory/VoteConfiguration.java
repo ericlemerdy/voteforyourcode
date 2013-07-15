@@ -35,6 +35,7 @@ public class VoteConfiguration implements Configuration {
   public void configure(Routes routes) {
     routes.staticDir("classpath:app");
     routes.filter(throttleFilter);
+    routes.get("/", () -> Payload.seeOther("/fight/"));
     routes.add("/fight", fightResource);
   }
 
