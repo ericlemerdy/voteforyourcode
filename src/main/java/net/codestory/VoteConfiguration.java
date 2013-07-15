@@ -1,16 +1,14 @@
 package net.codestory;
 
-import static net.codestory.http.Payload.*;
-
 import java.util.*;
 
+import net.codestory.fight.*;
 import net.codestory.fight.captcha.*;
 import net.codestory.fight.gists.*;
 import net.codestory.fight.ranking.*;
 import net.codestory.fight.votes.*;
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
-import net.codestory.http.templating.*;
 
 public class VoteConfiguration implements Configuration {
   private final Random random;
@@ -19,6 +17,7 @@ public class VoteConfiguration implements Configuration {
   private final MatchMaker matchMaker;
   private final QueryCounter queryCounter;
   private final ThrottleFilter throttleFilter;
+  private final FightResource fightResource;
 
   public VoteConfiguration() {
     String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
@@ -29,26 +28,14 @@ public class VoteConfiguration implements Configuration {
     matchMaker = createMatchMaker(random, gists, voteRepository);
     queryCounter = createQueryCounter();
     throttleFilter = createThrottleFilter(queryCounter);
+    fightResource = createFightResource(matchMaker);
   }
 
   @Override
   public void configure(Routes routes) {
-    routes.staticDir("app");
+    routes.staticDir("classpath:app");
     routes.filter(throttleFilter);
-    routes.get("/", () -> Payload.seeOther("/fight/"));
-    routes.get("/fight/", this::index);
-    routes.get("/fight/win/left/:fightId", (fightId) -> {
-      matchMaker.fightWonByLeft(fightId);
-      return seeOther("/fight/");
-    });
-    routes.get("/fight/win/right/:fightId", (fightId) -> {
-      matchMaker.fightWonByRight(fightId);
-      return seeOther("/fight/");
-    });
-  }
-
-  private String index() {
-    return new Template("app/fight/index.html").render("fight", matchMaker.randomFight());
+    routes.add("/fight", fightResource);
   }
 
   // Poor man's IoC
@@ -116,5 +103,9 @@ public class VoteConfiguration implements Configuration {
 
   protected ThrottleFilter createThrottleFilter(QueryCounter queryCounter) {
     return new ThrottleFilter(queryCounter);
+  }
+
+  protected FightResource createFightResource(MatchMaker matchMaker) {
+    return new FightResource(matchMaker);
   }
 }

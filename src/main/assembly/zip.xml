@@ -11,20 +11,6 @@
       <directory>${project.build.directory}/classes</directory>
       <outputDirectory>classes</outputDirectory>
     </fileSet>
-    <fileSet>
-      <directory>${basedir}/app</directory>
-      <outputDirectory>.</outputDirectory>
-      <includes>
-        <include>**/*.*</include>
-      </includes>
-    </fileSet>
-    <fileSet>
-      <directory>${basedir}</directory>
-      <outputDirectory>.</outputDirectory>
-      <includes>
-        <include>config.yml</include>
-      </includes>
-    </fileSet>
   </fileSets>
   <dependencySets>
     <dependencySet>
