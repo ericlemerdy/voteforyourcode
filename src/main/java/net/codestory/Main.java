@@ -11,7 +11,7 @@ public class Main {
 
   private void start(int port) {
     new WebServer()
-        .configure(new VoteConfiguration())
+        .configure(new WebConfiguration())
         .start(port);
   }
 }

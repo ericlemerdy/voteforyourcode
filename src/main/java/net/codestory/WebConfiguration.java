@@ -10,7 +10,7 @@ import net.codestory.fight.votes.*;
 import net.codestory.http.*;
 import net.codestory.http.routes.*;
 
-public class VoteConfiguration implements Configuration {
+public class WebConfiguration implements Configuration {
   private final Random random;
   private final Gists gists;
   private final VoteRepository voteRepository;
@@ -19,7 +19,7 @@ public class VoteConfiguration implements Configuration {
   private final ThrottleFilter throttleFilter;
   private final FightResource fightResource;
 
-  public VoteConfiguration() {
+  public WebConfiguration() {
     String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
 
     random = createRandom();

@@ -11,7 +11,7 @@ import com.google.common.io.*;
 
 public class MainDownloadGists {
   public static void main(String[] args) throws IOException {
-    Gists gists = new VoteConfiguration().createGists();
+    Gists gists = new WebConfiguration().createGists();
 
     StreamSupport.parallelStream(Spliterators.spliteratorUnknownSize(gists.iterator(), 0))
         .forEach(gist -> {

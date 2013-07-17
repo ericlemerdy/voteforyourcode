@@ -17,7 +17,7 @@ import org.openqa.selenium.*;
 public abstract class AbstractWebTest extends FluentTest {
   private static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(1024, 768);
 
-  private VoteConfiguration configuration = new VoteConfiguration() {
+  private WebConfiguration configuration = new WebConfiguration() {
     @Override
     protected VoteRepository createVoteRepository(String uri) {
       VoteRepository voteRepository = spy(super.createVoteRepository(uri));
