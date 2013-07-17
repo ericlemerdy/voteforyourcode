@@ -2,16 +2,14 @@ package net.codestory.fight.gists;
 
 import static org.fest.assertions.Assertions.*;
 
-import net.codestory.fight.gists.*;
-
 import org.junit.*;
 
 public class GistsTest {
   @Test
   public void find_by_id() {
-    Gists gists = new Gists(new Gist("1", "url1"), new Gist("2", "url2"));
+    Gists gists = new Gists();
 
-    assertThat(gists.findByName("1").url()).isEqualTo("url1");
-    assertThat(gists.findByName("2").url()).isEqualTo("url2");
+    assertThat(gists.findByName("FooBarQix Java Simple").url()).isEqualTo("https://gist.github.com/MeddahJ/1374633.js");
+    assertThat(gists.findByName("FooBarQix C").url()).isEqualTo("http://gist-it.appspot.com/github/framiere/FooBarQix/blob/master/src/main/c/foobarqix.c");
   }
 }

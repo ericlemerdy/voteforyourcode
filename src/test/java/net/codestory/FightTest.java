@@ -26,7 +26,7 @@ public class FightTest extends AbstractWebTest {
 
     goTo("/fight/");
 
-    assertThat(find("#left h2").getText()).contains("FooBarQix Java");
+    assertThat(find("#left h2").getText()).contains("FooBarQix Java Simple");
     assertThat(find("#left").getText()).contains("byDivisor");
 
     assertThat(find("#right h2").getText()).contains("FooBarQix Groovy Tweetable");

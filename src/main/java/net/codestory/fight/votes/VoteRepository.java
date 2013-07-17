@@ -8,8 +8,10 @@ import com.mongodb.*;
 public class VoteRepository {
   private final Supplier<MongoCollection> votes;
 
-  public VoteRepository(String uri) {
-    votes = Suppliers.memoize(() -> connect(uri));
+  public VoteRepository() {
+    String mongoUri = System.getProperty("mongo.uri", "mongodb://localhost/code-story-votes");
+
+    votes = Suppliers.memoize(() -> connect(mongoUri));
   }
 
   public Iterable<Vote> all() {

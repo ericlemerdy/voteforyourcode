@@ -1,4 +1,4 @@
-package net.codestory;
+package net.codestory.fight.gists;
 
 import java.io.*;
 import java.net.*;
@@ -11,7 +11,7 @@ import com.google.common.io.*;
 
 public class MainDownloadGists {
   public static void main(String[] args) throws IOException {
-    Gists gists = new WebConfiguration().createGists();
+    Gists gists = new Gists();
 
     StreamSupport.parallelStream(Spliterators.spliteratorUnknownSize(gists.iterator(), 0))
         .forEach(gist -> {

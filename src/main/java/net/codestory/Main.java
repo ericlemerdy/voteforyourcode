@@ -1,6 +1,7 @@
 package net.codestory;
 
 import net.codestory.http.*;
+import net.codestory.http.injection.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class Main {
 
   private void start(int port) {
     new WebServer()
-        .configure(new WebConfiguration())
+        .configure(new WebConfiguration(new Singletons()))
         .start(port);
   }
 }

@@ -6,7 +6,6 @@ import static org.mockito.Mockito.*;
 import java.util.*;
 
 import net.codestory.fight.gists.*;
-import net.codestory.fight.ranking.*;
 import net.codestory.fight.votes.*;
 
 import org.junit.*;
@@ -14,30 +13,31 @@ import org.junit.*;
 public class MatchMakerTest {
   Random random = spy(new Random());
   VoteRepository voteRepository = mock(VoteRepository.class);
-  Gist gist1 = new Gist("", "");
-  Gist gist2 = new Gist("", "");
+  Gists gists = new Gists();
+  Gist gist0 = gists.get(0);
+  Gist gist1 = gists.get(1);
 
   MatchMaker matchMaker;
 
   @Before
   public void setUp() {
     when(voteRepository.all()).thenReturn(Collections.emptyList());
-    matchMaker = new MatchMaker(random, new Gists(gist1, gist2), voteRepository);
+    matchMaker = new MatchMaker(random, gists, voteRepository);
   }
 
   @Test
   public void random_candidates() {
-    when(random.nextInt(2)).thenReturn(0, 1);
+    when(random.nextInt(gists.size())).thenReturn(0, 1);
 
     Fight fight = matchMaker.randomFight();
 
-    assertThat(fight.left()).isSameAs(gist1);
-    assertThat(fight.right()).isSameAs(gist2);
+    assertThat(fight.left()).isSameAs(gist0);
+    assertThat(fight.right()).isSameAs(gist1);
   }
 
   @Test
   public void no_doubles() {
-    when(random.nextInt(2)).thenReturn(1, 1, 1, 0);
+    when(random.nextInt(gists.size())).thenReturn(1, 1, 1, 0);
 
     Fight fight = matchMaker.randomFight();
 
