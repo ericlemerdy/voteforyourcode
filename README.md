@@ -2,7 +2,6 @@
 
  + Top gists
  + Animation after vote
- + headers
  + Flatr
  + Discus
  + Taglines
