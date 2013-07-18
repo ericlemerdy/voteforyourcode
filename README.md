@@ -2,7 +2,6 @@
 
  + Top gists
  + Animation after vote
- + ico
  + headers
  + Flatr
  + Discus
