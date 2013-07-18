@@ -16,7 +16,7 @@ public class MainDownloadGists {
     StreamSupport.parallelStream(Spliterators.spliteratorUnknownSize(gists.iterator(), 0))
         .forEach(gist -> {
           String name = gist.name();
-          File file = new File("app/gist", name + ".js");
+          File file = new File("src/main/resources/app/fight/gist", name + ".js");
 
           if (!file.exists()) {
             downloadGist(gist, file);
