@@ -1,7 +1,6 @@
 package net.codestory.fight.ranking;
 
 import net.codestory.fight.gists.*;
-import net.codestory.fight.ranking.*;
 
 import org.apache.commons.lang.*;
 
@@ -22,22 +21,6 @@ public class Fight {
 
   public String uniqueId() {
     return uniqueId;
-  }
-
-  public int leftElo() {
-    return left.rank().elo();
-  }
-
-  public int rightElo() {
-    return right.rank().elo();
-  }
-
-  public String leftEloName() {
-    return new RankName().name(leftElo());
-  }
-
-  public String rightEloName() {
-    return new RankName().name(rightElo());
   }
 
   public Gist left() {

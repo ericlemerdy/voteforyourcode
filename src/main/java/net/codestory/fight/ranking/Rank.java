@@ -14,6 +14,10 @@ public class Rank {
     }
   }
 
+  public String name() {
+    return new RankName().name(elo());
+  }
+
   void beats(Rank looser) {
     synchronized (LOCK) {
       float eloWinner = this.elo;

@@ -55,26 +55,26 @@ public class MatchMakerTest {
   public void left_can_win() {
     Fight fight = matchMaker.randomFight();
 
-    assertThat(fight.leftElo()).isEqualTo(1200);
-    assertThat(fight.rightElo()).isEqualTo(1200);
+    assertThat(fight.left().rank().elo()).isEqualTo(1200);
+    assertThat(fight.right().rank().elo()).isEqualTo(1200);
 
     matchMaker.fightWonByLeft(fight.uniqueId());
 
-    assertThat(fight.leftElo()).isEqualTo(1212);
-    assertThat(fight.rightElo()).isEqualTo(1187);
+    assertThat(fight.left().rank().elo()).isEqualTo(1212);
+    assertThat(fight.right().rank().elo()).isEqualTo(1187);
   }
 
   @Test
   public void right_can_win() {
     Fight fight = matchMaker.randomFight();
 
-    assertThat(fight.leftElo()).isEqualTo(1200);
-    assertThat(fight.rightElo()).isEqualTo(1200);
+    assertThat(fight.left().rank().elo()).isEqualTo(1200);
+    assertThat(fight.right().rank().elo()).isEqualTo(1200);
 
     matchMaker.fightWonByRight(fight.uniqueId());
 
-    assertThat(fight.leftElo()).isEqualTo(1187);
-    assertThat(fight.rightElo()).isEqualTo(1212);
+    assertThat(fight.left().rank().elo()).isEqualTo(1187);
+    assertThat(fight.right().rank().elo()).isEqualTo(1212);
   }
 
   @Test
@@ -83,12 +83,12 @@ public class MatchMakerTest {
 
     matchMaker.fightWonByLeft(fight.uniqueId());
 
-    assertThat(fight.leftElo()).isEqualTo(1212);
-    assertThat(fight.rightElo()).isEqualTo(1187);
+    assertThat(fight.left().rank().elo()).isEqualTo(1212);
+    assertThat(fight.right().rank().elo()).isEqualTo(1187);
 
     matchMaker.fightWonByLeft(fight.uniqueId());
 
-    assertThat(fight.leftElo()).isEqualTo(1212);
-    assertThat(fight.rightElo()).isEqualTo(1187);
+    assertThat(fight.left().rank().elo()).isEqualTo(1212);
+    assertThat(fight.right().rank().elo()).isEqualTo(1187);
   }
 }
