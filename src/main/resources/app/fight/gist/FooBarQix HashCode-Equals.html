@@ -1,0 +1,129 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="com">/*----------------------------------------------------------------------------*
+ * This file is part of FooBarQix.                                            *
+ * Copyright (C) 2012 Osman KOCAK &lt;kocakosm@gmail.com&gt;                        *
+ *                                                                            *
+ * This program is free software: you can redistribute it and/or modify it    *
+ * under the terms of the GNU Lesser General Public License as published by   *
+ * the Free Software Foundation, either version 3 of the License, or (at your *
+ * option) any later version.                                                 *
+ * This program is distributed in the hope that it will be useful, but        *
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY *
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public     *
+ * License for more details.                                                  *
+ * You should have received a copy of the GNU Lesser General Public License   *
+ * along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.       *
+ *----------------------------------------------------------------------------*/</span><span class="pln">
+
+</span><span class="kwd">package</span><span class="pln"> org</span><span class="pun">.</span><span class="pln">kocakosm</span><span class="pun">.</span><span class="pln">foobarqix</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">/**
+ * A FooBarQix number.
+ *
+ * @author Osman KOCAK
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> FOO </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> BAR </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> QIX </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">;</span><span class="pln">
+
+	</span><span class="com">/**
+	 * Returns a {@code FooBarQixNumber} instance representing the
+	 * specified {@code int} value.
+	 *
+	 * @param value an {@code int} value.
+	 *
+	 * @return a {@code FooBarQixNumber} representing the given value.
+	 */</span><span class="pln">
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pln"> valueOf</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> value</span><span class="pun">)</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"0"</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="typ">String</span><span class="pln"> number </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="pln">value</span><span class="pun">);</span><span class="pln">
+		</span><span class="typ">StringBuilder</span><span class="pln"> sb </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuilder</span><span class="pun">(</span><span class="pln">number</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value </span><span class="pun">%</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			sb</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">FOO</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value </span><span class="pun">%</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			sb</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">BAR</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">value </span><span class="pun">%</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			sb</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">QIX</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> c </span><span class="pun">:</span><span class="pln"> number</span><span class="pun">.</span><span class="pln">toCharArray</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'3'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+				sb</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">FOO</span><span class="pun">);</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'5'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+				sb</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">BAR</span><span class="pun">);</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'7'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+				sb</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">QIX</span><span class="pun">);</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pun">(</span><span class="pln">
+			value</span><span class="pun">,</span><span class="pln"> sb</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> number </span><span class="pun">:</span><span class="pln"> sb</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">());</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> intValue</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> strValue</span><span class="pun">;</span><span class="pln">
+
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> intValue</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> strValue</span><span class="pun">)</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">intValue </span><span class="pun">=</span><span class="pln"> intValue</span><span class="pun">;</span><span class="pln">
+		</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">strValue </span><span class="pun">=</span><span class="pln"> strValue</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="com">/**
+	 * Returns the value of this {@code FooBarQixNumber} as an {@code int}.
+	 *
+	 * @return the numeric value represented by this object.
+	 */</span><span class="pln">
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> intValue</span><span class="pun">()</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> intValue</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="lit">@Override</span><span class="pln">
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> toString</span><span class="pun">()</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> strValue</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="lit">@Override</span><span class="pln">
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> equals</span><span class="pun">(</span><span class="typ">Object</span><span class="pln"> o</span><span class="pun">)</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">o </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!(</span><span class="pln">o </span><span class="kwd">instanceof</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">final</span><span class="pln"> </span><span class="typ">FooBarQixNumber</span><span class="pln"> number </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">FooBarQixNumber</span><span class="pun">)</span><span class="pln"> o</span><span class="pun">;</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> intValue </span><span class="pun">==</span><span class="pln"> number</span><span class="pun">.</span><span class="pln">intValue</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="lit">@Override</span><span class="pln">
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> hashCode</span><span class="pun">()</span><span class="pln">
+	</span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> intValue</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/kocakosm/foobarqix/blob/master/src/org/kocakosm/foobarqix/FooBarQixNumber.java">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/kocakosm/foobarqix/raw/master/src/org/kocakosm/foobarqix/FooBarQixNumber.java">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/kocakosm/foobarqix/blob/master/src/org/kocakosm/foobarqix/FooBarQixNumber.java">FooBarQixNumber.java</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

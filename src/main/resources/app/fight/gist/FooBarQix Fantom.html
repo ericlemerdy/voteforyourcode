@@ -1,0 +1,44 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">class</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">Void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">Str</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+    fooBarQix </span><span class="pun">:=</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+    </span><span class="pun">(</span><span class="lit">1.</span><span class="pun">.</span><span class="lit">100</span><span class="pun">).</span><span class="pln">each </span><span class="pun">|</span><span class="typ">Int</span><span class="pln"> c</span><span class="pun">|</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> echo</span><span class="pun">(</span><span class="pln">fooBarQix</span><span class="pun">.</span><span class="pln">asText</span><span class="pun">(</span><span class="pln">c</span><span class="pun">))</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">const</span><span class="pln"> </span><span class="typ">Map</span><span class="pln"> digitsToStrings </span><span class="pun">:=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">3</span><span class="pun">:</span><span class="str">"Foo"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">:</span><span class="str">"Bar"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">:</span><span class="str">"Qix"</span><span class="pun">]</span><span class="pln">
+  </span><span class="typ">Str</span><span class="pln"> asText</span><span class="pun">(</span><span class="typ">Int</span><span class="pln"> value</span><span class="pun">)</span><span class="pln">
+  </span><span class="pun">{</span><span class="pln">
+    result </span><span class="pun">:=</span><span class="pln"> asTextFromMultiple</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> asTextFromDigit</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> result </span><span class="pun">==</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> value </span><span class="pun">:</span><span class="pln"> result
+  </span><span class="pun">}</span><span class="pln">
+  
+  </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Str</span><span class="pln"> asTextFromMultiple</span><span class="pun">(</span><span class="typ">Int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln">
+  </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> digitsToStrings</span><span class="pun">.</span><span class="pln">keys</span><span class="pun">.</span><span class="pln">map </span><span class="pun">|</span><span class="typ">Int</span><span class="pln"> c </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">Str</span><span class="pun">?|</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> number </span><span class="pun">%</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> digitsToStrings</span><span class="pun">[</span><span class="pln">c</span><span class="pun">]</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">}.</span><span class="pln">join</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">Str</span><span class="pln"> asTextFromDigit</span><span class="pun">(</span><span class="typ">Int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln">
+  </span><span class="pun">{</span><span class="pln">
+    list </span><span class="pun">:=</span><span class="pln"> number</span><span class="pun">.</span><span class="pln">toStr</span><span class="pun">.</span><span class="pln">chars</span><span class="pun">.</span><span class="pln">map </span><span class="pun">(|</span><span class="typ">Int</span><span class="pln"> c </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">Obj</span><span class="pun">?|</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> digitsToStrings</span><span class="pun">[</span><span class="pln">c</span><span class="pun">.</span><span class="pln">fromDigit</span><span class="pun">]</span><span class="pln"> </span><span class="pun">}</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> list</span><span class="pun">.</span><span class="pln">join</span><span class="pun">(</span><span class="str">""</span><span class="pun">)</span><span class="pln"> </span><span class="pun">|</span><span class="typ">Obj</span><span class="pun">?</span><span class="pln"> c </span><span class="pun">-&gt;</span><span class="pln"> </span><span class="typ">Str</span><span class="pun">|</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">""</span><span class="pun">:</span><span class="pln"> c </span><span class="pun">};</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixFantom/fan/FooBarQix.fan">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/elefevre/FooBarQix/raw/master/FooBarQixFantom/fan/FooBarQix.fan">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixFantom/fan/FooBarQix.fan">FooBarQix.fan</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

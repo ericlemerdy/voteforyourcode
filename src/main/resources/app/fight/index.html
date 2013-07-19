@@ -6,30 +6,31 @@ section: fight
 tagline: whether you like it scripted, strongly typed, tested or cowboy style, vote right here, right now for your favourite source code. Show your language fanboyism, earn badges, stay fresh & cool!
 ---
 
-<script src="/assets/js/prettify.js"></script>
-<div id="code-fight" ng-controller="FightController">
-    <div id="left" ng-class="left_class">
-        <h2>[[fight.left.name]]</h2>
+<link rel="stylesheet" href="/assets/css/embed.css"/>
+<link rel="stylesheet" href="/assets/css/prettify.css"/>
+<link rel="stylesheet" href="/assets/css/embed-gist.css"/>
 
-        <h3>[[fight.left.rank.name]] ELO: <span class="score">[[fight.left.rank.elo]]</span></h3>
+<div id="code-fight" ng-controller="FightController">
+    <div id="left" ng-cloak ng-class="left_class">
+        <h2>{{fight.left.name}}</h2>
+
+        <h3>{{fight.left.rank.name}} ELO: <span class="score">{{fight.left.rank.elo}}</span></h3>
 
         <a class="full" ng-click="full_left()" href=""><i class="icon-fullscreen icon-white"></i></a>
-        <a class="win" href="/fight/win/left/[[fight.uniqueId]]">I prefer this one!</a>
+        <a class="win" href="/fight/win/left/{{fight.uniqueId}}">I prefer this one!</a>
 
-        <div class="code">
-            <script src="/fight/gist/[[fight.left.name]].js"></script>
+        <div class="code" ng-bind-html-unsafe="left_gist">
         </div>
     </div>
-    <div id="right" ng-class="right_class">
-        <h2>[[fight.right.name]]</h2>
+    <div id="right" ng-cloak ng-class="right_class">
+        <h2>{{fight.right.name}}</h2>
 
-        <h3>[[fight.right.rank.name]] ELO: <span class="score">[[fight.right.rank.elo]]</span></h3>
+        <h3>{{fight.right.rank.name}} ELO: <span class="score">{{fight.right.rank.elo}}</span></h3>
 
         <a class="full" ng-click="full_right()" href=""><i class="icon-fullscreen icon-white"></i></a>
-        <a class="win" href="/fight/win/right/[[fight.uniqueId]]">I prefer this one!</a>
+        <a class="win" href="/fight/win/right/{{fight.uniqueId}}">I prefer this one!</a>
 
-        <div class="code">
-            <script src="/fight/gist/[[fight.right.name]].js"></script>
+        <div class="code" ng-bind-html-unsafe="right_gist">
         </div>
     </div>
 </div>

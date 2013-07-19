@@ -1,0 +1,70 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">package</span><span class="pln"> org</span><span class="pun">.</span><span class="pln">courtine</span><span class="pun">.</span><span class="pln">foobarqix
+
+</span><span class="com">/**
+ * Objet principal de calcul du résultat du test.
+ *
+ * @author Benoît Courtine.
+ * @since 2011-11-21.
+ * @version 2011-11-21.
+ */</span><span class="pln">
+</span><span class="kwd">object</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> main</span><span class="pun">(</span><span class="pln">args</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Array</span><span class="pun">[</span><span class="typ">String</span><span class="pun">])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">List</span><span class="pun">.</span><span class="pln">range</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      n </span><span class="pun">=&gt;</span><span class="pln"> println</span><span class="pun">(</span><span class="pln">process</span><span class="pun">(</span><span class="pln">n</span><span class="pun">))</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> process</span><span class="pun">(</span><span class="pln">n</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    modulo3</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> modulo5</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> modulo7</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> contains</span><span class="pun">(</span><span class="pln">n</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">.</span><span class="pln">toList</span><span class="pun">)</span><span class="pln"> match </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> n</span><span class="pun">.</span><span class="pln">toString
+      </span><span class="kwd">case</span><span class="pln"> notEmpty </span><span class="pun">=&gt;</span><span class="pln"> notEmpty
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> modulo3</span><span class="pun">(</span><span class="pln">n</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+    n </span><span class="pun">%</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> match </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> _ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> modulo5</span><span class="pun">(</span><span class="pln">n</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+    n </span><span class="pun">%</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> match </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> _ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> modulo7</span><span class="pun">(</span><span class="pln">n</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+    n </span><span class="pun">%</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> match </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> _ </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> contains</span><span class="pun">(</span><span class="pln">chars</span><span class="pun">:</span><span class="pln"> </span><span class="typ">List</span><span class="pun">[</span><span class="typ">Char</span><span class="pun">]):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+    chars match </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="typ">Nil</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'3'</span><span class="pln"> </span><span class="pun">::</span><span class="pln"> tail </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> contains</span><span class="pun">(</span><span class="pln">tail</span><span class="pun">)</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'5'</span><span class="pln"> </span><span class="pun">::</span><span class="pln"> tail </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> contains</span><span class="pun">(</span><span class="pln">tail</span><span class="pun">)</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'7'</span><span class="pln"> </span><span class="pun">::</span><span class="pln"> tail </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> contains</span><span class="pun">(</span><span class="pln">tail</span><span class="pun">)</span><span class="pln">
+      </span><span class="kwd">case</span><span class="pln"> _ </span><span class="pun">::</span><span class="pln"> tail </span><span class="pun">=&gt;</span><span class="pln"> contains</span><span class="pun">(</span><span class="pln">tail</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/bcourtine/FooBarQix/blob/master/src/main/scala/org/courtine/foobarqix/FooBarQix.scala">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/bcourtine/FooBarQix/raw/master/src/main/scala/org/courtine/foobarqix/FooBarQix.scala">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/bcourtine/FooBarQix/blob/master/src/main/scala/org/courtine/foobarqix/FooBarQix.scala">FooBarQix.scala</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

@@ -3,8 +3,6 @@ package net.codestory.fight.gists;
 import java.util.*;
 import java.util.concurrent.*;
 
-import net.codestory.fight.gists.*;
-
 public class Gists implements Iterable<Gist> {
   private final Gist[] gists;
   private final Map<String, Gist> byName;
@@ -38,7 +36,6 @@ public class Gists implements Iterable<Gist> {
         new Gist("FooBarQix Scala Tests", "http://gist-it.appspot.com/github/GabrielKast/FooBarQix/blob/master/foobar.scala"),
         new Gist("FooBarQixGenerator", "http://gist-it.appspot.com/github/GenevaJUG/FooBarQix/blob/master/FooBarQix/src/main/java/FooBarQixGenerator.java"),
         new Gist("FooBarQix Phantom FBQNumber", "http://gist-it.appspot.com/github/gtardif/FooBarQix-fantom/blob/master/src/FooBarQix.fan"),
-        new Gist("FooBarQix Supply Chain", "http://gist-it.appspot.com/github/GTORDO/FooBarQix/blob/master/FooBarQix.java"),
         new Gist("FooBarQix Guava", "http://gist-it.appspot.com/github/guillaumerose/FooBarQix/blob/master/java/src/main/java/net/grose/foo/FooBarQix.java"),
         new Gist("FooBarQix Ruby", "http://gist-it.appspot.com/github/guillaumerose/FooBarQix/blob/master/ruby/lib/foo.rb"),
         new Gist("FooBarQix Java Fast", "http://gist-it.appspot.com/github/henri-tremblay/foobarqix/blob/master/src/main/java/org/hjf/foobarqix/FooBarQix.java"),

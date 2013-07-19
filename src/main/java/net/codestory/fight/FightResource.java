@@ -5,7 +5,6 @@ import static net.codestory.http.Payload.*;
 import net.codestory.fight.ranking.*;
 import net.codestory.http.*;
 import net.codestory.http.annotations.*;
-import net.codestory.http.templating.*;
 
 public class FightResource {
   private final MatchMaker matchMaker;
@@ -14,9 +13,9 @@ public class FightResource {
     this.matchMaker = matchMaker;
   }
 
-  @Get("/")
-  public String fight() {
-    return new Template("classpath:app/fight/index.html").render("fight", matchMaker.randomFight());
+  @Get("/match.json")
+  public Fight fight() {
+    return matchMaker.randomFight();
   }
 
   @Get("/win/left/:fightId")

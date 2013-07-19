@@ -1,0 +1,83 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="pln">classpath </span><span class="str">"."</span><span class="pln">
+
+uses gw</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="pln">cli</span><span class="pun">.</span><span class="typ">CommandLineAccess</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">CommandLineAccess</span><span class="pun">.</span><span class="pln">getRawArgs</span><span class="pun">().</span><span class="typ">Count</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	run_tests</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">number </span><span class="kwd">in</span><span class="pln"> </span><span class="lit">1.</span><span class="pun">.</span><span class="lit">100</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="pln">number</span><span class="pun">))</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln">  asText</span><span class="pun">(</span><span class="pln">number </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">var</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">number </span><span class="pun">%</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		result </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">number </span><span class="pun">%</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		result </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">number </span><span class="pun">%</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		result </span><span class="pun">+=</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+	
+	result </span><span class="pun">+=</span><span class="pln">  </span><span class="pun">(</span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> number</span><span class="pun">).</span><span class="pln">toCharArray</span><span class="pun">().</span><span class="pln">toList</span><span class="pun">().</span><span class="pln">map</span><span class="pun">(</span><span class="pln"> \ c </span><span class="pun">-&gt;</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'3'</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'5'</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> c </span><span class="pun">==</span><span class="pln"> </span><span class="str">'7'</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">).</span><span class="pln">join</span><span class="pun">(</span><span class="str">""</span><span class="pun">);</span><span class="pln">
+
+	</span><span class="kwd">return</span><span class="pln"> result </span><span class="pun">==</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="pun">(</span><span class="str">""</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> result
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> run_tests</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="com">// nominal case</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> </span><span class="str">"1"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">2</span><span class="pun">),</span><span class="pln"> </span><span class="str">"2"</span><span class="pun">)</span><span class="pln">
+
+	</span><span class="com">// multiples</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">6</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">9</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">10</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">14</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">)</span><span class="pln">
+
+	</span><span class="com">// digits</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">13</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">23</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">31</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">331</span><span class="pun">),</span><span class="pln"> </span><span class="str">"FooFoo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">52</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">17</span><span class="pun">),</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">)</span><span class="pln">
+	
+	</span><span class="com">// multiples and digits combined</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">51</span><span class="pun">),</span><span class="pln"> </span><span class="str">"FooBar"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">53</span><span class="pun">),</span><span class="pln"> </span><span class="str">"BarFoo"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">21</span><span class="pun">),</span><span class="pln"> </span><span class="str">"FooQix"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">15</span><span class="pun">),</span><span class="pln"> </span><span class="str">"FooBarBar"</span><span class="pun">)</span><span class="pln">
+	assertEquals</span><span class="pun">(</span><span class="pln">asText</span><span class="pun">(</span><span class="lit">33</span><span class="pun">),</span><span class="pln"> </span><span class="str">"FooFooFoo"</span><span class="pun">)</span><span class="pln">
+	
+	</span><span class="kwd">print</span><span class="pun">(</span><span class="pln"> </span><span class="str">"Success!"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> assertEquals</span><span class="pun">(</span><span class="pln">result </span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pun">,</span><span class="pln"> expected </span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">result </span><span class="pun">!=</span><span class="pln"> expected</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">print</span><span class="pln"> </span><span class="pun">(</span><span class="str">"Expected '"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> expected </span><span class="pun">+</span><span class="pln"> </span><span class="str">"', but got '"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> result </span><span class="pun">+</span><span class="pln"> </span><span class="str">"'"</span><span class="pun">)</span><span class="pln">
+		</span><span class="kwd">throw</span><span class="pln"> </span><span class="str">"Test failed!"</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixGosu/FooBarQix.gsp">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/elefevre/FooBarQix/raw/master/FooBarQixGosu/FooBarQix.gsp">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixGosu/FooBarQix.gsp">FooBarQix.gsp</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">module</span><span class="pln"> foobarqix</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// Yeti code for FooBarQix kata (http://www.code-story.net/2011/11/16/foobarqix.html)</span><span class="pln">
+</span><span class="com">// Procedure to launch it:</span><span class="pln">
+</span><span class="com">// 1. get yeti.jar (http://linux.ee/~mzz/yeti/yeti.jar)</span><span class="pln">
+</span><span class="com">// 2. put yeti.jar and foobarqix.yeti in the same directory</span><span class="pln">
+</span><span class="com">// 3. type: `java -jar yeti.jar -e "load foobarqix"`</span><span class="pln">
+</span><span class="com">// This will print the numbers 1 to 100, according to the rules of this kata</span><span class="pln">
+
+
+</span><span class="com">// split numbers into list of digits</span><span class="pln">
+_digits xs n </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> n </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="kwd">then</span><span class="pln"> xs </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> </span><span class="lit">10</span><span class="pun">)</span><span class="pln"> </span><span class="pun">::</span><span class="pln"> </span><span class="pun">(</span><span class="pln">_digits xs </span><span class="pun">(</span><span class="pln">n div </span><span class="lit">10</span><span class="pun">))</span><span class="pln"> </span><span class="kwd">fi</span><span class="pun">;</span><span class="pln">
+digits </span><span class="pun">=</span><span class="pln"> reverse </span><span class="pun">.</span><span class="pln"> _digits </span><span class="pun">[];</span><span class="pln">
+
+</span><span class="com">// special digits and and their string replacements, in the correct evaluation order</span><span class="pln">
+specials </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">pair </span><span class="lit">3</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">,</span><span class="pln"> pair </span><span class="lit">5</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">,</span><span class="pln"> pair </span><span class="lit">7</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">];</span><span class="pln">
+
+</span><span class="com">// some utils: aggregate a list of strings and apply a function to all specials</span><span class="pln">
+cat </span><span class="pun">=</span><span class="pln"> fold </span><span class="pun">(^)</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+allspecs f </span><span class="pun">=</span><span class="pln"> cat </span><span class="pun">(</span><span class="pln">map f specials</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// check dividers</span><span class="pln">
+checkdiv n </span><span class="pun">{</span><span class="pln">fst</span><span class="pun">,</span><span class="pln"> snd</span><span class="pun">}</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> n </span><span class="pun">%</span><span class="pln"> fst </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="kwd">then</span><span class="pln"> snd </span><span class="kwd">else</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="kwd">fi</span><span class="pun">;</span><span class="pln">
+checkdivs n </span><span class="pun">=</span><span class="pln"> allspecs </span><span class="pun">(</span><span class="pln">checkdiv n</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// check individual digits</span><span class="pln">
+checkdigit x </span><span class="pun">{</span><span class="pln">fst</span><span class="pun">,</span><span class="pln"> snd</span><span class="pun">}</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> x </span><span class="pun">==</span><span class="pln"> fst </span><span class="kwd">then</span><span class="pln"> snd </span><span class="kwd">else</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="kwd">fi</span><span class="pun">;</span><span class="pln">
+checkdigit</span><span class="str">' x = allspecs (checkdigit x);
+checkdigits n = cat (map checkdigit'</span><span class="pln"> </span><span class="pun">(</span><span class="pln">digits n</span><span class="pun">));</span><span class="pln">
+
+</span><span class="com">// evaluate one number</span><span class="pln">
+</span><span class="kwd">eval</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">checkdivs n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">^</span><span class="pln"> </span><span class="pun">(</span><span class="pln">checkdigits n</span><span class="pun">);</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> x </span><span class="pun">==</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="kwd">then</span><span class="pln"> </span><span class="str">"\(n)"</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> x </span><span class="kwd">fi</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// show results for 100 first integers (without 0)</span><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">map </span><span class="kwd">eval</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1.</span><span class="pun">.</span><span class="lit">100</span><span class="pun">])</span><span class="pln"> println</span><span class="pun">;</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/jfpoilpret/yeti-katas/blob/master/foobarqix.yeti">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/jfpoilpret/yeti-katas/raw/master/foobarqix.yeti">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/jfpoilpret/yeti-katas/blob/master/foobarqix.yeti">foobarqix.yeti</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

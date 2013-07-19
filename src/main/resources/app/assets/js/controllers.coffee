@@ -1,4 +1,11 @@
-FightController = ($scope) ->
+FightController = ($scope, $http) ->
+  $http.get('/fight/match.json').success (data) ->
+    $scope.fight = data
+    $http.get('/fight/gist/' + $scope.fight.left.name + ".html").success (html) ->
+      $scope.left_gist = html
+    $http.get('/fight/gist/' + $scope.fight.right.name + ".html").success (html) ->
+      $scope.right_gist = html
+
   $scope.full_left = () ->
     if ($scope.left_class == 'full_screen')
       $scope.left_class = ''

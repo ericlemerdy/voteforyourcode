@@ -1,0 +1,61 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">package</span><span class="pln"> net</span><span class="pun">.</span><span class="pln">story</span><span class="pun">.</span><span class="pln">code</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+  </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pun">().</span><span class="pln">displayAll</span><span class="pun">();</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">void</span><span class="pln"> displayAll</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      display</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">void</span><span class="pln"> display</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">translate</span><span class="pun">(</span><span class="pln">i</span><span class="pun">));</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="typ">String</span><span class="pln"> translate</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">String</span><span class="pln"> iAsString </span><span class="pun">=</span><span class="pln"> </span><span class="typ">String</span><span class="pun">.</span><span class="pln">valueOf</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+    </span><span class="typ">String</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+    result </span><span class="pun">=</span><span class="pln"> doMagicReplacement</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> iAsString</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+    result </span><span class="pun">=</span><span class="pln"> doMagicReplacement</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> iAsString</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+    result </span><span class="pun">=</span><span class="pln"> doMagicReplacement</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> iAsString</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">result</span><span class="pun">.</span><span class="pln">isEmpty</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> iAsString</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> result</span><span class="pun">;</span><span class="pln">
+
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="typ">String</span><span class="pln"> doMagicReplacement</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> iAsString</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> magic</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> replace</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> result</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">boolean</span><span class="pln"> divisible </span><span class="pun">=</span><span class="pln"> i </span><span class="pun">%</span><span class="pln"> magic </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+    </span><span class="typ">String</span><span class="pln"> magicAsString </span><span class="pun">=</span><span class="pln"> </span><span class="typ">String</span><span class="pun">.</span><span class="pln">valueOf</span><span class="pun">(</span><span class="pln">magic</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> contains </span><span class="pun">=</span><span class="pln"> iAsString</span><span class="pun">.</span><span class="pln">split</span><span class="pun">(</span><span class="pln">magicAsString</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">).</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> times </span><span class="pun">=</span><span class="pln"> contains </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">divisible </span><span class="pun">?</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> j </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span><span class="pln"> times</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      result </span><span class="pun">+=</span><span class="pln"> replace</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> result</span><span class="pun">;</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/wokier/FooBarQix/blob/master/src/net/story/code/FooBarQix.java">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/wokier/FooBarQix/raw/master/src/net/story/code/FooBarQix.java">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/wokier/FooBarQix/blob/master/src/net/story/code/FooBarQix.java">FooBarQix.java</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

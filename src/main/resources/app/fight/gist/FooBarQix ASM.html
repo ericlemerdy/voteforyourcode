@@ -1,0 +1,150 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="pun">;</span><span class="pln"> to compile </span><span class="pun">:</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> 
+</span><span class="pun">;</span><span class="pln"> nasm </span><span class="pun">-</span><span class="pln">g </span><span class="pun">-</span><span class="pln">f macho foobarqix</span><span class="pun">.</span><span class="kwd">asm</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> gcc </span><span class="pun">-</span><span class="pln">arch i386 </span><span class="pun">-</span><span class="pln">o foobarqix  methods</span><span class="pun">.</span><span class="pln">o foobarqix</span><span class="pun">.</span><span class="pln">o
+</span><span class="pun">;</span><span class="pln"> 
+</span><span class="pun">;</span><span class="pln"> to debug </span><span class="pun">:</span><span class="pln">
+</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> gdb foobarqix
+</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">set</span><span class="pln"> disassembly</span><span class="pun">-</span><span class="pln">flavor intel
+</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">break</span><span class="pln"> main
+</span><span class="pun">;</span><span class="pln"> disassemble main
+</span><span class="pun">;</span><span class="pln"> nexti
+</span><span class="pun">;</span><span class="pln"> run
+</span><span class="pun">;</span><span class="pln"> info stack
+
+section </span><span class="pun">.</span><span class="pln">text
+
+</span><span class="pun">;</span><span class="pln"> </span><span class="pun">------------------------------</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> OS X uses _ </span><span class="kwd">for</span><span class="pln"> symbol prefix
+</span><span class="kwd">extern</span><span class="pln"> _printf
+</span><span class="kwd">extern</span><span class="pln"> _sprintf
+</span><span class="kwd">extern</span><span class="pln"> _malloc
+</span><span class="kwd">extern</span><span class="pln"> _bzero
+
+</span><span class="pun">;</span><span class="pln"> </span><span class="pun">------------------------------</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define system_call		</span><span class="lit">0x80</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define system_write	</span><span class="lit">0x4</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define system_exit  	</span><span class="lit">0x1</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define start_value 	</span><span class="lit">1</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define end_value 		</span><span class="lit">10</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define return_ok 		</span><span class="lit">0</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define foo_value 		</span><span class="lit">3</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define bar_value 		</span><span class="lit">5</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define qix_value 		</span><span class="lit">7</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">define buffer_size 	</span><span class="lit">32</span><span class="pln">
+
+</span><span class="pun">%</span><span class="pln">macro printf </span><span class="lit">1</span><span class="pln">
+	</span><span class="kwd">sub</span><span class="pln"> 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+	push dword </span><span class="pun">%</span><span class="lit">1</span><span class="pln">
+	push dword string_format
+	call _printf
+	add 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+</span><span class="pun">%</span><span class="pln">endmacro
+
+</span><span class="pun">%</span><span class="pln">macro is_divisible </span><span class="lit">1</span><span class="pln">
+	xor     edx</span><span class="pun">,</span><span class="pln"> edx
+	mov 	eax</span><span class="pun">,</span><span class="pln"> ebx
+	mov 	esi</span><span class="pun">,</span><span class="pln"> </span><span class="pun">%</span><span class="lit">1</span><span class="pln">
+	idiv  	esi
+</span><span class="pun">%</span><span class="pln">endmacro
+
+</span><span class="kwd">global</span><span class="pln"> _main
+
+</span><span class="pun">;</span><span class="pln"> </span><span class="pun">------------------------------</span><span class="pln">
+_main</span><span class="pun">:</span><span class="pln">
+ 	push	ebp
+    mov		ebp</span><span class="pun">,</span><span class="pln"> esp
+    </span><span class="kwd">sub</span><span class="pln"> 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">32</span><span class="pln">
+    push 	ebx
+    push	esi
+    push	edi	
+
+</span><span class="pun">;</span><span class="pln"> buffer </span><span class="pun">=</span><span class="pln"> malloc</span><span class="pun">(</span><span class="pln">buffer_size</span><span class="pun">)</span><span class="pln"> 
+	</span><span class="kwd">sub</span><span class="pln"> 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="lit">4</span><span class="pln"> 
+ 	push	dword buffer_size
+	call	_malloc
+	add 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+	test	eax</span><span class="pun">,</span><span class="pln"> eax
+	jz		near malloc_failed
+	mov 	</span><span class="pun">[</span><span class="pln">buffer</span><span class="pun">],</span><span class="pln"> eax
+
+</span><span class="pun">;</span><span class="pln"> number </span><span class="pun">=</span><span class="pln"> malloc</span><span class="pun">(</span><span class="pln">buffer_size</span><span class="pun">)</span><span class="pln"> 
+	</span><span class="kwd">sub</span><span class="pln"> 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+ 	push	dword buffer_size
+	call	_malloc
+	add 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+	test	eax</span><span class="pun">,</span><span class="pln"> eax
+	jz		near malloc_failed
+	mov 	</span><span class="pun">[</span><span class="pln">number</span><span class="pun">],</span><span class="pln"> eax
+
+</span><span class="pun">;</span><span class="pln"> </span><span class="kwd">for</span><span class="pun">(</span><span class="pln">ebx </span><span class="pun">=</span><span class="pln"> start_value</span><span class="pun">;</span><span class="pln"> ebx </span><span class="pun">&lt;</span><span class="pln"> end_value</span><span class="pun">;</span><span class="pln"> ebx </span><span class="pun">++)</span><span class="pln"> 
+	mov 	ebx</span><span class="pun">,</span><span class="pln"> start_value
+main_loop</span><span class="pun">:</span><span class="pln">
+	
+
+	</span><span class="pun">;</span><span class="pln"> sprintf</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln"> </span><span class="str">"%d"</span><span class="pun">,</span><span class="pln"> ebx</span><span class="pun">);</span><span class="pln">
+	</span><span class="kwd">sub</span><span class="pln"> 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+ 	push	dword </span><span class="lit">12</span><span class="pln">
+ 	push	dword digit_format
+ 	push	dword number
+	call	_sprintf
+	add 	esp</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">*</span><span class="lit">4</span><span class="pln">
+
+	printf number
+	
+</span><span class="kwd">continue</span><span class="pun">:</span><span class="pln">
+	cmp		ebx</span><span class="pun">,</span><span class="pln"> end_value
+	jz		</span><span class="kwd">end</span><span class="pln">
+	inc		ebx
+	jmp		main_loop 
+
+</span><span class="kwd">end</span><span class="pun">:</span><span class="pln">
+	push    dword return_ok
+	call    </span><span class="kwd">exit</span><span class="pln">
+
+malloc_failed</span><span class="pun">:</span><span class="pln">
+	printf 	malloc_failed_msg
+	call 	</span><span class="kwd">exit</span><span class="pln">
+
+</span><span class="kwd">exit</span><span class="pun">:</span><span class="pln">
+    mov 	eax</span><span class="pun">,</span><span class="pln"> system_exit
+    </span><span class="kwd">int</span><span class="pln"> 	system_call
+    ret
+
+
+</span><span class="pun">;</span><span class="pln"> </span><span class="pun">------------------------------</span><span class="pln">
+section </span><span class="pun">.</span><span class="pln">data
+
+</span><span class="pun">;</span><span class="pln"> printf	
+	new_line		db  </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+	string_format	db </span><span class="str">'%s'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+	digit_print		db </span><span class="str">'%d'</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+	message			db </span><span class="str">'FooBarQix'</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> sprintf
+	digit_format		db </span><span class="str">'%d'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+	two_digits_format	db </span><span class="str">'%d%d'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> malloc
+	malloc_failed_msg	dw </span><span class="str">'malloc failed'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+	buffer				dw </span><span class="lit">0</span><span class="pln">  
+	number				dw </span><span class="lit">0</span><span class="pln">  
+	</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/framiere/FooBarQix/blob/master/src/main/asm/foobarqix.asm">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/framiere/FooBarQix/raw/master/src/main/asm/foobarqix.asm">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/framiere/FooBarQix/blob/master/src/main/asm/foobarqix.asm">foobarqix.asm</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

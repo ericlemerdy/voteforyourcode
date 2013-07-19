@@ -1,0 +1,92 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">package</span><span class="pln"> diodfr</span><span class="pun">.</span><span class="pln">codeStory</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">/**
+ * JE SUIS VRAIMENT PAS UN ARTISTE :(
+ * @author broca
+ *
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+	</span><span class="com">/**
+	 * Encode nb with the FooBarQix algorithm
+	 * &lt;a href="http://www.code-story.net/2011/11/16/foobarqix.html"&gt;FooBarQix algorithm description&lt;/a&gt;
+	 * @param nb
+	 * @return
+	 */</span><span class="pln">
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> encode</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> nb</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">StringBuilder</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuilder</span><span class="pun">();</span><span class="pln">
+
+		</span><span class="com">// {{{{ TESTS DE MULTIPLICITE</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">nb</span><span class="pun">%</span><span class="lit">3</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Foo"</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">nb</span><span class="pun">%</span><span class="lit">5</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Bar"</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">nb</span><span class="pun">%</span><span class="lit">7</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Qix"</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="com">// }}}}</span><span class="pln">
+
+		</span><span class="typ">StringBuilder</span><span class="pln"> builder </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuilder</span><span class="pun">();</span><span class="pln">
+
+		builder</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">);</span><span class="pln">
+
+		</span><span class="com">// {{{{ Tests d'apparition des symboles</span><span class="pln">
+		</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> builder</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">switch</span><span class="pun">(</span><span class="pln">builder</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">case</span><span class="pln"> </span><span class="str">'3'</span><span class="pln"> </span><span class="pun">:</span><span class="pln">
+				result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Foo"</span><span class="pun">);</span><span class="pln">
+				</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+			</span><span class="kwd">case</span><span class="pln"> </span><span class="str">'5'</span><span class="pln"> </span><span class="pun">:</span><span class="pln">
+				result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Bar"</span><span class="pun">);</span><span class="pln">
+				</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+			</span><span class="kwd">case</span><span class="pln"> </span><span class="str">'7'</span><span class="pln"> </span><span class="pun">:</span><span class="pln">
+				result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"Qix"</span><span class="pun">);</span><span class="pln">
+				</span><span class="kwd">break</span><span class="pun">;</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+
+		</span><span class="com">// si je n'ai pas de diviseur ou de symbole</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">result</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			result</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">nb</span><span class="pun">);</span><span class="pln"> </span><span class="com">// je met le nombre</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+
+		</span><span class="kwd">return</span><span class="pln"> result</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> encode1to100</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">100</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="typ">String</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> encode</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+
+			</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">FooBarQix</span><span class="pln"> fooBarQix </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pun">();</span><span class="pln">
+
+		fooBarQix</span><span class="pun">.</span><span class="pln">encode1to100</span><span class="pun">();</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/diodfr/code-story/blob/master/diodfr/codeStory/FooBarQix.java">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/diodfr/code-story/raw/master/diodfr/codeStory/FooBarQix.java">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/diodfr/code-story/blob/master/diodfr/codeStory/FooBarQix.java">FooBarQix.java</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

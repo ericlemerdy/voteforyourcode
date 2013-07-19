@@ -1,0 +1,211 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">package</span><span class="pln"> fr</span><span class="pun">.</span><span class="pln">ramiere</span><span class="pun">.</span><span class="pln">codestory</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">import</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="typ">Character</span><span class="pun">.</span><span class="pln">forDigit</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">/**
+ * don't panic, this mess is created on purpose :)
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">FooBarQixFluentAbuseBuilder</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">static</span><span class="pln"> $when </span><span class="kwd">when</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $when</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> $digitFound digitFound</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $digitFound</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $when </span><span class="pun">{</span><span class="pln">
+        $number number</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $number</span><span class="pun">();</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $number </span><span class="pun">{</span><span class="pln">
+        $is </span><span class="kwd">is</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $is</span><span class="pun">();</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $is </span><span class="pun">{</span><span class="pln">
+        $divisibleby divisibleBy</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> divisiblesBy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $divisibleby</span><span class="pun">(</span><span class="pln">divisiblesBy</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        $digitFound digitFound</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> digitFound</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $digitFound</span><span class="pun">(</span><span class="pln">digitFound</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $divisibleby </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">int</span><span class="pln"> divisiblesBy</span><span class="pun">;</span><span class="pln">
+
+        $divisibleby</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> divisiblesBy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">divisiblesBy </span><span class="pun">=</span><span class="pln"> divisiblesBy</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        $then </span><span class="kwd">then</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $then</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        $or </span><span class="kwd">or</span><span class="pun">(</span><span class="pln">$digitFound digitFound</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $or</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> digitFound</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $or </span><span class="pun">{</span><span class="pln">
+        $divisibleby divisibleby</span><span class="pun">;</span><span class="pln">
+        $digitFound digitFound</span><span class="pun">;</span><span class="pln">
+
+        $or</span><span class="pun">(</span><span class="pln">$divisibleby divisibleby</span><span class="pun">,</span><span class="pln"> $digitFound digitFound</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">divisibleby </span><span class="pun">=</span><span class="pln"> divisibleby</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">digitFound </span><span class="pun">=</span><span class="pln"> digitFound</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        $then </span><span class="kwd">then</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $then</span><span class="pun">(</span><span class="pln">divisibleby</span><span class="pun">,</span><span class="pln"> digitFound</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $then </span><span class="pun">{</span><span class="pln">
+        $divisibleby divisibleby</span><span class="pun">;</span><span class="pln">
+        $digitFound digitFound</span><span class="pun">;</span><span class="pln">
+
+        $then</span><span class="pun">(</span><span class="pln">$divisibleby divisibleby</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">divisibleby </span><span class="pun">=</span><span class="pln"> divisibleby</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        $then</span><span class="pun">(</span><span class="pln">$divisibleby divisibleby</span><span class="pun">,</span><span class="pln"> $digitFound digitFound</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">divisibleby </span><span class="pun">=</span><span class="pln"> divisibleby</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">digitFound </span><span class="pun">=</span><span class="pln"> digitFound</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="typ">Rule</span><span class="pln"> write</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> val</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> digitFound </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Rule</span><span class="pun">(</span><span class="pln">val</span><span class="pun">,</span><span class="pln"> divisibleby</span><span class="pun">.</span><span class="pln">divisiblesBy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Rule</span><span class="pun">(</span><span class="pln">val</span><span class="pun">,</span><span class="pln"> divisibleby</span><span class="pun">.</span><span class="pln">divisiblesBy</span><span class="pun">,</span><span class="pln"> digitFound</span><span class="pun">.</span><span class="pln">digit</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $digitFound </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">int</span><span class="pln"> digit</span><span class="pun">;</span><span class="pln">
+
+        $digitFound</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> digit</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">digit </span><span class="pun">=</span><span class="pln"> digit</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        $then </span><span class="kwd">then</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $then</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rule</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> divisibleBy</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="kwd">char</span><span class="pln"> digitChar</span><span class="pun">;</span><span class="pln">
+
+        </span><span class="typ">Rule</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> val</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> divisibleBy</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">val </span><span class="pun">=</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">divisibleBy </span><span class="pun">=</span><span class="pln"> divisibleBy</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">digitChar </span><span class="pun">=</span><span class="pln"> </span><span class="str">'\0'</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="typ">Rule</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> val</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> divisibleBy</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> digitChar</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">val </span><span class="pun">=</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">divisibleBy </span><span class="pun">=</span><span class="pln"> divisibleBy</span><span class="pun">;</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">digitChar </span><span class="pun">=</span><span class="pln"> forDigit</span><span class="pun">(</span><span class="pln">digitChar</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="typ">String</span><span class="pln"> divisible</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> number </span><span class="pun">%</span><span class="pln"> divisibleBy </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> val </span><span class="pun">:</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="typ">String</span><span class="pln"> val</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> val</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="kwd">char</span><span class="pln"> digitChar</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> digitChar</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rules</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> $foreach on</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $foreach</span><span class="pun">(</span><span class="pln">number</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $foreach </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+            </span><span class="typ">Iterable</span><span class="pun">&lt;</span><span class="typ">Rule</span><span class="pun">&gt;</span><span class="pln"> rules</span><span class="pun">;</span><span class="pln">
+
+            </span><span class="kwd">public</span><span class="pln"> $foreach</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">number </span><span class="pun">=</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            $rules </span><span class="kwd">foreach</span><span class="pun">(</span><span class="typ">Iterable</span><span class="pun">&lt;</span><span class="typ">Rule</span><span class="pun">&gt;</span><span class="pln"> rules</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">rules </span><span class="pun">=</span><span class="pln"> rules</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> $rules</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> $rules </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+            $foreach </span><span class="kwd">foreach</span><span class="pun">;</span><span class="pln">
+
+            $rules</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> $foreach </span><span class="kwd">foreach</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">number </span><span class="pun">=</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">this</span><span class="pun">.</span><span class="kwd">foreach</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">foreach</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            replacement$ divisibility</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> replacement$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> replacement$ </span><span class="pun">{</span><span class="pln">
+            $rules rules</span><span class="pun">;</span><span class="pln">
+
+            replacement$</span><span class="pun">(</span><span class="pln">$rules rules</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">rules </span><span class="pun">=</span><span class="pln"> rules</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="typ">String</span><span class="pln"> convertdigits</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">final</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> rules</span><span class="pun">.</span><span class="pln">number</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">StringBuilder</span><span class="pln"> ret </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuilder</span><span class="pun">();</span><span class="pln">
+                </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Rule</span><span class="pln"> rule </span><span class="pun">:</span><span class="pln"> rules</span><span class="pun">.</span><span class="kwd">foreach</span><span class="pun">.</span><span class="pln">rules</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    ret</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">rule</span><span class="pun">.</span><span class="pln">divisible</span><span class="pun">(</span><span class="pln">val</span><span class="pun">));</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> value </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="pln">val</span><span class="pun">);</span><span class="pln">
+                </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> value</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    ret</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">convertDigit</span><span class="pun">(</span><span class="pln">value</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)));</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> ret</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> value </span><span class="pun">:</span><span class="pln"> ret</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="typ">String</span><span class="pln"> convertDigit</span><span class="pun">(</span><span class="kwd">char</span><span class="pln"> digitChar</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Rule</span><span class="pln"> rule </span><span class="pun">:</span><span class="pln"> rules</span><span class="pun">.</span><span class="kwd">foreach</span><span class="pun">.</span><span class="pln">rules</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">digitChar </span><span class="pun">==</span><span class="pln"> rule</span><span class="pun">.</span><span class="pln">digitChar</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                        </span><span class="kwd">return</span><span class="pln"> rule</span><span class="pun">.</span><span class="pln">val</span><span class="pun">();</span><span class="pln">
+                    </span><span class="pun">}</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/framiere/FooBarQix/blob/master/src/main/java/fr/ramiere/codestory/FooBarQixFluentAbuseBuilder.java">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/framiere/FooBarQix/raw/master/src/main/java/fr/ramiere/codestory/FooBarQixFluentAbuseBuilder.java">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/framiere/FooBarQix/blob/master/src/main/java/fr/ramiere/codestory/FooBarQixFluentAbuseBuilder.java">FooBarQixFluentAbuseBuilder.java</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

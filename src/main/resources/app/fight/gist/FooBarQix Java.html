@@ -1,0 +1,68 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">package</span><span class="pln"> net</span><span class="pun">.</span><span class="pln">ericlefevre</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> TEXT_FOR_7 </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> TEXT_FOR_5 </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> TEXT_FOR_3 </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> TEXT </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> TEXT_FOR_3</span><span class="pun">,</span><span class="pln">
+			</span><span class="str">""</span><span class="pun">,</span><span class="pln"> TEXT_FOR_5</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> TEXT_FOR_7</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">};</span><span class="pln">
+
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pun">().</span><span class="pln">asTextUpTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">));</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> asTextUpTo</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> topNumber</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">StringBuilder</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuilder</span><span class="pun">();</span><span class="pln">
+		</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;=</span><span class="pln"> topNumber</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			str</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">toText</span><span class="pun">(</span><span class="pln">i</span><span class="pun">));</span><span class="pln">
+			</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i </span><span class="pun">&lt;</span><span class="pln"> topNumber</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+				str</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"\n"</span><span class="pun">);</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> str</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> toText</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">StringBuffer</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StringBuffer</span><span class="pun">();</span><span class="pln">
+		addTextForDivisible</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+		addTextForDivisible</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+		addTextForDivisible</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+		addTextForDigits</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span><span class="pln">
+
+		</span><span class="kwd">return</span><span class="pln"> result</span><span class="pun">.</span><span class="pln">length</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> result</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">()</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">Integer</span><span class="pln">
+				</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="pln">number</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> addTextForDivisible</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> digit</span><span class="pun">,</span><span class="pln"> </span><span class="typ">StringBuffer</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">number </span><span class="pun">%</span><span class="pln"> digit </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			str</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">TEXT</span><span class="pun">[</span><span class="pln">digit</span><span class="pun">]);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+
+	</span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> addTextForDigits</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> numberToConvert</span><span class="pun">,</span><span class="pln"> </span><span class="typ">StringBuffer</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">String</span><span class="pln"> asString </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">(</span><span class="pln">numberToConvert</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> asString</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">int</span><span class="pln"> digit </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Integer</span><span class="pun">.</span><span class="pln">parseInt</span><span class="pun">(</span><span class="pln">asString</span><span class="pun">.</span><span class="pln">substring</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">));</span><span class="pln">
+			str</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">TEXT</span><span class="pun">[</span><span class="pln">digit</span><span class="pun">]);</span><span class="pln">
+		</span><span class="pun">}</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixJava/src/net/ericlefevre/FooBarQix.java">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/elefevre/FooBarQix/raw/master/FooBarQixJava/src/net/ericlefevre/FooBarQix.java">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixJava/src/net/ericlefevre/FooBarQix.java">FooBarQix.java</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

@@ -1,0 +1,97 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="kwd">use</span><span class="pun">(</span><span class="str">"ispec"</span><span class="pun">)</span><span class="pln">
+
+labels </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">3</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pun">}</span><span class="pln">
+
+textForMultiples </span><span class="pun">=</span><span class="pln"> method</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln">
+  </span><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">]</span><span class="pln"> map</span><span class="pun">(</span><span class="pln">n</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">number </span><span class="pun">%</span><span class="pln"> n </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> labels</span><span class="pun">[</span><span class="pln">n</span><span class="pun">],</span><span class="pln"> </span><span class="str">""</span><span class="pun">))</span><span class="pln"> join
+</span><span class="pun">)</span><span class="pln">
+
+textForDigits </span><span class="pun">=</span><span class="pln"> method</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln">
+  number asText chars map</span><span class="pun">(</span><span class="pln">toRational</span><span class="pun">)</span><span class="pln"> map</span><span class="pun">(</span><span class="pln">n</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">labels</span><span class="pun">[</span><span class="pln">n</span><span class="pun">]</span><span class="pln"> </span><span class="kwd">nil</span><span class="pun">?,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> labels</span><span class="pun">[</span><span class="pln">n</span><span class="pun">]))</span><span class="pln"> join
+</span><span class="pun">)</span><span class="pln">
+
+fooBarQix </span><span class="pun">=</span><span class="pln"> method</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln">
+  result </span><span class="pun">=</span><span class="pln"> textForMultiples</span><span class="pun">(</span><span class="pln">number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> textForDigits</span><span class="pun">(</span><span class="pln">number</span><span class="pun">)</span><span class="pln">
+
+  </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">result empty</span><span class="pun">?,</span><span class="pln"> number asText</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span><span class="pln">
+
+fooBarQixUpTo </span><span class="pun">=</span><span class="pln"> method</span><span class="pun">(</span><span class="pln">number</span><span class="pun">,</span><span class="pln">
+  </span><span class="pun">(</span><span class="lit">1.</span><span class="pun">.</span><span class="pln">number</span><span class="pun">)</span><span class="pln"> map</span><span class="pun">(</span><span class="pln">n</span><span class="pun">,</span><span class="pln"> fooBarQix</span><span class="pun">(</span><span class="pln">n</span><span class="pun">))</span><span class="pln"> join</span><span class="pun">(</span><span class="str">"\n"</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span><span class="pln">
+
+fooBarQixUpTo</span><span class="pun">(</span><span class="lit">100</span><span class="pun">)</span><span class="pln"> println
+
+describe</span><span class="pun">(</span><span class="str">"fooBarQix"</span><span class="pun">,</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return the number by default"</span><span class="pun">,</span><span class="pln">
+  	fooBarQix</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1"</span><span class="pln">
+  	fooBarQix</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"2"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return Foo for multiples of 3"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">6</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">9</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return Bar for multiples of 5"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">10</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">20</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return Qix for multiples of 7"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">14</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">28</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should combine words for multiples of 3, 5 and 7"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">210</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"FooBarQix"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return Foo each time the number contains the digit 3"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">13</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">31</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">233</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"FooFoo"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return Bar each time the number contains the digit 5"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">52</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">551</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"BarBar"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return Qix each time the number contains the digit 7"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">17</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">71</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">277</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"QixQix"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should combine words for each digits 3, 5, and 7 it contains"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">53</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"BarFoo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">73</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"QixFoo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">1751</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"QixBar"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">253</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"BarFoo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">173</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"QixFoo"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should combined words for multiples and digits of 3, 5, and 7"</span><span class="pun">,</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">33</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"FooFooFoo"</span><span class="pln">
+    fooBarQix</span><span class="pun">(</span><span class="lit">35</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"BarQixFooBar"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span><span class="pln">
+
+describe</span><span class="pun">(</span><span class="str">"fooBarQixUpTo"</span><span class="pun">,</span><span class="pln">
+  it</span><span class="pun">(</span><span class="str">"should return the numbers separated by carriage returns"</span><span class="pun">,</span><span class="pln">
+    fooBarQixUpTo</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1"</span><span class="pln">
+    fooBarQixUpTo</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1\n2"</span><span class="pln">
+    fooBarQixUpTo</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)</span><span class="pln"> should </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1\n2\nFooFoo"</span><span class="pln">
+  </span><span class="pun">)</span><span class="pln">
+</span><span class="pun">)</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixIoke/FooBarQix.ik">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/elefevre/FooBarQix/raw/master/FooBarQixIoke/FooBarQix.ik">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/elefevre/FooBarQix/blob/master/FooBarQixIoke/FooBarQix.ik">FooBarQix.ik</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>

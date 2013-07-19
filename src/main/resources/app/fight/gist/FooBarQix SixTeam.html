@@ -1,0 +1,66 @@
+<div class="gist-it-gist">
+<div class="gist-file">
+    <div class="gist-data">
+        
+        <pre class="prettyprint prettyprinted" style=""><span class="com">/**
+ * User: VidalTeam - @paulgreg @jblemee @tonyskn @a_thieriot @ugobourdon alexpichon
+ * Date: 24/11/11
+ */</span><span class="pln">
+
+</span><span class="kwd">object</span><span class="pln"> </span><span class="typ">FooBarQix</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+  val FOO</span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Foo"</span><span class="pln">
+  val BAR</span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Bar"</span><span class="pln">
+  val QIX</span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Qix"</span><span class="pln">
+
+  </span><span class="kwd">def</span><span class="pln"> apply</span><span class="pun">(</span><span class="pln">number </span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln">  </span><span class="pun">{</span><span class="pln">
+    val result </span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> applyDivision</span><span class="pun">(</span><span class="pln">number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> applyReplacement</span><span class="pun">(</span><span class="pln">number</span><span class="pun">)</span><span class="pln">
+
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">result isEmpty</span><span class="pun">)</span><span class="pln"> number</span><span class="pun">.</span><span class="pln">toString </span><span class="kwd">else</span><span class="pln"> result
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">def</span><span class="pln"> applyDivision</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> result</span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> isDivisibleBy</span><span class="pun">(</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> FOO
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> isDivisibleBy</span><span class="pun">(</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> BAR
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> isDivisibleBy</span><span class="pun">(</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> QIX
+
+    result
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">def</span><span class="pln"> applyReplacement</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> result</span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+
+    number</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">.</span><span class="kwd">foreach</span><span class="pun">(</span><span class="pln">
+      c </span><span class="pun">=&gt;</span><span class="pln">
+       c match </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'3'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> FOO
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'5'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> BAR
+        </span><span class="kwd">case</span><span class="pln"> </span><span class="str">'7'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> QIX
+        </span><span class="kwd">case</span><span class="pln"> _ </span><span class="pun">=&gt;</span><span class="pln"> result </span><span class="pun">+=</span><span class="pln"> </span><span class="str">""</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">)</span><span class="pln">
+
+    result
+  </span><span class="pun">}</span><span class="pln">
+
+  </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">def</span><span class="pln"> isDivisibleBy</span><span class="pun">(</span><span class="pln">number</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">,</span><span class="pln">  divisible</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Int</span><span class="pun">):</span><span class="pln"> </span><span class="typ">Boolean</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    number </span><span class="pun">%</span><span class="pln"> divisible </span><span class="pun">==</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+        
+    </div>
+    
+    <div class="gist-meta">
+        
+        <span><a href="https://github.com/SixTeam/FooBarQix/blob/master/src/main/scala/FooBarQix.scala">This Gist</a> brought to you by <a href="http://gist-it.appspot.com">gist-it</a>.</span>
+        
+        <span style="float: right; color: #369;"><a href="https://github.com/SixTeam/FooBarQix/raw/master/src/main/scala/FooBarQix.scala">view raw</a></span>
+        <span style="float: right; margin-right: 8px;">
+            <a style="color: rgb(102, 102, 102);" href="https://github.com/SixTeam/FooBarQix/blob/master/src/main/scala/FooBarQix.scala">FooBarQix.scala</a></span>
+            <!-- Generated by: http://gist-it.appspot.com -->
+    </div>
+    
+</div>
+</div>
