@@ -21,7 +21,6 @@ public class MatchMakerTest {
 
   @Before
   public void setUp() {
-    when(voteRepository.all()).thenReturn(Collections.emptyList());
     matchMaker = new MatchMaker(random, gists, voteRepository);
   }
 
@@ -55,26 +54,26 @@ public class MatchMakerTest {
   public void left_can_win() {
     Fight fight = matchMaker.randomFight();
 
-    assertThat(fight.left().rank().elo()).isEqualTo(1200);
-    assertThat(fight.right().rank().elo()).isEqualTo(1200);
+    assertThat(fight.left().rank().elo()).isEqualTo(1400);
+    assertThat(fight.right().rank().elo()).isEqualTo(1400);
 
     matchMaker.fightWonByLeft(fight.uniqueId());
 
-    assertThat(fight.left().rank().elo()).isEqualTo(1212);
-    assertThat(fight.right().rank().elo()).isEqualTo(1187);
+    assertThat(fight.left().rank().elo()).isEqualTo(1412);
+    assertThat(fight.right().rank().elo()).isEqualTo(1387);
   }
 
   @Test
   public void right_can_win() {
     Fight fight = matchMaker.randomFight();
 
-    assertThat(fight.left().rank().elo()).isEqualTo(1200);
-    assertThat(fight.right().rank().elo()).isEqualTo(1200);
+    assertThat(fight.left().rank().elo()).isEqualTo(1400);
+    assertThat(fight.right().rank().elo()).isEqualTo(1400);
 
     matchMaker.fightWonByRight(fight.uniqueId());
 
-    assertThat(fight.left().rank().elo()).isEqualTo(1187);
-    assertThat(fight.right().rank().elo()).isEqualTo(1212);
+    assertThat(fight.left().rank().elo()).isEqualTo(1387);
+    assertThat(fight.right().rank().elo()).isEqualTo(1412);
   }
 
   @Test
@@ -83,12 +82,12 @@ public class MatchMakerTest {
 
     matchMaker.fightWonByLeft(fight.uniqueId());
 
-    assertThat(fight.left().rank().elo()).isEqualTo(1212);
-    assertThat(fight.right().rank().elo()).isEqualTo(1187);
+    assertThat(fight.left().rank().elo()).isEqualTo(1412);
+    assertThat(fight.right().rank().elo()).isEqualTo(1387);
 
     matchMaker.fightWonByLeft(fight.uniqueId());
 
-    assertThat(fight.left().rank().elo()).isEqualTo(1212);
-    assertThat(fight.right().rank().elo()).isEqualTo(1187);
+    assertThat(fight.left().rank().elo()).isEqualTo(1412);
+    assertThat(fight.right().rank().elo()).isEqualTo(1387);
   }
 }

@@ -1,7 +1,10 @@
 package net.codestory.fight.votes;
 
+import java.util.function.*;
+
 import org.jongo.*;
 
+import com.google.common.base.Supplier;
 import com.google.common.base.*;
 import com.mongodb.*;
 
@@ -14,8 +17,8 @@ public class VoteRepository {
     votes = Suppliers.memoize(() -> connect(mongoUri));
   }
 
-  public Iterable<Vote> all() {
-    return votes.get().find().as(Vote.class);
+  public void forEach(Consumer<Vote> action) {
+    votes.get().find().as(Vote.class).forEach(action);
   }
 
   public void save(Vote vote) {

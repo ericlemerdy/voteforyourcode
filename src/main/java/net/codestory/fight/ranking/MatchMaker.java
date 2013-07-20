@@ -16,20 +16,20 @@ public class MatchMaker {
     this.random = random;
     this.gists = gists;
     this.voteRepository = voteRepository;
-    fightsById = new ConcurrentHashMap<>();
+    this.fightsById = new ConcurrentHashMap<>();
 
     loadSavedVotes();
   }
 
   private void loadSavedVotes() {
-    for (Vote vote : voteRepository.all()) {
+    voteRepository.forEach(vote -> {
       Gist winner = gists.findByName(vote.winner);
       Gist looser = gists.findByName(vote.looser);
 
       if ((winner != null) && (looser != null)) {
         winner.rank().beats(looser.rank());
       }
-    }
+    });
   }
 
   public Fight randomFight() {

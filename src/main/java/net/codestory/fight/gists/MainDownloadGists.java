@@ -3,29 +3,24 @@ package net.codestory.fight.gists;
 import static java.nio.charset.StandardCharsets.*;
 
 import java.io.*;
-import java.util.*;
-import java.util.stream.*;
 
 import com.google.common.io.*;
 
 public class MainDownloadGists {
   public static void main(String[] args) throws IOException {
-    Gists gists = new Gists();
+    new Gists().forEach((gist) -> {
+      String name = gist.name();
 
-    StreamSupport.stream(Spliterators.spliteratorUnknownSize(gists.iterator(), 0))
-        .forEach(gist -> {
-          String name = gist.name();
-          File file = new File("src/main/resources/app/fight/gist", name + ".html");
+      File file = new File("src/main/resources/app/fight/gist", name + ".html");
+      if (!file.exists()) {
+        System.out.println(gist.name());
 
-          if (!file.exists()) {
-            downloadGist(gist, file);
-          }
-        });
+        downloadGist(gist, file);
+      }
+    });
   }
 
   private static void downloadGist(Gist gist, File file) {
-    System.out.println(gist.name());
-
     try {
       Files.write("<script id=\"GIST\" src=\"" + gist.url() + "\"></script>", new File("/tmp/index.html"), UTF_8);
       Files.write("var page = require('webpage').create();\n" +

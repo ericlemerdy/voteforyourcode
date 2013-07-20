@@ -1,10 +1,14 @@
 package net.codestory.fight.ranking;
 
+import java.math.*;
+import java.security.*;
+import java.util.*;
+
 import net.codestory.fight.gists.*;
 
-import org.apache.commons.lang.*;
-
 public class Fight {
+  private static final Random RANDOM = new SecureRandom();
+
   private final String uniqueId;
   private final Gist left;
   private final Gist right;
@@ -16,7 +20,9 @@ public class Fight {
   }
 
   private static String createUniqueId() {
-    return RandomStringUtils.random(32, true, true);
+    synchronized (RANDOM) {
+      return new BigInteger(130, RANDOM).toString(32);
+    }
   }
 
   public String uniqueId() {

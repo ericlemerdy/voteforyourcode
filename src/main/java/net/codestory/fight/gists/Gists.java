@@ -1,7 +1,9 @@
 package net.codestory.fight.gists;
 
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.stream.*;
+
+import com.google.common.collect.*;
 
 public class Gists implements Iterable<Gist> {
   private final Gist[] gists;
@@ -54,10 +56,7 @@ public class Gists implements Iterable<Gist> {
 
   private Gists(Gist... gists) {
     this.gists = gists;
-    this.byName = new ConcurrentHashMap<>();
-    for (Gist gist : gists) {
-      byName.put(gist.name(), gist);
-    }
+    this.byName = Stream.of(gists).collect(Collectors.toMap(Gist::name, (gist) -> gist));
   }
 
   public Gist findByName(String name) {
@@ -74,6 +73,6 @@ public class Gists implements Iterable<Gist> {
 
   @Override
   public Iterator<Gist> iterator() {
-    return Arrays.asList(gists).iterator();
+    return Iterators.forArray(gists);
   }
 }

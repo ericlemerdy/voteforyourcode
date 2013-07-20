@@ -32,7 +32,7 @@ public class PhantomJsDownloader {
     return new PhantomJSDriver(service, capabilities);
   }
 
-  public File downloadAndExtract() {
+  private File downloadAndExtract() {
     File installDir = new File(new File(System.getProperty("user.home")), ".phantomjstest");
 
     String url;
@@ -50,6 +50,8 @@ public class PhantomJsDownloader {
 
     extractExe(url, installDir, phantomJsExe);
 
+    phantomJsExe.setExecutable(true);
+
     return phantomJsExe;
   }
 
@@ -64,10 +66,8 @@ public class PhantomJsDownloader {
 
     System.out.println("Extracting phantomjs");
     try {
-      if (isWindows) {
+      if (isWindows || isMac) {
         unzip(targetZip, phantomInstallDir);
-      } else if (isMac) {
-        executeNative(phantomInstallDir, "/usr/bin/unzip", "-qo", zipName);
       } else {
         executeNative(phantomInstallDir, "/usr/bin/tar", "-xjvf", zipName);
       }
@@ -76,7 +76,7 @@ public class PhantomJsDownloader {
     }
   }
 
-  private void downloadZip(final String url, File targetZip) {
+  private void downloadZip(String url, File targetZip) {
     if (targetZip.exists()) {
       return;
     }
@@ -85,12 +85,7 @@ public class PhantomJsDownloader {
 
     File zipTemp = new File(targetZip.getAbsolutePath() + ".temp");
     try {
-      copy(new InputSupplier() {
-        @Override
-        public InputStream get() throws IOException {
-          return URI.create(url).toURL().openStream();
-        }
-      }, zipTemp);
+      copy(() -> URI.create(url).toURL().openStream(), zipTemp);
     } catch (IOException e) {
       throw new IllegalStateException("Unable to download phantomjs from " + url);
     }
@@ -101,26 +96,18 @@ public class PhantomJsDownloader {
   }
 
   private static void unzip(File zip, File toDir) throws IOException {
-    final ZipFile zipFile = new ZipFile(zip);
-    try {
+    try (ZipFile zipFile = new ZipFile(zip)) {
       Enumeration<? extends ZipEntry> entries = zipFile.entries();
       while (entries.hasMoreElements()) {
-        final ZipEntry entry = entries.nextElement();
+        ZipEntry entry = entries.nextElement();
         if (entry.isDirectory()) {
           continue;
         }
 
         File to = new File(toDir, entry.getName());
 
-        copy(new InputSupplier() {
-          @Override
-          public InputStream get() throws IOException {
-            return zipFile.getInputStream(entry);
-          }
-        }, to);
+        copy(() -> zipFile.getInputStream(entry), to);
       }
-    } finally {
-      zipFile.close();
     }
   }
 
@@ -142,30 +129,14 @@ public class PhantomJsDownloader {
       }
     }
 
-    InputStream input = null;
-    try {
-      input = from.get();
-
-      OutputStream output = null;
-      try {
-        output = new FileOutputStream(to);
-
-        byte[] buf = new byte[BUF_SIZE];
-        while (true) {
-          int r = input.read(buf);
-          if (r == -1) {
-            return;
-          }
-          output.write(buf, 0, r);
+    try (InputStream input = from.get(); OutputStream output = new FileOutputStream(to)) {
+      byte[] buf = new byte[BUF_SIZE];
+      while (true) {
+        int r = input.read(buf);
+        if (r == -1) {
+          return;
         }
-      } finally {
-        if (output != null) {
-          output.close();
-        }
-      }
-    } finally {
-      if (input != null) {
-        input.close();
+        output.write(buf, 0, r);
       }
     }
   }

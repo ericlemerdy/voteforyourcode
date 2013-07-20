@@ -41,13 +41,13 @@ public class FightTest extends AbstractWebTest {
 
     goTo("/fight/");
 
-    assertThat(find("#left .score").getText()).contains("1200");
-    assertThat(find("#right .score").getText()).contains("1200");
+    assertThat(find("#left .score").getText()).contains("1400");
+    assertThat(find("#right .score").getText()).contains("1400");
 
     click("#left a", withText("I prefer this one!"));
 
-    await().until("#left .score").containsText("1212");
-    await().until("#right .score").containsText("1187");
+    await().until("#left .score").containsText("1412");
+    await().until("#right .score").containsText("1387");
   }
 
   @Test
