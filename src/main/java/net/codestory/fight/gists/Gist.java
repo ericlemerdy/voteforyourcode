@@ -38,9 +38,9 @@ public class Gist {
   }
 
   private static String readContent(String name) {
-    String file = "classpath:app/fight/gist/" + name + ".html";
+    Path path = Paths.get("classpath:app", "fight", "gist", name + ".html");
     try {
-      return Resources.read(Paths.get(file), UTF_8);
+      return Resources.read(path, UTF_8);
     } catch (IOException e) {
       return "";
     }
