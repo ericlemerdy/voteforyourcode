@@ -19,7 +19,7 @@ tagline: whether you like it scripted, strongly typed, tested or cowboy style, v
         <a class="full" ng-click="full_left()" href=""><i class="icon-fullscreen icon-white"></i></a>
         <a class="win" href="/fight/win/left/{{fight.uniqueId}}">I prefer this one!</a>
 
-        <div class="code" ng-bind-html-unsafe="left_gist">
+        <div class="code" ng-bind-html-unsafe="fight.left.content">
         </div>
     </div>
     <div id="right" ng-cloak ng-class="right_class">
@@ -30,7 +30,7 @@ tagline: whether you like it scripted, strongly typed, tested or cowboy style, v
         <a class="full" ng-click="full_right()" href=""><i class="icon-fullscreen icon-white"></i></a>
         <a class="win" href="/fight/win/right/{{fight.uniqueId}}">I prefer this one!</a>
 
-        <div class="code" ng-bind-html-unsafe="right_gist">
+        <div class="code" ng-bind-html-unsafe="fight.right.content">
         </div>
     </div>
 </div>
