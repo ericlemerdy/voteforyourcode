@@ -17,7 +17,7 @@ tagline: whether you like it scripted, strongly typed, tested or cowboy style, v
         <h3>{{fight.left.rank.name}} ELO: <span class="score">{{fight.left.rank.elo}}</span></h3>
 
         <a class="full" ng-click="full_left()" href=""><i class="icon-fullscreen icon-white"></i></a>
-        <a class="win" href="/fight/win/left/{{fight.uniqueId}}">I prefer this one!</a>
+        <a class="win" ng-click="win_left()" href="">I prefer this one!</a>
 
         <div class="code" ng-bind-html-unsafe="fight.left.content">
         </div>
@@ -28,7 +28,7 @@ tagline: whether you like it scripted, strongly typed, tested or cowboy style, v
         <h3>{{fight.right.rank.name}} ELO: <span class="score">{{fight.right.rank.elo}}</span></h3>
 
         <a class="full" ng-click="full_right()" href=""><i class="icon-fullscreen icon-white"></i></a>
-        <a class="win" href="/fight/win/right/{{fight.uniqueId}}">I prefer this one!</a>
+        <a class="win" ng-click="win_right()" href="">I prefer this one!</a>
 
         <div class="code" ng-bind-html-unsafe="fight.right.content">
         </div>

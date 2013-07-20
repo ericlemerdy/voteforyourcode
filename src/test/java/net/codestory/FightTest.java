@@ -46,8 +46,8 @@ public class FightTest extends AbstractWebTest {
 
     click("#left a", withText("I prefer this one!"));
 
-    assertThat(find("#left .score").getText()).contains("1212");
-    assertThat(find("#right .score").getText()).contains("1187");
+    await().until("#left .score").containsText("1212");
+    await().until("#right .score").containsText("1187");
   }
 
   @Test
