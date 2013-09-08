@@ -21,6 +21,7 @@ public class WebConfiguration implements Configuration {
     routes.add("/fight", singletons.get(FightResource.class));
 
     redirectOldBlogUrls(routes);
+    redirectTeamUrls(routes);
   }
 
   private void redirectOldBlogUrls(Routes routes) {
@@ -48,5 +49,14 @@ public class WebConfiguration implements Configuration {
     routes.get("/2013/01/22/scalaskel.html", () -> Payload.movedPermanently("/blog/posts/s02e03"));
     routes.get("/2013/01/08/concours-2013-FAQ.html", () -> Payload.movedPermanently("/blog/posts/s02e02"));
     routes.get("/2013/01/04/concours-2013.html", () -> Payload.movedPermanently("/blog/posts/s02e01"));
+  }
+
+  private void redirectTeamUrls(Routes routes) {
+    routes.get("/about/david.html", () -> Payload.movedPermanently("/team/"));
+    routes.get("/about/eric.html", () -> Payload.movedPermanently("/team/"));
+    routes.get("/about/jean-laurent.html", () -> Payload.movedPermanently("/team/"));
+    routes.get("/about/sebastian.html", () -> Payload.movedPermanently("/team/"));
+    routes.get("/about/xavier.html", () -> Payload.movedPermanently("/team/"));
+    routes.get("/about/christophe.html", () -> Payload.movedPermanently("/team/"));
   }
 }
