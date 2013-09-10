@@ -2,6 +2,7 @@ seasons:
 - id: season3
   name: Season S03
   dates: September 2013
+  recap: Harder, Better, Faster, Stronger.
   episodes:
   - name: s03e01
     badge: phantom
@@ -9,6 +10,7 @@ seasons:
 - id: season2
   name: Season S02
   dates: January 2013 to March 2013
+  recap: A robot may not injure a human being or, through inaction, allow a human being to come to harm.
   episodes:
   - name: s02e08
     badge: masque
@@ -37,6 +39,7 @@ seasons:
 - id: season1
   name: Season S01
   dates: November 2011 to November 2012
+  recap: Hello FooBarWorld
   episodes:
   - name: s01e13
     badge: fatty

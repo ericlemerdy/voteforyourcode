@@ -287,6 +287,11 @@ header {
 
 #blog {
   .season {
+    h3 {
+      font-style: italic;
+      font-weight: normal;
+    }
+
     article {
       position: relative;
       float: left;
@@ -429,6 +434,20 @@ footer {
 
     a.mailto {
       color: @orange;
+    }
+
+    #twitter {
+      width: 50px;
+      height: 50px;
+      display: block;
+      background-image: url('/assets/img/twitter-bird-dark-bgs.png');
+      background-size: 50px 50px;
+      text-indent: -9999px;
+      white-space: nowrap;
+    }
+
+    #twitter:hover {
+      background-color: @back_blue;
     }
   }
 }

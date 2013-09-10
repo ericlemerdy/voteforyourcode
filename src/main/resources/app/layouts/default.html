@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/apple-touch-icon-72x72.png"/>
     <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png"/>
 </head>
+
 <body>
 <header>
     <nav>
@@ -38,6 +39,18 @@
     [[body]]
 </div>
 
+<script type="text/javascript">
+    /* <![CDATA[ */
+    (function () {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+    /* ]]> */
+</script>
+
 <footer>
     <section>
         <h5>Designed by<br/>Code-Story</h5>
@@ -47,14 +60,11 @@
     </section>
     <section>
         <h5>Social</h5>
-        <br/>
-        <a href="http://code-story.net/">Blog</a>
-        <br/>
-        <a href="https://twitter.com/codestory">Twitter</a>
+        <a id="twitter" href="https://twitter.com/codestory">Twitter</a>
+        <a class="FlattrButton" style="display:none;" href="http://code-story.net/"></a>
     </section>
     <section>
         <h5>Powered by</h5>
-        <br/>
         <a href="http://www.cloudbees.com/"><img src="/assets/img/cb.png"/></a>
     </section>
 </footer>
