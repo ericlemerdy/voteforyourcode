@@ -2,7 +2,6 @@ package net.codestory;
 
 import java.io.*;
 
-import net.codestory.fight.*;
 import net.codestory.fight.captcha.*;
 import net.codestory.http.*;
 import net.codestory.http.injection.*;
@@ -19,8 +18,8 @@ public class WebConfiguration implements Configuration {
 	public void configure(Routes routes) {
 		routes.staticDir("classpath:app");
 		routes.filter(singletons.get(ThrottleFilter.class));
-		routes.get("/", () -> Payload.seeOther("/fight/"));
-		routes.add("/fight", singletons.get(FightResource.class));
+		routes.get("/", () -> Payload.seeOther("/blog/"));
+		//routes.add("/fight", singletons.get(FightResource.class));
 		routes.get("/team/:name", (name) -> new File("classpath:app/team/index.html")); // TEMP
 
 		redirectOldBlogUrls(routes);

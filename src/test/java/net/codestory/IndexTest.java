@@ -5,10 +5,10 @@ import static org.fest.assertions.Assertions.*;
 import org.junit.*;
 
 public class IndexTest extends AbstractWebTest {
-  @Test
-  public void redirect_to_fight() {
-    goTo("/");
+	@Test
+	public void redirect_to_blog() {
+		goTo("/");
 
-    assertThat(title()).isEqualTo("{{Code}} Fight by Code-Story");
-  }
+		assertThat(title()).isEqualTo("Code-Story Blog");
+	}
 }

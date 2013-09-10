@@ -1,0 +1,39 @@
+---
+title: '{{Code}} Fight by Code-Story'
+layout: app/layouts/default.html
+nav2: selected
+section: fight
+tagline: Whether you like it scripted, strongly typed, tested or cowboy style, vote right here, right now for your favourite source code. Show your language fanboyism, earn badges, stay fresh & cool!
+---
+
+<link rel="stylesheet" href="/assets/css/embed.css"/>
+<link rel="stylesheet" href="/assets/css/prettify.css"/>
+<link rel="stylesheet" href="/assets/css/embed-gist.css"/>
+
+<div id="code-fight" ng-controller="FightController">
+    <div id="left" ng-cloak ng-class="left_class">
+        <h2>{{fight.left.name}}</h2>
+
+        <h3>{{fight.left.rank.name}} ELO: <span class="score">{{fight.left.rank.elo}}</span></h3>
+
+        <a class="full" ng-click="full_left()" href=""><i class="icon-fullscreen icon-white"></i></a>
+        <a class="win" ng-click="win_left()" href="">I prefer this one!</a>
+
+        <div class="code" ng-bind-html-unsafe="fight.left.content">
+        </div>
+    </div>
+    <div id="right" ng-cloak ng-class="right_class">
+        <h2>{{fight.right.name}}</h2>
+
+        <h3>{{fight.right.rank.name}} ELO: <span class="score">{{fight.right.rank.elo}}</span></h3>
+
+        <a class="full" ng-click="full_right()" href=""><i class="icon-fullscreen icon-white"></i></a>
+        <a class="win" ng-click="win_right()" href="">I prefer this one!</a>
+
+        <div class="code" ng-bind-html-unsafe="fight.right.content">
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/angular.min.js"></script>
+<script src="/assets/js/controllers/fight.coffee"></script>
