@@ -10,6 +10,11 @@ public class BlogTest extends AbstractWebTest {
     goTo("/blog/");
 
     assertThat(title()).isEqualTo("Code-Story Blog");
-    assertThat(text(".season3")).contains("Season S03 - September 2013\n\" Harder, Better, Faster, Stronger. \"\nThe one that starts in September\nS03E01");
+    assertThat(text(".season3")).contains("Season S03 - September 2013\n" +
+      "\" Harder, Better, Faster, Stronger. \"\n" +
+      "The one that starts in September\n" +
+      "S03E00\n" +
+      "The one in the elevator\n" +
+      "S03E01");
   }
 }
