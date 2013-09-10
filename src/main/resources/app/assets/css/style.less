@@ -423,15 +423,15 @@ footer {
   }
 }
 
-.fade-hide, .fade-show {
+.fade.ng-leave, .fade.ng-enter {
   .transition();
 }
 
-.fade-hide, .fade-show.fade-show-active {
+.fade.ng-leave, .fade.ng-enter.fade.ng-enter-active {
   opacity: 1;
 }
 
-.fade-hide.fade-hide-active, .fade-show {
+.fade.ng-leave.fade.ng-leave-active, .fade.ng-enter {
   opacity: 0;
 }
 

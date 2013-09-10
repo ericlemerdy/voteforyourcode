@@ -1,3 +1,5 @@
+angular.module 'codestory', []
+
 FightController = ($scope, $http) ->
   $scope.new_fight = () ->
     $http.get('/fight/match.json').success (data) ->
@@ -21,8 +23,3 @@ FightController = ($scope, $http) ->
       $scope.new_fight()
 
   $scope.new_fight()
-
-TeamController = ($scope) ->
-  $scope.show_bio = (name) ->
-    $scope.bio_class = {};
-    $scope.bio_class[name] = true;
