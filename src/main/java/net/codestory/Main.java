@@ -5,6 +5,8 @@ import net.codestory.http.injection.*;
 
 public class Main {
   public static void main(String[] args) {
+    System.out.println(System.getProperty("java.runtime.version"));
+
     int port = Integer.parseInt(System.getProperty("app.port", "8181"));
 
     new Main().start(port);
@@ -12,7 +14,7 @@ public class Main {
 
   private void start(int port) {
     new WebServer()
-        .configure(new WebConfiguration(new Singletons()))
-        .start(port);
+      .configure(new WebConfiguration(new Singletons()))
+      .start(port);
   }
 }
