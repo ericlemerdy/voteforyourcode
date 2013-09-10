@@ -1,9 +1,9 @@
 <h1>Hi! I'm Jean-Laurent de Morlhon</h1>
 
 <p>
-    I&#8217;m CTO at
-    <a href='http://studio.xebia.fr'>Xebia Studio</a>, have founded <a href='http://serpodile.com'>Serpodile</a>
-    to help all the kids write easily and am an happy father of 4 kids. I write software for almost 15 years.
+    I&#8217;m a passionated developer, have co-founded <a href='http://serpodile.com'>Serpodile</a>
+    to help all the kids write easily and am an happy father of 4 kids. I write software for almost 15 years.<br/>
+    I'm a former CTO @ Xebia, before that I was leading dev teams @ Vidal, Valtech & Colt Telecom.
 </p>
 
 <p>
@@ -13,11 +13,9 @@
 
 <p>
     Writing software is often associated with bloat, bugs, late, unmaintainable code and crappy interface. I
-    like
-    challenging this idea, and thrive to convince people that there is another way of writing software. For that
-    matter I explore the software craftsmanship movement and built from the ground up the
-    <a href='http://studio.xebia.fr'>Xebia Studio</a> where we write elegant software for client who care for
-    quickness and quality.
+    like challenging this idea, and thrive to convince people that there is another way of writing software. 
+    You&#8217;ll here me talk about software craftsmanship, defend the role of the developer in software
+    products and the like.
 </p>
 
 <p>
