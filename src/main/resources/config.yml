@@ -4,12 +4,12 @@ seasons:
   dates: September 2013
   recap: Harder, Better, Faster, Stronger.
   episodes:
+  - name: s03e01
+    badge: masque
+    titre: The one in the elevator (coming soon)
   - name: s03e00
     badge: phantom
     titre: The one that starts in September
-  - name: s03e01
-    badge: masque
-    titre: The one in the elevator
 - id: season2
   name: Season S02
   dates: January 2013 to March 2013
