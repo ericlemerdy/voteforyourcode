@@ -1,4 +1,4 @@
 ## TODO
 
  + rss
- + Bio JeanLaurent
+ + ~~Bio JeanLaurent~~
