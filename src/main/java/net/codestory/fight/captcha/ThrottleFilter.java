@@ -16,18 +16,18 @@ public class ThrottleFilter implements Filter {
   }
 
   @Override
-  public Match apply(String uri, HttpExchange exchange) throws IOException {
+  public boolean apply(String uri, HttpExchange exchange) throws IOException {
     if (uri.endsWith("/captcha") || !uri.contains("/fight/")) {
-      return Match.WRONG_URL;
+      return false;
     }
 
     String host = exchange.getRemoteAddress().getAddress().toString();
     if (!queryCounter.quotaReached(host)) {
-      return Match.WRONG_URL;
+      return false;
     }
 
     exchange.getResponseHeaders().add("Location", "/fight/captcha");
     exchange.sendResponseHeaders(303, 0);
-    return Match.OK;
+    return true;
   }
 }
