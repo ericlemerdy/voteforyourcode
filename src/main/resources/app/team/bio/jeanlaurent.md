@@ -14,7 +14,7 @@
 <p>
     Writing software is often associated with bloat, bugs, late, unmaintainable code and crappy interface. I
     like challenging this idea, and thrive to convince people that there is another way of writing software. 
-    You&#8217;ll here me talk about software craftsmanship, defend the role of the developer in software
+    You&#8217;ll hear me talk about software craftsmanship, defend the role of the developer in software
     products and the like.
 </p>
 
