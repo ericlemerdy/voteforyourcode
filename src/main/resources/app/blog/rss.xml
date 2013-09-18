@@ -4,18 +4,18 @@ url: http://www.code-story.net/blog
 ---
 <?xml version="1.0" ?>
 <rss version="2.0">
-    <channel>
-        <title>[[title]]</title>
-        <description>[[title]]</description>
-        <link>[[url]]</link>
-        [[#seasons]]
-        [[#episodes]]
-        <item>
-            <title>[[name]] [[titre]]</title>
-            <description>[[name]]</description>
-            <link>[[url]]/blog/posts/[[name]]</link>
-        </item>
-        [[/episodes]]
-        [[/seasons]]
-    </channel>
+  <channel>
+    <title>[[title]]</title>
+    <description>[[title]]</description>
+    <link>[[url]]</link>
+    [[#seasons]]
+    [[#episodes]]
+    <item>
+      <title>[[name]] [[titre]]</title>
+      <description>[[name]]</description>
+      <link>[[url]]/posts/[[name]]</link>
+    </item>
+    [[/episodes]]
+    [[/seasons]]
+  </channel>
 </rss>
