@@ -1,19 +1,15 @@
----
-title: Code-Story Blog
-url: http://www.code-story.net/blog
----
 <?xml version="1.0" ?>
 <rss version="2.0">
   <channel>
-    <title>[[title]]</title>
-    <description>[[title]]</description>
+    <title>Code-Story Blog</title>
+    <description>Code-Story Blog</description>
     <link>[[url]]</link>
     [[#seasons]]
     [[#episodes]]
     <item>
       <title>[[name]] [[titre]]</title>
       <description>[[name]]</description>
-      <link>[[url]]/posts/[[name]]</link>
+      <link>[[url]]/blog/posts/[[name]]</link>
     </item>
     [[/episodes]]
     [[/seasons]]
