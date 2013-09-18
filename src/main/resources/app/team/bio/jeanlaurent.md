@@ -20,7 +20,7 @@
 
 <p>
     I&#8217;m a tdd guy, and I host many <a href='http://coderetreat.org/about'>coderetreats</a>, to meet clever
-    developpers, learn new techniques, and just train.
+    developers, learn new techniques, and just train.
 </p>
 
 <div class="social">
