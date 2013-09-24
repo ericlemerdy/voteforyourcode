@@ -3,7 +3,7 @@
 <p>
     I&#8217;m a passionated developer, have co-founded <a href='http://serpodile.com'>Serpodile</a>
     to help all the kids write easily and am an happy father of 4 kids. I write software for almost 15 years.<br/>
-    I'm a former CTO @ Xebia, before that I was leading dev teams @ Vidal, Valtech & Colt Telecom.
+    I'm a former CTO @ Xebia, before that I was leading dev teams @ Vidal, Valtech &amp; Colt Telecom.
 </p>
 
 <p>
