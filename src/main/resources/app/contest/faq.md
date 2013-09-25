@@ -20,7 +20,7 @@ tagline: Harder, Better, Faster, Stronger...
 	
 * **It's not started but people are already coding!**
 
-	Yes some people are training, but the rules are going to change a lot in Monday, October 14th. The only thing, that will not change much is the way we interrogate the elevator. So from now on to October Monday 17th, you should spend your time trying to setup a basic elevator, and join/form a team.
+	Yes some people are training, but the rules are going to change a lot in Monday, October 14th. The only thing, that will not change much is the way we interrogate the elevator. So from now on to October Monday 14th, you should spend your time trying to setup a basic elevator, and join/form a team.
 
 * **How many team can I join?**
 	
@@ -66,7 +66,7 @@ tagline: Harder, Better, Faster, Stronger...
 	[Sebastian Lemerdy](/team/sebastian), wrote the server, It's meant to be run in a 3 hours programming contest hosted in-house. Sebastian started working on this idea last year, he already organised a few sessions with more than 40 people battling for the best elevator. It's a clone of the famous extreme startup programming contest, originally run in [XPDay Benelux](http://www.xpday.net/Xpday2011/sessions/Extreme%20Startup.html) Conference.
 	If you're interested, [Sebastian](/team/sebastian) is running this contest Thursday, September 26th in Paris. You can still [register](http://codeelevator.eventbrite.fr/). By going there, you'll have a lot of fun and probably will learn a few things about programming but it will not give you an edge, nor score etc… in the Code-Story contest.
 
-* **Can I use <Insert Here Some Programming Language>?**
+* **Can I use \*Insert Here Some Programming Language\*?**
 
 	Yes you can use whatever language you want, even mix languages (Javaist used to mix quite a good deal of xml with their java code, especially Spring fans)
 
@@ -84,7 +84,7 @@ tagline: Harder, Better, Faster, Stronger...
 
 * **How many episode will there be?**
 
-	We don't know, probably between 3 and 6.
+	We don't know, probably between 3 and 6, less than 10 for sure.
 
 * **What's the next episode?**
 
